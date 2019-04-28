@@ -1,0 +1,85 @@
+/*
+Theme Name: Lab 1
+Description: 
+Author: Nikkala Thomson
+Author URL: 
+Tags: 
+*/
+
+/****** General Styles *********/
+
+body {
+	width: 1300px;
+	margin: 0 auto;
+	font-family: "Arial Black", Gadget, sans-serif;
+    background-color: teal;
+}
+
+h1, h2, h3 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+p {
+    
+}
+a {}
+
+/****** Header Style *********/
+header {
+	
+}
+
+/****** Navigation Style *********/
+
+nav {
+	
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav li{
+	display: inline;
+}
+
+/**** Order is link, visited, hover, active (remember with love/hate) *****/
+
+nav a:link, nav a:visited{
+  text-decoration: none;  
+} 
+  
+nav a:hover{
+   
+}
+
+nav a:active{
+  
+}
+/****** Main Style ************/
+main {
+	
+}
+
+/****** Footer Style *********/
+footer {
+	
+}
+
+
+/* examples of the different prefixes
+-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-ms-transition: all 1s ease;
+-o-transition: all 1s ease;
+transition: all 1s ease;
+*/
+
+/* centering block elements
+margin: 0 auto;
+***centering inline elements
+text-align: center;
+*/
+
+
