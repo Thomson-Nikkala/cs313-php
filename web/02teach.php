@@ -7,7 +7,7 @@ Author: Nikkala Thomson
 <html lang="en-us">
 
 <head>
-    <?php include ("modules/head2.php"); ?>
+    <?php include("modules/head2.php"); ?>
     <title>02 Teach | CS 313</title>
 </head>
 
