@@ -30,6 +30,7 @@ Author: Nikkala Thomson
             <div class="flex">
                 <section>
                     <p>Playing board games with your family creates precious experiences and lasting memories. </p>
+                    <br>
                     <p>Consider trying out one of these board games today!</p>
 
                 </section>
