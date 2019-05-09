@@ -31,7 +31,7 @@ Author: Nikkala Thomson
                     <p>Links:</p>
                     <ul>
                         <li><a href="02teach.php" target="_blank">02 Teach: Team Activity</a></li>
-                        <li><a href="" target="_blank">03 Teach: Team Activity</a></li>
+                        <li><a href="03teach/index.php" target="_blank">03 Teach: Team Activity</a></li>
                         <li><a href="" target="_blank">04 Teach: Team Activity</a></li>
                         <li><a href="" target="_blank">05 Teach: Team Activity</a></li>
                         <li><a href="" target="_blank">06 Teach: Team Activity</a></li>
