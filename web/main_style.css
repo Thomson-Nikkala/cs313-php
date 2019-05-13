@@ -394,23 +394,6 @@ section ul li {
     font-size: 1.3em;
 }
 
-
-#top-triangle {
-    margin-right: -318px;
-    position: relative;
-    display: inline-block;
-}
-
-#bottom-triangles a {
-    margin-left: -5px;
-    vertical-align: top;
-}
-
-#bottom-triangles {
-    position: relative;
-    margin-top: -3px;
-}
-
 /* image styling */
 
 .image-right {
@@ -430,15 +413,7 @@ section ul li {
     display: inline-block;
 }
 
-.patch-left {
-    width: 220px;
-    background-color: #1b1464;
-    margin: 20px -21px 20px 0px;
-    text-align: left;
-    vertical-align: top;
-    padding: 30px 20px 25px 25px;
-    z-index: 10;
-}
+
 
 #text-image {
     padding: 0;
@@ -455,15 +430,7 @@ section ul li {
 
 }
 
-#organization {
-    margin-bottom: 15px;
-    padding-top: 10px;
-}
 
-#scout-in-uniform {
-    margin-top: 40px;
-    margin-right: 30px;
-}
 
 
 /* contact form styling */

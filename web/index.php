@@ -7,7 +7,8 @@ Author: Nikkala Thomson
 <html lang="en-us">
 
 <head>
-    <?php include("modules/head.php"); ?>
+    <?php $ROOT = './';
+    include 'modules/head.php'; ?>
     <title>Home | Board Games for Families</title>
 </head>
 
@@ -20,6 +21,7 @@ Author: Nikkala Thomson
             <ul>
                 <li id="active-nav"><a href=".">Home<img src="images/yellow-arrow.png" alt=""></a></li>
                 <li><a href="links.php">Links</a></li>
+                <li><a href="shopping/index.php">Shopping</a></li>
             </ul>
         </nav>
         <main>

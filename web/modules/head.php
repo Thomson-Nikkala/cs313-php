@@ -1,5 +1,6 @@
-<link rel="stylesheet" type="text/css" href="normalize.css">
-<link rel="stylesheet" type="text/css" media="screen" href="main_style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $ROOT; ?>normalize.css" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $ROOT; ?>main_style.css" />
 
 <meta charset="UTF-8">
 <meta name="author" content="Nikkala Thomson">
