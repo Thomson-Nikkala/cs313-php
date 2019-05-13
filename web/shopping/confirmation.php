@@ -11,49 +11,11 @@ $_SESSION['wingspan'] = 0;
 $_SESSION['num_items'] = 0;
 }
 
-if (! empty ($_GET['action'])) { 
-    switch($_GET['action']) {
-        case 'addSplendor':
-            $_SESSION['splendor']++;
-            $_SESSION['num_items']++;
-        break;
-
-        case 'addSagrada':
-            $_SESSION['sagrada']++;
-            $_SESSION['num_items']++;
-        break;
-
-        case 'addTicketToRide':
-            $_SESSION['ticket']++;
-            $_SESSION['num_items']++;
-            break;
-
-        case 'addAzul':
-            $_SESSION['azul']++;
-            $_SESSION['num_items']++;
-        break;
-
-        case 'addWingspan':
-            $_SESSION['wingspan']++;
-            $_SESSION['num_items']++;
-        break;
-
-        case 'empty':
-	       $_SESSION['splendor'] = 0;
-            $_SESSION['sagrada'] = 0;
-            $_SESSION['ticket'] = 0;
-            $_SESSION['azul'] = 0;
-            $_SESSION['wingspan'] = 0;
-            $_SESSION['num_items'] = 0;
-        break;
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
 <!--
-This is PHP Shopping Simulator for Board Games for Families
+This is confirmation page for the PHP Shopping Simulator for Board Games for Families
 Author: Nikkala Thomson
 -->
 
@@ -63,7 +25,7 @@ Author: Nikkala Thomson
     <?php $ROOT = '../';
     include '../modules/head.php'; ?>
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/shopping_style.css" />
-    <title>Shopping | Board Games for Families</title>
+    <title>Confirmation | Board Games for Families</title>
 </head>
 
 <body>
@@ -81,68 +43,30 @@ Author: Nikkala Thomson
         </nav>
         <main>
 
-            <h2>Browse Items</h2>
+            <h2>Purchase Confirmed</h2>
 
-            <div id="shopping-cart">
-                <div>Shopping Cart: <?php echo $_SESSION["num_items"] ?></div>
-                <a id="emptyCart" href="index.php?action=empty">Empty Cart</a>
+            <div><?php if ($_SESSION["splendor"]>0) echo $_SESSION["splendor"] . ' Splendor: $' . (25*$_SESSION["splendor"]) ?> </div>
 
-            </div>
+            <div><?php if ($_SESSION["sagrada"]>0) echo $_SESSION["sagrada"] . ' Sagrada: $' . (23*$_SESSION["sagrada"]) ?> </div>
 
-            <div id="product-grid">
+            <div><?php if ($_SESSION["ticket"]>0) echo $_SESSION["ticket"] . ' Ticket to Ride: $' . (30*$_SESSION["ticket"]) ?> </div>
 
-                <div class="product-item">
-                    <form method="post" action="index.php?action=addSplendor">
-                        <div class="product-image"><img src="../images/splendor.jpg"></div>
-                        <div class="product-title">Splendor</div>
-                        <div class="product-price">$25.00</div>
-                        <div class="cart-action">
-                            <input type="submit" value="Add to Cart" class="addAction" /></div>
-                    </form>
-                </div>
+            <div><?php if ($_SESSION["azul"]>0) echo $_SESSION["azul"] . ' Azul: $' . (28*$_SESSION["azul"]) ?> </div>
 
-                <div class="product-item">
-                    <form method="post" action="index.php?action=addSagrada">
-                        <div class="product-image"><img src="../images/sagrada.jpg"></div>
-                        <div class="product-title">Sagrada</div>
-                        <div class="product-price">$23.00</div>
-                        <div class="cart-action">
-                            <input type="submit" value="Add to Cart" class="addAction" /></div>
-                    </form>
-                </div>
+            <div><?php if ($_SESSION["wingspan"]>0) echo $_SESSION["wingspan"] . ' Wingspan: $' . (40*$_SESSION["wingspan"]) ?> </div>
 
 
-                <div class="product-item">
-                    <form method="post" action="index.php?action=addTicketToRide">
-                        <div class="product-image"><img src="../images/ticket.jpg"></div>
-                        <div class="product-title">Ticket to Ride</div>
-                        <div class="product-price">$30.00</div>
-                        <div class="cart-action">
-                            <input type="submit" value="Add to Cart" class="addAction" /></div>
-                    </form>
-                </div>
+            <div><?php echo 'Total: $' . ((25*$_SESSION["splendor"])+(23*$_SESSION["sagrada"])+(30*$_SESSION["ticket"])+(28*$_SESSION["azul"])+(40*$_SESSION["wingspan"])) ?></div><br>
 
 
-                <div class="product-item">
-                    <form method="post" action="index.php?action=addAzul">
-                        <div class="product-image"><img src="../images/azul.jpg"></div>
-                        <div class="product-title">Azul</div>
-                        <div class="product-price">$28.00</div>
-                        <div class="cart-action">
-                            <input type="submit" value="Add to Cart" class="addAction" /></div>
-                    </form>
-                </div>
+            Name: <?php echo $_POST["name"]; ?><br>
+            Address: <?php echo $_POST["address"]; ?><br>
+            City: <?php echo $_POST["city"]; ?><br>
+            Zip Code:<?php echo $_POST["zipcode"]; ?><br>
 
-                <div class="product-item">
-                    <form method="post" action="index.php?action=addWingspan">
-                        <div class="product-image"><img src="../images/wingspan.jpg"></div>
-                        <div class="product-title">Wingspan</div>
-                        <div class="product-price">$40.00</div>
-                        <div class="cart-action">
-                            <input type="submit" value="Add to Cart" class="addAction" /></div>
-                    </form>
-                </div>
-            </div>
+            <!-- Clear session for next purchase.-->
+            <?php session_destroy(); ?>
+
         </main>
         <footer>
             <?php include("../modules/footer.php"); ?>

@@ -68,17 +68,18 @@ Author: Nikkala Thomson
 
             <div><?php if ($_SESSION["wingspan"]>0) echo $_SESSION["wingspan"] . ' Wingspan: $' . (40*$_SESSION["wingspan"]) ?> </div>
 
-            <br>
-            <div><?php echo 'Total: $' . ((25*$_SESSION["splendor"])+(23*$_SESSION["sagrada"])+(30*$_SESSION["ticket"])+(28*$_SESSION["azul"])+(40*$_SESSION["wingspan"])) ?></div>
 
-            <form action="confirmation.php" method="post">
-                First Name: <input type="text" name="first_name" value=""><br>
-                Last Name: <input type="text" name="last_name" value=""><br>
-                Address: <input type="text" name="address" value=""><br>
-                Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+            <div><?php echo 'Total: $' . ((25*$_SESSION["splendor"])+(23*$_SESSION["sagrada"])+(30*$_SESSION["ticket"])+(28*$_SESSION["azul"])+(40*$_SESSION["wingspan"])) ?></div><br>
+
+
+
+            <form method="post" action="confirmation.php">
+                Name: <input type="text" name="name" value=""><br>
+                Street Address: <input type="text" name="address" value=""><br>
+                City: <input type="text" name="city" value=""><br>
+                Zip Code: <input type="text" name="zipcode" value=""><br>
+                <input type="submit" id="confirm" value="Confirm Purchase" class="addAction" />
             </form>
-
-
 
         </main>
         <footer>
