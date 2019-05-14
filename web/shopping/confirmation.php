@@ -59,10 +59,11 @@ Author: Nikkala Thomson
             <div><?php echo 'Total: $' . ((25*$_SESSION["splendor"])+(23*$_SESSION["sagrada"])+(30*$_SESSION["ticket"])+(28*$_SESSION["azul"])+(40*$_SESSION["wingspan"])) ?></div><br>
 
 
-            Name: <?php echo $_POST["name"]; ?><br>
-            Address: <?php echo $_POST["address"]; ?><br>
-            City: <?php echo $_POST["city"]; ?><br>
-            Zip Code:<?php echo $_POST["zipcode"]; ?><br>
+            Name: <?php echo $_SESSION["name"]; ?><br>
+            Address: <?php echo $_SESSION["address"]; ?><br>
+            City: <?php echo $_SESSION["city"]; ?><br>
+            State: <?php echo $_SESSION["state"]; ?><br>
+            Zip Code:<?php echo $_SESSION["zipcode"]; ?><br>
 
             <!-- Clear session for next purchase.-->
             <?php session_destroy(); ?>

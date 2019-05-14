@@ -165,6 +165,10 @@ Author: Nikkala Thomson
                 <input type="submit" id="checkout" value="Checkout" class="addAction" />
             </form>
 
+            <form method="post" action="index.php">
+                <input type="submit" id="keepshopping" value="Continue Shopping" class="addAction" />
+            </form>
+
         </main>
         <footer>
             <?php include("../modules/footer.php"); ?>
