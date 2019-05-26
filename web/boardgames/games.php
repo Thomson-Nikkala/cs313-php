@@ -3,7 +3,7 @@
 session_start();
 // Initialize session variables
 if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer'] = 1;}
+$_SESSION['gamer_id'] = 1;}
 // Get the database
 require "db_connect.php";
 $db = get_db();
@@ -40,7 +40,13 @@ Author: Nikkala Thomson
         </nav>
         <main>
             <section>
-                <p>Change your gaming preferences if you wish. Current values are:</p>
+                <p>Change your gaming preferences if you wish. Current values are:</p><br>
+
+                <p>Testing access to databases
+                    <?php
+    $result = $db->query("SELECT display_name FROM gamer g WHERE g.gamer = $gamer_id");
+                    echo $result;
+?></p>
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">

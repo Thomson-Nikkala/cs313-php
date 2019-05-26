@@ -4,6 +4,12 @@
 Author: Nikkala Thomson
 */
 
+/* New styling specific to boardgames site */
+
+select {
+    color: black;
+}
+
 /****** General Styles *********/
 
 
