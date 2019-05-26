@@ -46,10 +46,10 @@ Author: Nikkala Thomson
 
 
                 <?php
-  //  $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1');
-                $result = "what?";
-                    echo $result;
-?><br>
+                //  this isn't working yet
+                //  $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1');
+                //   echo $result;
+                ?><br>
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
