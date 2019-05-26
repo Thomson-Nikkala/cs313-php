@@ -7,6 +7,7 @@ $_SESSION['gamer_id'] = 1;}
 // Get the database
 require "db_connect.php";
 $db = get_db();
+$result = "";
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +43,12 @@ Author: Nikkala Thomson
             <section>
                 <p>Change your gaming preferences if you wish. Current values are:</p><br>
 
-                <p>Testing access to databases
-                    <?php
-   // $result = $db->query("SELECT display_name FROM gamer g WHERE g.gamer = $gamer_id");
-                    $result = "testing";
+                <p>Testing access to databases</p><br>
+                <?php
+    $result = $db->query("SELECT display_name FROM gamer WHERE gamer.gamer = 1");
+                
                     echo $result;
-?></p>
+?><br>
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
@@ -124,7 +125,7 @@ Author: Nikkala Thomson
                         <option value="4.5">4.5</option>
                         <option value="5">5.0</option>
                     </select>
-                    <p> Preferred themes:</p> 25 themes, 11 mechanisms
+                    <p> Preferred themes:</p>
                     <input type="checkbox" name="theme[]" value="abstract">Abstract (no theme)<br>
                     <input type="checkbox" name="theme[]" value="old_west">Old West<br>
                     <input type="checkbox" name="theme[]" value="espionage">Espionage<br>
