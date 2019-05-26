@@ -46,8 +46,8 @@ Author: Nikkala Thomson
 
 
                 <?php
-    $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1;');
-                
+  //  $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1');
+                $result = "what?";
                     echo $result;
 ?><br>
 
