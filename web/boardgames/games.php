@@ -44,8 +44,10 @@ Author: Nikkala Thomson
                 <p>Change your gaming preferences if you wish. Current values are:</p><br>
 
                 <p>Testing access to databases</p><br>
+
+
                 <?php
-    $result = $db->query("SELECT display_name FROM gamer WHERE gamer.gamer = 1");
+    $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1');
                 
                     echo $result;
 ?><br>
