@@ -44,7 +44,8 @@ Author: Nikkala Thomson
 
                 <p>Testing access to databases
                     <?php
-    $result = $db->query("SELECT display_name FROM gamer g WHERE g.gamer = $gamer_id");
+   // $result = $db->query("SELECT display_name FROM gamer g WHERE g.gamer = $gamer_id");
+                    $result = "testing";
                     echo $result;
 ?></p>
 
