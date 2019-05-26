@@ -7,7 +7,6 @@ $_SESSION['gamer_id'] = 1;}
 // Get the database
 require "db_connect.php";
 $db = get_db();
-$result = "";
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ Author: Nikkala Thomson
 
 
                 <?php
-    $result = $db->query('SELECT * from gamer');
+    $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1;');
                 
                     echo $result;
 ?><br>
