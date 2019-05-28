@@ -56,9 +56,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $query = 'SELECT display_name FROM gamer where gamer.gamer = 1';
                     $statement = $db->prepare($query);
                     $statement->execute();   
-                    $display_name = $statement->fetch(PDO::FETCH);
+                    $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo 'here';
-                    echo $display_name;
+                    echo $gamer_data['display_name'];
                 ?><br>
 
                 <form action="games.php" method="post">
