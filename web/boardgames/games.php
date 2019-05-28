@@ -48,7 +48,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
         <main>
             <section>
                 <p> Welcome, <?php
-                    $query = 'SELECT display_name FROM gamer where gamer.gamer = $gamer';
+                    $query = 'SELECT display_name FROM gamer where gamer.gamer = ' . $gamer;
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
