@@ -47,15 +47,15 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
         </nav>
         <main>
             <section>
-                <p> Welcome,<?php
-                    $query = 'SELECT display_name FROM gamer where gamer.gamer = 1';
+                <p> Welcome, <?php
+                    $query = 'SELECT display_name FROM gamer where gamer.gamer = $gamer';
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo $gamer_data['display_name'];
                 ?>!</p><br>
 
-                <p>Change your gaming preferences if you wish. Current values are:</p><br>
+                <p>Change your gaming preferences if you wish. Your current values are:</p><br>
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
@@ -170,8 +170,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <input type="checkbox" name="mechanism[]" value="trick_taking">Trick Taking<br>
                     <input type="checkbox" name="mechanism[]" value="puzzle">Puzzle<br>
                     <input type="checkbox" name="mechanism[]" value="legacy">Legacy<br>
-
-                    <p>Get game recommendation based on the preferences above:</p><input type="submit" value="GO">
+                    <br>
+                    <p>Get game recommendation based on the preferences above:<input type="submit" value="GO"></p>
                 </form>
 
             </section>
