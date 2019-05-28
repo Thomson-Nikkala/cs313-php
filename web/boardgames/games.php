@@ -57,6 +57,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $display_name = $statement->fetch(PDO::FETCH_ASSOC);
+                    echo 'here';
                     echo $display_name;
                 ?><br>
 
