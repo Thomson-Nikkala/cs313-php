@@ -47,19 +47,16 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
         </nav>
         <main>
             <section>
-                <p>Change your gaming preferences if you wish. Current values are:</p><br>
-
-                <p>Testing access to databases</p><br>
-
-
-                <?php
+                <p> Welcome,</p><?php
                     $query = 'SELECT display_name FROM gamer where gamer.gamer = 1';
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo 'here';
                     echo $gamer_data['display_name'];
-                ?><br>
+                ?><p>!</p><br>
+
+                <p>Change your gaming preferences if you wish. Current values are:</p><br>
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
