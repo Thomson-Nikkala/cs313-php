@@ -56,7 +56,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $query = 'SELECT display_name FROM gamer where gamer.gamer = 1';
                     $statement = $db->prepare($query);
                     $statement->execute();   
-                    $display_name = $statement->fetch(PDO::FETCH_ASSOC);
+                    $display_name = $statement->fetch(PDO::FETCH);
                     echo 'here';
                     echo $display_name;
                 ?><br>
