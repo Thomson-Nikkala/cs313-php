@@ -6,10 +6,9 @@ function get_db() {
 	$db = NULL;
 	try
 	{
+      // get Postgres configuration from Heroku 
 	  $dbUrl = getenv('DATABASE_URL');
-
 	  $dbOpts = parse_url($dbUrl);
-
 	  $dbHost = $dbOpts["host"];
 	  $dbPort = $dbOpts["port"];
 	  $dbUser = $dbOpts["user"];

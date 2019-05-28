@@ -58,10 +58,10 @@ Author: Nikkala Thomson
                 </section>
                 <section>
                     <ul>
-                        <li><a href="register.php">New? Register today.</a></li>
+                        <li><a href="edit_profile.php">New? Register today.</a></li>
                         <li><a href="login.php">Been here before? Login.</a></li>
                         <li><a href="games.php">Get a game recommendation.</a></li>
-                        <li><a href="edit_profile.php">Edit user profile.</a></li>
+                        <li><a href="edit_profile.php">Edit your user profile.</a></li>
                     </ul>
                 </section>
             </div>

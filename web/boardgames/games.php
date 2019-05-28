@@ -3,9 +3,9 @@
 session_start();
 // Initialize session variables
 if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer_id'] = 1;}
-// Get the database
-require "db_connect.php";
+$_SESSION['gamer'] = 1;}
+// Get the Heroku database
+require_once "db_connect.php";
 $db = get_db();
 ?>
 
@@ -14,6 +14,13 @@ $db = get_db();
 This is the Games page for The Board Game Whisperer
 Author: Nikkala Thomson
 -->
+
+<!-- From the Reading
+$stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
 
 <html lang="en-us">
 
@@ -46,9 +53,11 @@ Author: Nikkala Thomson
 
 
                 <?php
-                //  this isn't working yet
-                //  $result = $db->query('SELECT display_name FROM gamer WHERE gamer.gamer = 1');
-                //   echo $result;
+                    $query = 'SELECT display_name FROM gamer where gamer.gamer = 1';
+                    $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $display_name = $statement->fetch(PDO::FETCH_ASSOC);
+                    echo $display_name;
                 ?><br>
 
                 <form action="games.php" method="post">
