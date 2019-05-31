@@ -6,11 +6,11 @@ select 'drop table if exists "' || gamer || '" cascade;'
   from pg_tables
  where schemaname = 'public';
  
-select 'drop table if exists "' || game || '" cascade;' 
+select 'drop table if exists "' || board_game || '" cascade;' 
   from pg_tables
  where schemaname = 'public';
  
- select 'drop table if exists "' || gaming_preference || '" cascade;' 
+ select 'drop table if exists "' || preference || '" cascade;' 
   from pg_tables
  where schemaname = 'public';
  
