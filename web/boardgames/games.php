@@ -15,7 +15,7 @@ This is the Games page for The Board Game Whisperer
 Author: Nikkala Thomson
 -->
 
-<!-- From the Reading
+<!-- From the Reading, how to access data from a database with SELECT
 $stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -48,7 +48,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
         <main>
             <section>
                 <p> Welcome, <?php
-                    $query = 'SELECT display_name FROM gamer where gamer.gamer = ' . $_SESSION["gamer"];
+                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
@@ -56,6 +56,15 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>!</p><br>
 
                 <p>Change your gaming preferences if you wish. Your current values are:</p><br>
+
+                <?php
+                 $query = 'SELECT preferences->>"min_players" AS "min_players" FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
+                  $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $min_player_data = $statement->fetch(PDO::FETCH_ASSOC);
+                echo $min_player_data['min_players'] . 'testing';
+                ?>
+
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
@@ -83,6 +92,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <option value="ten">10+</option>
                     </select>
                     <p>Minimum playing time (in minutes):</p> <select name="min_playtime">
+                        <option value="1">1</option>
                         <option value="15">15</option>
                         <option value="30">30</option>
                         <option value="45">45</option>
@@ -108,7 +118,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <option value="210">210</option>
                         <option value="240">240</option>
                         <option value="300">300</option>
-                        <option value="360">360+</option>
+                        <option value="360">360 or more</option>
                     </select>
                     <p>Minimum Game Weight (complexity):</p>
                     <select name="min_weight">
@@ -171,7 +181,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <input type="checkbox" name="mechanism[]" value="puzzle">Puzzle<br>
                     <input type="checkbox" name="mechanism[]" value="legacy">Legacy<br>
                     <br>
-                    <p>Get game recommendation based on the preferences above:<input type="submit" value="GO"></p>
+                    <p>Get a game recommendation based on the preferences above:<input type="submit" value="GO"></p>
                 </form>
 
             </section>
