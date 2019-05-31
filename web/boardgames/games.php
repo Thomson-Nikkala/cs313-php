@@ -77,11 +77,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                                         'six'=>'6', 'seven'=>'7', 'eight'=>'8', 'nine'=>'9', 'ten'=>'10');
                       $max_players = array('one'=>'1', 'two'=>'2', 'three'=>'3', 'four'=>'4', 'five'=>'5',
                                         'six'=>'6', 'seven'=>'7', 'eight'=>'9', 'nine'=>'9', 'ten'=>'10+');
-                   
+                   //($player_prefs_json->min_players)
                     ?>
                     <p>Minimum number of players:</p> <select name="min_players">
                         <?php foreach( $min_players as $var => $min_player ): ?>
-                        <option value="<?php echo $var ?>" <?php if( $var == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
+                        <option value="<?php echo $var ?>" <?php if( $var == "3" ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
                         <?php endforeach; ?>
                     </select>
 
