@@ -64,7 +64,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 <?php
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
-                 $statement->execute(); 
+                // $statement->execute(); 
                //  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
                // $player_prefs_json = $player_prefs['preferences'];
                // echo $player_prefs_json;
