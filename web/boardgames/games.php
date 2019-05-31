@@ -73,7 +73,10 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <?php 
                       $min_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
+                      $min_playtime = array('1', '15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300');
+                      $max_playtime = array('15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300', '360');
                     ?>
+
                     <p>Minimum number of players:</p> <select name="min_players">
                         <?php foreach( $min_players as $min_player ): ?>
                         <option value="<?php echo $min_player ?>" <?php if( $min_player == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
@@ -81,40 +84,23 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     </select>
 
                     <p>Maximum number of players:</p> <select name="max_players">
-                        <?php foreach( $max_players as $var => $max_player ): ?>
-                        <option value="<?php echo $var ?>" <?php if( $var == ($player_prefs_json->max_players) ): ?> selected="selected" <?php endif; ?>><?php echo $max_player ?></option>
+                        <?php foreach( $max_players as $max_player ): ?>
+                        <option value="<?php echo $max_player ?>" <?php if( $max_player == ($player_prefs_json->max_players) ): ?> selected="selected" <?php endif; ?>><?php echo $max_player ?></option>
                         <?php endforeach; ?>
                     </select>
 
                     <p>Minimum playing time (in minutes):</p> <select name="min_playtime">
-                        <option value="1">1</option>
-                        <option value="15">15</option>
-                        <option value="30">30</option>
-                        <option value="45">45</option>
-                        <option value="60">60</option>
-                        <option value="90">90</option>
-                        <option value="120">120</option>
-                        <option value="150">150</option>
-                        <option value="180">180</option>
-                        <option value="210">210</option>
-                        <option value="240">240</option>
-                        <option value="300">300</option>
-                        <option value="360">360</option>
+                        <?php foreach( $min_playtimes as $min_playtime ): ?>
+                        <option value="<?php echo $min_playtime ?>" <?php if( $min_playtime == ($player_prefs_json->min_playtime) ): ?> selected="selected" <?php endif; ?>><?php echo $min_playtime ?></option>
+                        <?php endforeach; ?>
                     </select>
+
                     <p>Maximum playing time (in minutes):</p> <select name="max_playtime">
-                        <option value="15">15</option>
-                        <option value="30">30</option>
-                        <option value="45">45</option>
-                        <option value="60">60</option>
-                        <option value="90">90</option>
-                        <option value="120">120</option>
-                        <option value="150">150</option>
-                        <option value="180">180</option>
-                        <option value="210">210</option>
-                        <option value="240">240</option>
-                        <option value="300">300</option>
-                        <option value="360">360 or more</option>
+                        <?php foreach( $max_playtimes as $max_playtime ): ?>
+                        <option value="<?php echo $max_playtime ?>" <?php if( $max_playtime == ($player_prefs_json->max_playtime) ): ?> selected="selected" <?php endif; ?>><?php echo $max_playtime ?></option>
+                        <?php endforeach; ?>
                     </select>
+
                     <p>Minimum game weight (complexity):</p>
                     <select name="min_weight">
                         <option value="1">1.0</option>
