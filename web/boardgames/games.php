@@ -66,7 +66,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
-                 $player_prefs_json = json_decode($player_prefs)
+                echo $player_prefs;
+                // $player_prefs_json = json_decode($player_prefs)
                 // echo $player_preferences->min_players;
                 // echo 'testing 3';
                 ?>
