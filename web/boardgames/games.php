@@ -59,7 +59,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
 
                 <?php
                 echo 'testing';
-                 $query = 'SELECT preferences->>"min_players" AS "min_players" FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
+                 $query = "SELECT preferences->>'min_players' AS 'min_players' FROM preference p WHERE p.gamer = " . $_SESSION["gamer"];
                   $statement = $db->prepare($query);
                     $statement->execute();   
                     $min_player_data = $statement->fetch(PDO::FETCH_ASSOC);
