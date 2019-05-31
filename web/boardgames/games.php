@@ -67,13 +67,10 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $statement->execute(); 
                  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
                 $player_prefs_json = $player_prefs['preferences'];
-                echo $player_prefs_json;
-
-                
-                // It says it's an array...
-                // $player_prefs_json = json_decode($player_prefs)
-                // echo $player_preferences->min_players;
-                // echo 'testing 3';
+                echo $player_prefs_json;  
+                //$player_prefs_json = json_decode($player_prefs)
+                echo $player_prefs_json->min_players;
+             
                 ?>
 
                 <form action="games.php" method="post">
