@@ -60,30 +60,27 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>!</p><br>
 
                 <p>Change your gaming preferences if you wish. Your current values are:</p><br>
-
                 <?php
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player = $statement->fetch(PDO::FETCH_ASSOC);
-                $player_preferences = $player['preferences'];   // this is a string
-                $player_prefs_json = json_decode($player_preferences);
-                echo $player_prefs_json->min_players;
+                 $player_preferences = $player['preferences'];   // this is a string
+                 $player_prefs_json = json_decode($player_preferences);  // coerce to json object
                 ?>
-
                 <form action="games.php" method="post">
+                    <?php 
+                      $min_players = array('one'=>1, 'two'=>2, 'three'=>3, 'four'=>4, 'five'=>5,
+                                        'six'=>6, 'seven'=>, 'eight'=>, 'nine'=>9, 'ten'=>10);
+                      $max_players = array('one'=>1, 'two'=>2, 'three'=>3, 'four'=>4, 'five'=>5,
+                                        'six'=>6, 'seven'=>, 'eight'=>, 'nine'=>9, 'ten'=>10+);
+                    ?>
                     <p>Minimum number of players:</p> <select name="min_players">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10</option>
+                        <?php foreach( $min_players as $var => $min_player ): ?>
+                        <option value="<?php echo $var ?>" <?php if( $var == $player_prefs_json->min_players ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
+                        <?php endforeach; ?>
                     </select>
+
                     <p>Maximum number of players:</p> <select name="max_players">
                         <option value="one">1</option>
                         <option value="two">2</option>
