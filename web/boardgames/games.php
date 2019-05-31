@@ -77,22 +77,16 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     ?>
                     <p>Minimum number of players:</p> <select name="min_players">
                         <?php foreach( $min_players as $var => $min_player ): ?>
-                        <option value="<?php echo $var ?>" <?php if( $var == $player_prefs_json->min_players ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
+                        <option value="<?php echo $var ?>" <?php if( $var == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
                         <?php endforeach; ?>
                     </select>
 
                     <p>Maximum number of players:</p> <select name="max_players">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10+</option>
+                        <?php foreach( $max_players as $var => $max_player ): ?>
+                        <option value="<?php echo $var ?>" <?php if( $var == ($player_prefs_json->max_players) ): ?> selected="selected" <?php endif; ?>><?php echo $max_player ?></option>
+                        <?php endforeach; ?>
                     </select>
+
                     <p>Minimum playing time (in minutes):</p> <select name="min_playtime">
                         <option value="1">1</option>
                         <option value="15">15</option>
