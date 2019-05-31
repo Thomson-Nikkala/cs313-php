@@ -70,10 +70,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>
                 <form action="games.php" method="post">
                     <?php 
-                      $min_players = array('one'=>1, 'two'=>2, 'three'=>3, 'four'=>4, 'five'=>5,
-                                        'six'=>6, 'seven'=>7, 'eight'=>8, 'nine'=>9, 'ten'=>10);
+                      $min_players = array('one'=>'1', 'two'=>'2', 'three'=>'3', 'four'=>'4', 'five'=>'5',
+                                        'six'=>'6', 'seven'=>'7', 'eight'=>'8', 'nine'=>'9', 'ten'=>'10');
                       $max_players = array('one'=>1, 'two'=>2, 'three'=>3, 'four'=>4, 'five'=>5,
                                         'six'=>6, 'seven'=>7, 'eight'=>9, 'nine'=>9, 'ten'=>10);
+                   
                     ?>
                     <p>Minimum number of players:</p> <select name="min_players">
                         <?php foreach( $min_players as $var => $min_player ): ?>
@@ -116,7 +117,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <option value="300">300</option>
                         <option value="360">360 or more</option>
                     </select>
-                    <p>Minimum Game Weight (complexity):</p>
+                    <p>Minimum game weight (complexity):</p>
                     <select name="min_weight">
                         <option value="1">1.0</option>
                         <option value="1.5">1.5</option>
@@ -127,7 +128,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <option value="4.0">4.0</option>
                         <option value="4.5">4.5</option>
                     </select>
-                    <p>Maximum Game Weight (complexity):</p>
+                    <p>Maximum game weight (complexity):</p>
                     <select name="max_weight">
                         <option value="1.5">1.5</option>
                         <option value="2.0">2.0</option>
