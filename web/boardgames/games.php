@@ -65,11 +65,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
                  $statement->execute(); 
-                 $player_preferences = $statement->fetch(PDO::FETCH_ASSOC);
+                 $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
+                 $player_prefs_json = json_decode($player_prefs)
                  echo $player_preferences->min_players;
                  echo 'testing 3';
                 ?>
-
 
                 <form action="games.php" method="post">
                     <p>Minimum number of players:</p> <select name="min_players">
