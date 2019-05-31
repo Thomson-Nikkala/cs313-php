@@ -48,7 +48,7 @@ CREATE TABLE public.board_game (
     designer    VARCHAR(40),
 	description TEXT,
 	image_url   TEXT,
-    properties jsonb  -- jsonb is stored as binary code
+    properties json  
 );
     
 -- sample input statement for the board_game table
@@ -60,7 +60,7 @@ CREATE TABLE public.preference (
     preference      SERIAL      NOT NULL PRIMARY KEY,
 	gamer  INTEGER,
     FOREIGN KEY (gamer) REFERENCES gamer(gamer),
-    preferences jsonb
+    preferences json
 );
 
 -- sample input statement for the preference table

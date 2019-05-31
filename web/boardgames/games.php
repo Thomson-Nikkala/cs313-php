@@ -62,7 +62,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-                 $query = 'SELECT preferences->>"min_players" FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
+                 $query = 'SELECT preferences->>"min_players" AS "Minimum Players" FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
                 echo 'testing 3';
                  $statement->execute(); 
