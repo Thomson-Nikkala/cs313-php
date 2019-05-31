@@ -63,7 +63,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                   $statement = $db->prepare($query);
                     $statement->execute();   
                     $min_player_data = $statement->fetch(PDO::FETCH_ASSOC);
-                echo $min_player_data['min_players'] . 'testing2';
+                echo 'testing2';
                 ?>
 
 
