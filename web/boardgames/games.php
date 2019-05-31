@@ -67,6 +67,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $player = $statement->fetch(PDO::FETCH_ASSOC);
                  $player_preferences = $player['preferences'];   // this is a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
+                 $min_players_pref = $player_prefs_json->min_players;
+                 echo $min_players_pref;
+                echo gettype(@min_players_pref);
                 ?>
                 <form action="games.php" method="post">
                     <?php 
