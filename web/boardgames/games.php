@@ -7,6 +7,10 @@ $_SESSION['gamer'] = 1;}
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
+// Force display of all errors (for debugging)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -58,17 +62,12 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 <p>Change your gaming preferences if you wish. Your current values are:</p><br>
 
                 <?php
-                echo 'testing';
-                ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
-                echo 'testing 3';
                  $statement->execute(); 
-         echo ' testing 2';
-                    $player_preferences = $statement->fetch(PDO::FETCH_ASSOC);
-               // echo $min_player_data['min_players'] . 'testing2';
+                 $player_preferences = $statement->fetch(PDO::FETCH_ASSOC);
+                 echo $player_preferences->min_players;
+                 echo 'testing 3';
                 ?>
 
 
