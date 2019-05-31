@@ -80,7 +80,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     ?>
                     <p>Minimum number of players:</p> <select name="min_players">
                         <?php foreach( $min_players as $min_player ): ?>
-                        <option value="<?php echo $min_player ?>" <?php if( $min_player == "3" ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
+                        <option value="<?php echo $min_player ?>" <?php if( $min_player == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
                         <?php endforeach; ?>
                     </select>
 
