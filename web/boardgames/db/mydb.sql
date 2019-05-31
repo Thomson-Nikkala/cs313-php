@@ -65,7 +65,7 @@ CREATE TABLE public.preference (
 
 -- sample input statement for the preference table
 
-INSERT INTO preference(gamer_id, preferences)
+INSERT INTO preference(gamer, preferences)
 VALUES (1, '{ "min_players":3, "max_players":8, "min_playtime":30, "max_playtime":60, "themes":["fantasy", "science fiction", "art"], "min_weight":1.0, "max_weight":2.5, "mechanisms":[ "Card Drafting", "Deck Building", "Set Collection", "Tile Placement"]}');
 
 CREATE TABLE public.recommendation (
