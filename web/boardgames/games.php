@@ -66,8 +66,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
-                $player_prefs_json = $player_prefs['preferences'];
-                echo $player_prefs_json;
+               // $player_prefs_json = $player_prefs['preferences'];
+               // echo $player_prefs_json;
 }
                 
                 // It says it's an array...
