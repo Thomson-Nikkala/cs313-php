@@ -38,7 +38,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
     <header>
         <div id="header-band"></div>
         <div id="header-text" class="center-block">
-            <h1>The Board Game Whisperer</h1>
+            <h1>Get a Game Recommendation</h1>
         </div>
     </header>
     <div class=center-block>
@@ -46,6 +46,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Register</a></li>
                 <li><a href="edit_profile.php">Profile</a></li>
                 <li id="active-nav"><a href="games.php">Games<img src="../images/yellow-arrow.png" alt=""></a></li>
             </ul>
