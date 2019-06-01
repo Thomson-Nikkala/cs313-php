@@ -51,8 +51,24 @@ Author: Nikkala Thomson
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo $gamer_data['display_name'];
                 ?>!</p><br>
-
-
+                <p>Edit your user profile.</p>
+                <br>
+                <?php
+                 $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
+                 $statement = $db->prepare($query);
+                 $statement->execute(); 
+                 $player = $statement->fetch(PDO::FETCH_ASSOC);
+                 $player_preferences = $player['preferences'];   // this ends up as a string
+                 $player_prefs_json = json_decode($player_preferences);  // coerce to json object
+                 $player_themes = $player_prefs_json->themes;
+                 $player_mechanisms = $player_prefs_json->mechanisms;
+                ?>
+                <form action="edit_profile.php" method="post">
+                    <p> Username (cannot be changed): <input type="text" name="username"></p><br>
+                    <p>Display Name: <input type="text" name="display_name"></p><br>
+                    <p>Email: <input type="text" name="email"></p><br>
+                    <input type="submit" value="Update Profile">
+                </form>
 
             </section>
 
