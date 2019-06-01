@@ -27,8 +27,23 @@ input[type=password] {
 
 input[type=text]:focus,
 input[type=password]:focus {
-    background-color: #ddd;
     outline: none;
+}
+
+/* Set a style for the submit button */
+.register_btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.register_btn:hover {
+  opacity: 1;
 }
 
 /****** General Styles *********/

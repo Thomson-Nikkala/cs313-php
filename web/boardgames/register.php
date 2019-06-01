@@ -62,9 +62,9 @@ Author: Nikkala Thomson
 
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                     <button type="submit" class="register_btn">Register</button>
-                    <div class="container signin">
+                    
                         <p>Already have an account? <a href="login.php">Log in</a>.</p>
-                    </div>
+                   
                 </form>
             </section>
         </main>
