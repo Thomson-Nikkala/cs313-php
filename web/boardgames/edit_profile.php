@@ -64,7 +64,6 @@ Author: Nikkala Thomson
                  $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
                 <form action="edit_profile.php" method="post">
-                    <p> Username (cannot be changed): <input type="text" name="username"></p><br>
                     <p>Display Name: <input type="text" name="display_name"></p><br>
                     <p>Email: <input type="text" name="email"></p><br>
                     <input type="submit" value="Update Profile">
