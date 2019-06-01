@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['gamer'])){
 $_SESSION['gamer'] = 1;}
 
-}
+
 ?>
 <!DOCTYPE html>
 <!--
@@ -52,7 +52,7 @@ Author: Nikkala Thomson
                 </section>
                 <section>
                     <ul>
-                        <li><a href="edit_profile.php">New? Register today.</a></li>
+                        <li><a href="register.php">New? Register today.</a></li>
                         <li><a href="login.php">Been here before? Login.</a></li>
                         <li><a href="games.php">Get a game recommendation.</a></li>
                         <li><a href="edit_profile.php">Edit your user profile.</a></li>
