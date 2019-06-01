@@ -68,7 +68,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $player_preferences = $player['preferences'];   // this ends up as a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
                  $player_themes = $player_prefs_json->themes;
-                 echo $player_themes;
+                 $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
                 <form action="games.php" method="post">
                     <?php 
@@ -121,13 +121,13 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
 
                     <p> Preferred themes:</p>
                     <?php foreach( $themes as $theme ): ?>
-                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?> <?php if( in_array($theme, ($player_prefs_json->themes)) ): ?> checked="checked" <?php endif; ?>><?php echo $theme ?><br>
+                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?> <?php if( in_array($theme, $player_themes) ): ?> checked="checked" <?php endif; ?>><?php echo $theme ?><br>
                     <?php endforeach; ?>
                     <br>
 
                     <p> Preferred gameplay mechanisms:</p>
                     <?php foreach( $mechanisms as $mechanism ): ?>
-                    <input type="checkbox" name=<?php echo $mechanism ?> value=<?php echo $mechanism ?>><?php echo $mechanism ?><br>
+                    <input type="checkbox" name=<?php echo $mechanism ?> value=<?php echo $mechanism ?> <?php if( in_array($mechanism, $player_mechanisms) ): ?> checked="checked" <?php endif; ?>><?php echo $mechanism ?><br>
                     <?php endforeach; ?>
                     <br>
 
