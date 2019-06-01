@@ -59,13 +59,13 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     echo $gamer_data['display_name'];
                 ?>!</p><br>
 
-                <p>Change your gaming preferences if you wish. Your current values are:</p><br>
+                <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
                 <?php
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player = $statement->fetch(PDO::FETCH_ASSOC);
-                 $player_preferences = $player['preferences'];   // this is a string
+                 $player_preferences = $player['preferences'];   // this ends up as a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
                  $min_players_pref = $player_prefs_json->min_players;
                 ?>
@@ -75,6 +75,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $min_playtimes = array('1', '15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300');
                       $max_playtimes = array('15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300', '360');
+                    $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
+                    $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
                     ?>
 
                     <p>Minimum number of players:</p> <select name="min_players">
@@ -101,28 +103,18 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <?php endforeach; ?>
                     </select>
 
-                    <p>Minimum game weight (complexity):</p>
-                    <select name="min_weight">
-                        <option value="1">1.0</option>
-                        <option value="1.5">1.5</option>
-                        <option value="2.0">2.0</option>
-                        <option value="2.5">2.5</option>
-                        <option value="3.0">3.0</option>
-                        <option value="3.5">3.5</option>
-                        <option value="4.0">4.0</option>
-                        <option value="4.5">4.5</option>
+                    <p>Minimum game weight (complexity) on a 1 to 5 scale:</p> <select name="min_playtime">
+                        <?php foreach( $min_weights as $min_weight ): ?>
+                        <option value="<?php echo $min_weight ?>" <?php if( $min_weight == ($player_prefs_json->min_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $min_weight ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <p>Maximum game weight (complexity):</p>
-                    <select name="max_weight">
-                        <option value="1.5">1.5</option>
-                        <option value="2.0">2.0</option>
-                        <option value="2.5">2.5</option>
-                        <option value="3.0">3.0</option>
-                        <option value="3.5">3.5</option>
-                        <option value="4.0">4.0</option>
-                        <option value="4.5">4.5</option>
-                        <option value="5">5.0</option>
+
+                    <p>Maximum game weight (complexity) on a 1 to 5 scale:</p> <select name="max_playtime">
+                        <?php foreach( $max_weights as $max_weight ): ?>
+                        <option value="<?php echo $max_weight ?>" <?php if( $max_weight == ($player_prefs_json->max_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $max_weight ?></option>
+                        <?php endforeach; ?>
                     </select>
+
                     <p> Preferred themes:</p>
                     <input type="checkbox" name="theme[]" value="abstract">Abstract (no theme)<br>
                     <input type="checkbox" name="theme[]" value="old_west">Old West<br>
