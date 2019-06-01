@@ -38,15 +38,13 @@ Author: Nikkala Thomson
         </nav>
         <main>
 
-            <div class="flex">
-                <section>
-                    <p>Login--work in progress</p>
 
-                </section>
-                <section>
+            <section class="wide-section">
+                <p>Login--work in progress</p>
 
-                </section>
-            </div>
+            </section>
+
+
 
         </main>
         <footer>
