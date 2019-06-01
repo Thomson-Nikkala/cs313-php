@@ -14,7 +14,6 @@ if (! empty ($_GET['action'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <!--
 This is the home page for The Board Game Whisperer

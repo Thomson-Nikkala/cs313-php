@@ -4,8 +4,14 @@ session_start();
 // Initialize session variables
 if (!isset($_SESSION['gamer'])){
 $_SESSION['gamer'] = 1;}
+// Get the Heroku database
+require_once "db_connect.php";
+$db = get_db();
+// Force display of all errors (for debugging)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
-
 <!DOCTYPE html>
 <!--
 This is the edit user profile page for the Board Game Whisperer
@@ -32,7 +38,7 @@ Author: Nikkala Thomson
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li id="active-nav"><a href="login.php">Edit Profile<img src="../images/yellow-arrow.png" alt=""></a></li>
+                <li id="active-nav"><a href="login.php">Profile<img src="../images/yellow-arrow.png" alt=""></a></li>
                 <li><a href="games.php">Get Games</a></li>
             </ul>
         </nav>
