@@ -5,13 +5,6 @@ session_start();
 if (!isset($_SESSION['gamer'])){
 $_SESSION['gamer'] = 1;}
 
-if (! empty ($_GET['action'])) { 
-    switch($_GET['action']) {
-        case 'addSplendor':
-            $_SESSION['splendor']++;
-            $_SESSION['num_items']++;
-        break;
-    }
 }
 ?>
 <!DOCTYPE html>
