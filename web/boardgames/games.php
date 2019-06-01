@@ -133,7 +133,12 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
 
                     <p>Get a game recommendation based on the preferences above:<input type="submit" value="GO"></p>
                 </form>
-
+<?php
+if(isset($_POST['submit']))
+{
+    
+}
+?>
             </section>
         </main>
         <footer>

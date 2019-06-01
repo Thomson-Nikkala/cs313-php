@@ -45,28 +45,21 @@ Author: Nikkala Thomson
         <main>
             <section>
                 <p> Welcome, <?php
-                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
+                    $query = 'SELECT * FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
-                    echo $gamer_data['display_name'];
+                    // sanitize here for safe display
+                    $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
+                    $email_safe = htmlentities($gamer_data['email'], ENT_QUOTES, 'UTF-8');
                 ?>!</p><br>
-                <p>Edit your user profile.</p>
+                <p>Edit your user profile. Username cannot be changed.</p>
                 <br>
-                <?php
-                 $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
-                 $statement = $db->prepare($query);
-                 $statement->execute(); 
-                 $player = $statement->fetch(PDO::FETCH_ASSOC);
-                 $player_preferences = $player['preferences'];   // this ends up as a string
-                 $player_prefs_json = json_decode($player_preferences);  // coerce to json object
-                 $player_themes = $player_prefs_json->themes;
-                 $player_mechanisms = $player_prefs_json->mechanisms;
-                ?>
+
                 <form action="edit_profile.php" method="post">
-                    <p>Display Name: <input type="text" name="display_name"></p><br>
-                    <p>Email: <input type="text" name="email"></p><br>
-                    <input type="submit" value="Update Profile">
+                    <p>Display Name: <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" /></p><br>
+                    <p>Email: <input type="text" name="email" value="<?php echo $email_safe;  ?>" /></p><br>
+                    <input type="submit" value="Update Profile--work in progress">
                 </form>
 
             </section>
