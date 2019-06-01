@@ -68,7 +68,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation (work in progress).';
                     } ?>
                 </p>
-
+                <br>
                 <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
                 <?php
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
