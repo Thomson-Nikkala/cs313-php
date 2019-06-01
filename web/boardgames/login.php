@@ -4,6 +4,13 @@ session_start();
 // Initialize session variables
 if (!isset($_SESSION['gamer'])){
 $_SESSION['gamer'] = 1;}
+// Get the Heroku database
+require_once "db_connect.php";
+$db = get_db();
+// Force display of all errors (for debugging)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +47,18 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-                <p>Login--work in progress</p>
-
+                <p> You are logged in as <?php
+                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
+                    $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
+                    echo $gamer_data['display_name'];
+                ?>. Log in as a different user below.</p><br>
+                <form action="login.php" method="post">
+                    <p>Username: <input type="text" name="username" size="50" /></p><br>
+                    <p>Password: <input type="text" name="password" size="50" /></p><br>
+                    <input type="submit" value="LOGIN">
+                </form>
             </section>
 
 
