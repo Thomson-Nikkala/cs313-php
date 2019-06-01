@@ -67,7 +67,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $player = $statement->fetch(PDO::FETCH_ASSOC);
                  $player_preferences = $player['preferences'];   // this ends up as a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
-                 
+                 $player_themes = $player_prefs_json->themes;
+                 echo $player_themes;
                 ?>
                 <form action="games.php" method="post">
                     <?php 
