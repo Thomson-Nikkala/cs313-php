@@ -44,7 +44,7 @@ Author: Nikkala Thomson
         </nav>
         <main>
             <section>
-                <p> Welcome, <?php
+                <?php
                     $query = 'SELECT * FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
                     $statement->execute();   
@@ -52,14 +52,15 @@ Author: Nikkala Thomson
                     // sanitize here for safe display
                     $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
                     $email_safe = htmlentities($gamer_data['email'], ENT_QUOTES, 'UTF-8');
-                ?>!</p><br>
-                <p>Edit your user profile. Username cannot be changed.</p>
+                ?>!
+                <p>Here you may edit your user profile. Username cannot be changed.</p>
                 <br>
 
                 <form action="edit_profile.php" method="post">
                     <p>Display Name: <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" /></p><br>
                     <p>Email: <input type="text" name="email" value="<?php echo $email_safe;  ?>" /></p><br>
-                    <input type="submit" value="Update Profile--work in progress">
+                    <input type="submit" value="Update Profile">
+                    <p>(work in progress)</p>
                 </form>
 
             </section>
