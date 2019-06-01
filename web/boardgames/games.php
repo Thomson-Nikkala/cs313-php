@@ -103,17 +103,17 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                         <?php endforeach; ?>
                     </select>
 
-                    <p>Minimum game weight (complexity) on a 1 to 5 scale:</p> <select name="min_playtime">
+                    <p>Minimum game weight (complexity) on a 1.0 to 5.0 scale:</p> <select name="min_playtime">
                         <?php foreach( $min_weights as $min_weight ): ?>
                         <option value="<?php echo $min_weight ?>" <?php if( $min_weight == ($player_prefs_json->min_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $min_weight ?></option>
                         <?php endforeach; ?>
                     </select>
 
-                    <p>Maximum game weight (complexity) on a 1 to 5 scale:</p> <select name="max_playtime">
-                        <?php foreach( $max_weights as $max_weight ): ?>
-                        <option value="<?php echo $max_weight ?>" <?php if( $max_weight == ($player_prefs_json->max_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $max_weight ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <p>Maximum game weight (complexity) on a 1.0 to 5.0 scale: <select name="max_playtime">
+                            <?php foreach( $max_weights as $max_weight ): ?>
+                            <option value="<?php echo $max_weight ?>" <?php if( $max_weight == ($player_prefs_json->max_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $max_weight ?></option>
+                            <?php endforeach; ?>
+                        </select></p>
 
                     <p> Preferred themes:</p>
                     <input type="checkbox" name="theme[]" value="abstract">Abstract (no theme)<br>
