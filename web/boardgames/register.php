@@ -31,7 +31,7 @@ Author: Nikkala Thomson
     <header>
         <div id="header-band"></div>
         <div id="header-text" class="center-block">
-            <h1>Registration</h1>
+            <h1>New Account Registration</h1>
         </div>
     </header>
     <div class=center-block>
@@ -48,17 +48,25 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-                <p> Register for a new account here.</p><br>
-                <form action="login.php" method="post">
-                    <p>Username: <input type="text" name="username" size="50" /></p><br>
-                    <p>Display Name: <input type="text" name="display_name" size="50" /></p><br>
-                    <p>Password: <input type="text" name="password" size="50" /></p><br>
-                    <input type="submit" value="REGISTER">
+
+                <form action="action_page.php" method="post">
+                    <p>Please fill in this form to create an account.</p>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required /><br>
+                    <label for="display_name"><b>Display Name</b></label>
+                    <input type="text" placeholder="Enter Display Name" name="display_name" required /><br>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required /><br>
+                    <label for="password_repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password_repeat" required /><br>
+
+                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <button type="submit" class="register_btn">Register</button>
+                    <div class="container signin">
+                        <p>Already have an account? <a href="login.php">Log in</a>.</p>
+                    </div>
                 </form>
             </section>
-
-
-
         </main>
         <footer>
             <?php include("../modules/footer.php"); ?>
