@@ -44,7 +44,7 @@ Author: Nikkala Thomson
             </ul>
         </nav>
         <main>
-            <section>
+            <section class="wide-section">
                 <?php
                     $query = 'SELECT * FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
