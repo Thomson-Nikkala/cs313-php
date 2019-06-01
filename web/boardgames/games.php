@@ -60,6 +60,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>!</p><br>
 
                 <?php if(isset($_POST['submit'])) {
+    echo "here";
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
                     $statement = $db->prepare($query);
                     $statement->execute();   
