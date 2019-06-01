@@ -67,7 +67,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                  $player = $statement->fetch(PDO::FETCH_ASSOC);
                  $player_preferences = $player['preferences'];   // this ends up as a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
-                 $min_players_pref = $player_prefs_json->min_players;
+                 
                 ?>
                 <form action="games.php" method="post">
                     <?php 
@@ -120,7 +120,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
 
                     <p> Preferred themes:</p>
                     <?php foreach( $themes as $theme ): ?>
-                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?>><?php echo $theme ?><br>
+                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?> <?php if( in_array($theme, ($player_prefs_json->themes)) ): ?> checked="checked" <?php endif; ?>><?php echo $theme ?><br>
                     <?php endforeach; ?>
                     <br>
 
