@@ -58,7 +58,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
-                    echo $gamer_data['display_name'];
+                    $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
+                    echo $display_name_safe;
                 ?>!</p><br>
                 <p>
                     <?php if(isset($_POST['submit'])) {
@@ -67,7 +68,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $statement->execute();   
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                     $board_game_safe = htmlentities($board_game['name'], ENT_QUOTES, 'UTF-8');
-                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation (work in progress).';
+                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
                     } ?>
                 </p>
                 <br>
