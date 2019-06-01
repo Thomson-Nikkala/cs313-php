@@ -10,10 +10,6 @@ select {
     color: black;
 }
 
-input {
-    color: black;
-}
-
 /* Full-width input fields */
 input[type=text],
 input[type=password] {
@@ -33,7 +29,7 @@ input[type=password]:focus {
 /* Set a style for the submit button */
 .submit_btn {
     background-color: #FCD116;
-    color: black;
+    color: #1b1464;
     font-size: 20px;
     font-weight: bold;
     padding: 16px 20px;
