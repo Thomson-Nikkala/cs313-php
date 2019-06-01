@@ -75,8 +75,10 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $min_playtimes = array('1', '15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300');
                       $max_playtimes = array('15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300', '360');
-                    $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
-                    $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
+                      $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
+                      $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
+                      $themes = array('Abstract', 'Old West', 'Espionage', 'Superhero', 'Martial Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science Fiction', 'Empire Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster');
+                      $mechanisms = array('Worker Placement', 'Area Control', 'Tile Placement', 'Cooperative', 'Deck Building', 'Drafting', 'Engine Building', 'Take That', 'Trick Taking', 'Puzzle', 'Legacy');
                     ?>
 
                     <p>Minimum number of players: <select name="min_players">
@@ -114,34 +116,15 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                             <option value="<?php echo $max_weight ?>" <?php if( $max_weight == ($player_prefs_json->max_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $max_weight ?></option>
                             <?php endforeach; ?>
                         </select></p>
+                    <br>
 
                     <p> Preferred themes:</p>
-                    <input type="checkbox" name="theme[]" value="abstract">Abstract (no theme)<br>
-                    <input type="checkbox" name="theme[]" value="old_west">Old West<br>
-                    <input type="checkbox" name="theme[]" value="espionage">Espionage<br>
-                    <input type="checkbox" name="theme[]" value="superhero">Superhero<br>
-                    <input type="checkbox" name="theme[]" value="martial_arts">Martial Arts<br>
-                    <input type="checkbox" name="theme[]" value="pirate">Pirate<br>
-                    <input type="checkbox" name="theme[]" value="racing">Racing<br>
-                    <input type="checkbox" name="theme[]" value="fantasy">Fantasy<br>
-                    <input type="checkbox" name="theme[]" value="train">Train<br>
-                    <input type="checkbox" name="theme[]" value="sports">Sports<br>
-                    <input type="checkbox" name="theme[]" value="financial">Financial<br>
-                    <input type="checkbox" name="theme[]" value="detective">Detective<br>
-                    <input type="checkbox" name="theme[]" value="aviation">Aviation<br>
-                    <input type="checkbox" name="theme[]" value="science_fiction">Science Fiction<br>
-                    <input type="checkbox" name="theme[]" value="empire_building">Empire Building<br>
-                    <input type="checkbox" name="theme[]" value="medieval">Medieval<br>
-                    <input type="checkbox" name="theme[]" value="movie">Movie (including Star Wars)<br>
-                    <input type="checkbox" name="theme[]" value="book">Book (including Lord of the Rings)<br>
-                    <input type="checkbox" name="theme[]" value="television">Television (including Star Trek)<br>
-                    <input type="checkbox" name="theme[]" value="geography">Geography<br>
-                    <input type="checkbox" name="theme[]" value="animal">Animal<br>
-                    <input type="checkbox" name="theme[]" value="horror">Horror<br>
-                    <input type="checkbox" name="theme[]" value="caveman">Caveman<br>
-                    <input type="checkbox" name="theme[]" value="archaeology">Archaeology<br>
-                    <input type="checkbox" name="theme[]" value="mobster">Mobster<br>
+                    <?php foreach( $themes as $theme ): ?>
+                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?>><?php echo $theme ?><br>
+                    <?php endforeach; ?>
+                    <br>
                     <p> Preferred gameplay mechanisms:</p>
+
                     <input type="checkbox" name="mechanism[]" value="worker_placement">Worker Placement<br>
                     <input type="checkbox" name="mechanism[]" value="area_control">Area Control<br>
                     <input type="checkbox" name="mechanism[]" value="tile_placement">Tile Placement<br>
