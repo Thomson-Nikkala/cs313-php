@@ -57,12 +57,14 @@ Author: Nikkala Thomson
                 <p>Here you may edit your user profile. Username cannot be changed.</p>
                 <br>
 
-                <form action="edit_profile.php" method="post">
-                    <p>Display Name: <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" size="50" /></p><br>
-                    <p>Email: <input type="text" name="email" value="<?php echo $email_safe;  ?>" size="50" /></p><br>
-                    <input type="submit" value="UPDATE">
-
+                <form action="action_page.php" method="post">
+                    <label for="display_name" class="label_long"><b>Display Name</b></label>
+                    <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
+                    <label for="email" class="label_long"><b>Email</b></label>
+                    <input type="text" name="email" value="<?php echo $email_safe;  ?>" required /><br>
+                    <button type="submit" class="submit_btn">UPDATE</button>
                 </form>
+
 
             </section>
 
