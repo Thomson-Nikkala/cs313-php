@@ -59,6 +59,10 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     echo $gamer_data['display_name'];
                 ?>!</p><br>
 
+                <?php if(isset($_POST['submit'])) {
+    
+                } ?>
+
                 <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
                 <?php
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
