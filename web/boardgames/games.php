@@ -60,7 +60,12 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>!</p><br>
 
                 <?php if(isset($_POST['submit'])) {
-    
+                    $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
+                    $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
+                    $board_game_safe = htmlentities($board_game['name'], ENT_QUOTES, 'UTF-8');
+                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation (work in progress).';
                 } ?>
 
                 <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
