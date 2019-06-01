@@ -31,7 +31,7 @@ input[type=password]:focus {
 }
 
 /* Set a style for the submit button */
-.register_btn {
+.submit_btn {
     background-color: #FCD116;
     color: black;
     font-size: 20px;
@@ -44,7 +44,7 @@ input[type=password]:focus {
     opacity: 0.9;
 }
 
-.register_btn:hover {
+.submit_btn:hover {
     opacity: 1;
 }
 

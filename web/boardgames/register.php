@@ -58,7 +58,7 @@ Author: Nikkala Thomson
                     <label for="password_repeat" class="label_long"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password_repeat" required /><br>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                    <button type="submit" class="register_btn">REGISTER</button>
+                    <button type="submit" class="submit_btn">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>
             </section>
