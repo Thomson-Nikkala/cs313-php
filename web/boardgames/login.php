@@ -55,7 +55,7 @@ Author: Nikkala Thomson
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo $gamer_data['display_name'];
                 ?>. Log in as a different user below.</p><br>
-                
+
                 <form action="action_page.php" method="post">
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required /><br>
@@ -63,18 +63,7 @@ Author: Nikkala Thomson
                     <input type="password" placeholder="Enter Password" name="password" required /><br>
                     <button type="submit" class="submit_btn">LOGIN</button>
                 </form>
-                
-                
-                
-                <form action="login.php" method="post">
-                    <p>Username: <input type="text" name="username" size="50" /></p><br>
-                    <p>Password: <input type="text" name="password" size="50" /></p><br>
-                    <input type="submit" value="LOGIN">
-                </form>
             </section>
-
-
-
         </main>
         <footer>
             <?php include("../modules/footer.php"); ?>
