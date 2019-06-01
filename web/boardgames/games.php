@@ -59,7 +59,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     echo $gamer_data['display_name'];
                 ?>!</p><br>
 
-                <?php echo "here1"; if(isset($_POST['submit'])) {
+                <?php if(isset($_POST['submit'])) {
     echo "here";
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
                     $statement = $db->prepare($query);
@@ -67,7 +67,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                     $board_game_safe = htmlentities($board_game['name'], ENT_QUOTES, 'UTF-8');
                     echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation (work in progress).';
-                } echo "here2";?>
+                } ?>
 
                 <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
                 <?php
@@ -141,7 +141,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <?php endforeach; ?>
                     <br>
 
-                    <p>Get a game recommendation based on the preferences above:<input type="submit" value="GO"></p>
+                    <p>Get a game recommendation based on the preferences above:<input type="submit" name="submit" value="GO"></p>
                 </form>
 
             </section>
