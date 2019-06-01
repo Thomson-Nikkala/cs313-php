@@ -48,17 +48,11 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-                <p> You are logged in as <?php
-                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
-                    $statement = $db->prepare($query);
-                    $statement->execute();   
-                    $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
-                    echo $gamer_data['display_name'];
-                ?>. Log in as a different user below.</p><br>
+                <p> Register for a new account here.</p><br>
                 <form action="login.php" method="post">
                     <p>Username: <input type="text" name="username" size="50" /></p><br>
                     <p>Password: <input type="text" name="password" size="50" /></p><br>
-                    <input type="submit" value="LOGIN">
+                    <input type="submit" value="REGISTER">
                 </form>
             </section>
 
