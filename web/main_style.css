@@ -32,8 +32,9 @@ input[type=password]:focus {
 
 /* Set a style for the submit button */
 .register_btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #FCD116;
+    color: black;
+    font-size: 16px;
     padding: 16px 20px;
     margin: 8px 0;
     border: none;

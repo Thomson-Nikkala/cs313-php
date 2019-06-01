@@ -48,9 +48,7 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-
                 <form action="action_page.php" method="post">
-                    <p>Please fill in this form to create an account.</p>
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required /><br>
                     <label for="display_name"><b>Display Name</b></label>
@@ -59,12 +57,9 @@ Author: Nikkala Thomson
                     <input type="password" placeholder="Enter Password" name="password" required /><br>
                     <label for="password_repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password_repeat" required /><br>
-
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                     <button type="submit" class="register_btn">Register</button>
-                    
-                        <p>Already have an account? <a href="login.php">Log in</a>.</p>
-                   
+                    <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>
             </section>
         </main>
