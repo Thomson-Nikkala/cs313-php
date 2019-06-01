@@ -51,6 +51,8 @@ input[type=password]:focus {
 .label_long {
     width: 300px;
     text-align: left;
+    color: #FCD116;
+    padding-left: 10px;
 }
 
 /****** General Styles *********/
