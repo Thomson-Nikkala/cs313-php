@@ -52,7 +52,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
             </ul>
         </nav>
         <main>
-            <section>
+            <section class="wide-section">
                 <p> Welcome, <?php
                     $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
