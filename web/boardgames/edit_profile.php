@@ -8,7 +8,7 @@ $_SESSION['gamer'] = 1;}
 
 <!DOCTYPE html>
 <!--
-This is the login page for the Board Game Whisperer
+This is the edit user profile page for the Board Game Whisperer
 Author: Nikkala Thomson
 -->
 
@@ -31,15 +31,17 @@ Author: Nikkala Thomson
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li id="active-nav"><a href="login.php">Login<img src="../images/yellow-arrow.png" alt=""></a></li>
-                <li><a href="games.php">Games</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li id="active-nav"><a href="login.php">Edit Profile<img src="../images/yellow-arrow.png" alt=""></a></li>
+                <li><a href="games.php">Get Games</a></li>
             </ul>
         </nav>
         <main>
 
             <div class="flex">
                 <section>
-                    <p>Edit profile--work in progress</p>
+                    <h1>Edit User Profile</h1>
+                   
 
                 </section>
                 <section>

@@ -43,10 +43,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
     </header>
     <div class=center-block>
         <nav>
+            <h1>Get a Game Recommendation</h1>
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li id="active-nav"><a href="games.php">Games<img src="../images/yellow-arrow.png" alt=""></a></li>
+                <li id="active-nav"><a href="games.php">Get Games<img src="../images/yellow-arrow.png" alt=""></a></li>
             </ul>
         </nav>
         <main>
@@ -79,7 +80,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                       $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
                       $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
                       $themes = array('Abstract', 'Old West', 'Espionage', 'Superhero', 'Martial Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science Fiction', 'Empire Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
-                      $mechanisms = array('Worker Placement', 'Area Control', 'Tile Placement', 'Cooperative', 'Deck Building', 'Drafting', 'Engine Building', 'Take That', 'Trick Taking', 'Puzzle', 'Legacy');
+                      $mechanisms = array('Worker Placement', 'Area Control', 'Tile Placement', 'Cooperative', 'Deck Building', 'Drafting', 'Engine Building', 'Take That', 'Trick Taking', 'Puzzle', 'Legacy', 'Set Collection');
                     ?>
 
                     <p>Minimum number of players: <select name="min_players">

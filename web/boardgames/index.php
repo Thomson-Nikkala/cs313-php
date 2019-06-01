@@ -41,7 +41,7 @@ Author: Nikkala Thomson
             <ul>
                 <li id="active-nav"><a href="index.php">Home<img src="../images/yellow-arrow.png" alt=""></a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="games.php">Games</a></li>
+                <li><a href="games.php">Get Games</a></li>
             </ul>
         </nav>
         <main>
