@@ -49,11 +49,11 @@ Author: Nikkala Thomson
 
             <section class="wide-section">
                 <form action="action_page.php" method="post">
-                    <label for="username"><b>Username</b></label>
+                    <label for="username" class="label_long"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required /><br>
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="display_name" required /><br>
-                    <label for="password"><b>Password</b></label>
+                    <label for="password" class="label_long"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required /><br>
                     <label for="password_repeat" class="label_long"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password_repeat" required /><br>
