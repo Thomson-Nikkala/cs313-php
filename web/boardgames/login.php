@@ -39,6 +39,7 @@ Author: Nikkala Thomson
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li id="active-nav"><a href="login.php">Login<img src="../images/yellow-arrow.png" alt=""></a></li>
+                <li><a href="register.php">Register</a></li>
                 <li><a href="edit_profile.php">Profile</a></li>
                 <li><a href="games.php">Get Games</a></li>
             </ul>

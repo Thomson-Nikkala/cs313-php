@@ -51,6 +51,7 @@ Author: Nikkala Thomson
                 <p> Register for a new account here.</p><br>
                 <form action="login.php" method="post">
                     <p>Username: <input type="text" name="username" size="50" /></p><br>
+                    <p>Display Name: <input type="text" name="display_name" size="50" /></p><br>
                     <p>Password: <input type="text" name="password" size="50" /></p><br>
                     <input type="submit" value="REGISTER">
                 </form>

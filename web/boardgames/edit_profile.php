@@ -60,8 +60,8 @@ Author: Nikkala Thomson
                 <form action="edit_profile.php" method="post">
                     <p>Display Name: <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" size="50" /></p><br>
                     <p>Email: <input type="text" name="email" value="<?php echo $email_safe;  ?>" size="50" /></p><br>
-                    <input type="submit" value="Update Profile">
-                    <p>(work in progress)</p>
+                    <input type="submit" value="UPDATE">
+
                 </form>
 
             </section>
