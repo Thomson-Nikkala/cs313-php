@@ -37,17 +37,19 @@ Author: Nikkala Thomson
             </ul>
         </nav>
         <main>
+            <section>
+                <p> Welcome, <?php
+                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
+                    $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
+                    echo $gamer_data['display_name'];
+                ?>!</p><br>
 
-            <div class="flex">
-                <section>
-                    <h1>Edit User Profile</h1>
-                   
 
-                </section>
-                <section>
 
-                </section>
-            </div>
+            </section>
+
 
         </main>
         <footer>
