@@ -19,13 +19,6 @@ This is the Games page for The Board Game Whisperer
 Author: Nikkala Thomson
 -->
 
-<!-- From the Reading, how to access data from a database with SELECT
-$stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
-
 <html lang="en-us">
 
 <head>
@@ -63,6 +56,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                 ?>!</p><br>
                 <p>
                     <?php if(isset($_POST['submit'])) {
+      echo 'here';
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
                     $statement = $db->prepare($query);
                     $statement->execute();   
