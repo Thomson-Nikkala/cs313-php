@@ -34,7 +34,8 @@ input[type=password]:focus {
 .register_btn {
     background-color: #FCD116;
     color: black;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     padding: 16px 20px;
     margin: 8px 0;
     border: none;
@@ -45,6 +46,10 @@ input[type=password]:focus {
 
 .register_btn:hover {
     opacity: 1;
+}
+
+.label_long {
+    width: 200px;
 }
 
 /****** General Styles *********/

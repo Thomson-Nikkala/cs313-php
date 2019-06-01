@@ -51,14 +51,14 @@ Author: Nikkala Thomson
                 <form action="action_page.php" method="post">
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required /><br>
-                    <label for="display_name"><b>Display Name</b></label>
+                    <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="display_name" required /><br>
                     <label for="password"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required /><br>
-                    <label for="password_repeat"><b>Repeat Password</b></label>
+                    <label for="password_repeat" class="label_long"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password_repeat" required /><br>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                    <button type="submit" class="register_btn">Register</button>
+                    <button type="submit" class="register_btn">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>
             </section>

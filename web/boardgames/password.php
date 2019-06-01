@@ -10,3 +10,5 @@ password_verify('the wrong password', $hashedPassword); // false
  
 password_verify('my super cool password', $hashedPassword); // true
 ?>
+
+
