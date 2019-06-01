@@ -77,7 +77,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                       $max_playtimes = array('15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300', '360');
                       $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
                       $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
-                      $themes = array('Abstract', 'Old West', 'Espionage', 'Superhero', 'Martial Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science Fiction', 'Empire Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster');
+                      $themes = array('Abstract', 'Old West', 'Espionage', 'Superhero', 'Martial Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science Fiction', 'Empire Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
                       $mechanisms = array('Worker Placement', 'Area Control', 'Tile Placement', 'Cooperative', 'Deck Building', 'Drafting', 'Engine Building', 'Take That', 'Trick Taking', 'Puzzle', 'Legacy');
                     ?>
 
@@ -123,20 +123,13 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?>><?php echo $theme ?><br>
                     <?php endforeach; ?>
                     <br>
-                    <p> Preferred gameplay mechanisms:</p>
 
-                    <input type="checkbox" name="mechanism[]" value="worker_placement">Worker Placement<br>
-                    <input type="checkbox" name="mechanism[]" value="area_control">Area Control<br>
-                    <input type="checkbox" name="mechanism[]" value="tile_placement">Tile Placement<br>
-                    <input type="checkbox" name="mechanism[]" value="cooperative">Cooperative<br>
-                    <input type="checkbox" name="mechanism[]" value="deck_building">Deck Building<br>
-                    <input type="checkbox" name="mechanism[]" value="drafting">Drafting<br>
-                    <input type="checkbox" name="mechanism[]" value="engine_building">Engine Building<br>
-                    <input type="checkbox" name="mechanism[]" value="take_that">Take That<br>
-                    <input type="checkbox" name="mechanism[]" value="trick_taking">Trick Taking<br>
-                    <input type="checkbox" name="mechanism[]" value="puzzle">Puzzle<br>
-                    <input type="checkbox" name="mechanism[]" value="legacy">Legacy<br>
+                    <p> Preferred gameplay mechanisms:</p>
+                    <?php foreach( $mechanisms as $mechanism ): ?>
+                    <input type="checkbox" name=<?php echo $mechanism ?> value=<?php echo $mechanism ?>><?php echo $mechanism ?><br>
+                    <?php endforeach; ?>
                     <br>
+
                     <p>Get a game recommendation based on the preferences above:<input type="submit" value="GO"></p>
                 </form>
 

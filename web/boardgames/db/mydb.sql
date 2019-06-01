@@ -55,7 +55,7 @@ CREATE TABLE public.board_game (
 -- sample input statement for the board_game table
 
 INSERT INTO board_game (name, designer, description, image_url, properties)
-VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://cf.geekdo-images.com/itemrep/img/ql-0-t271LVGqbmWA1gdkIH7WvM=/fit-in/246x300/pic3718275.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45, "themes":["art", "renaissance"], "weight":1.8, "mechanisms":[ "Card Drafting", "Pattern Building", "Set Collection", "Tile Placement"]}' );
+VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://cf.geekdo-images.com/itemrep/img/ql-0-t271LVGqbmWA1gdkIH7WvM=/fit-in/246x300/pic3718275.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45, "themes":["Art", "Renaissance"], "weight":1.8, "mechanisms":[ "Card Drafting", "Pattern Building", "Set Collection", "Tile Placement"]}' );
     
 CREATE TABLE public.preference (
     preference      SERIAL      NOT NULL PRIMARY KEY,
@@ -67,7 +67,7 @@ CREATE TABLE public.preference (
 -- sample input statement for the preference table
 
 INSERT INTO preference(gamer, preferences)
-VALUES (1, '{ "min_players":3, "max_players":8, "min_playtime":30, "max_playtime":60, "themes":["fantasy", "science fiction", "art"], "min_weight":1.0, "max_weight":2.5, "mechanisms":[ "Card Drafting", "Deck Building", "Set Collection", "Tile Placement"]}');
+VALUES (1, '{ "min_players":3, "max_players":8, "min_playtime":30, "max_playtime":60, "themes":["Fantasy", "Science Fiction", "Art"], "min_weight":1.0, "max_weight":2.5, "mechanisms":[ "Card Drafting", "Deck Building", "Set Collection", "Tile Placement"]}');
 
 CREATE TABLE public.recommendation (
     gamer             INTEGER NOT NULL,
