@@ -46,6 +46,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
+                <li><a href="edit_profile.php">Profile</a></li>
                 <li id="active-nav"><a href="games.php">Games<img src="../images/yellow-arrow.png" alt=""></a></li>
             </ul>
         </nav>
