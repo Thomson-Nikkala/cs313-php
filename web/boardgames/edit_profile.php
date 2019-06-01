@@ -54,6 +54,7 @@ Author: Nikkala Thomson
                     $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
                     $email_safe = htmlentities($gamer_data['email'], ENT_QUOTES, 'UTF-8');
                 ?>
+                <br>
                 <p>Here you may edit your user profile. Username cannot be changed.</p>
                 <br>
 
