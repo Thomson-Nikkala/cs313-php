@@ -144,7 +144,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  -->
                     <?php endforeach; ?>
                     <br>
 
-                    <p>Get a game recommendation based on the preferences above:<input type="submit" name="submit" value="GO"></p>
+                    <p>Get a game recommendation based on the preferences above:</p><br>
+                    <button type="submit" class="submit_btn">GO</button>
                 </form>
 
             </section>
