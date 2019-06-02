@@ -58,7 +58,7 @@ Author: Nikkala Thomson
                     <input type="email" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="r_password" required /><br>
-                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <p>By creating an account you agree to our <a href="#">Terms and Privacy</a>.</p>
                     <button type="submit" class="submit_btn">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>

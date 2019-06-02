@@ -25,8 +25,7 @@ CREATE TABLE public.gamer (
     username VARCHAR(100) NOT NULL UNIQUE,
 	display_name    VARCHAR(100) NOT NULL,
 	email           VARCHAR(50) NOT NULL,
-	password_salt   INT,
-	password_hashed TEXT,
+	hashed_password TEXT NOT NULL,
     created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	modified_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -40,8 +39,8 @@ EXECUTE PROCEDURE trigger_timestamp();
 
 -- Sample input statement for the user table.  Password hashing and salting will be added later.
 
-INSERT INTO gamer (username, display_name, email)
-VALUES ('Guest', 'Guest', 'guest@gmail.com');
+INSERT INTO gamer (username, display_name, email, hashed_password)
+VALUES ('Guest', 'Guest', 'guest@gmail.com', 'gobbledygook');
 
 CREATE TABLE public.board_game (
     board_game          SERIAL NOT NULL PRIMARY KEY,
@@ -67,7 +66,7 @@ CREATE TABLE public.preference (
 -- sample input statement for the preference table
 
 INSERT INTO preference(gamer, preferences)
-VALUES (1, '{ "min_players":3, "max_players":8, "min_playtime":30, "max_playtime":60, "themes":["Fantasy", "Science Fiction", "Art"], "min_weight":1.0, "max_weight":2.5, "mechanisms":[ "Card Drafting", "Deck Building", "Set Collection", "Tile Placement"]}');
+VALUES (1, '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}');
 
 CREATE TABLE public.recommendation (
     gamer             INTEGER NOT NULL,

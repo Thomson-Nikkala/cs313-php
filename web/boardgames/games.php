@@ -62,6 +62,12 @@ Author: Nikkala Thomson
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                     $board_game_safe = htmlentities($board_game['name'], ENT_QUOTES, 'UTF-8');
                     echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
+    
+                // Save and update gamer preferences
+                   
+    
+    
+    
                     } ?>
                 </p>
                 <br>

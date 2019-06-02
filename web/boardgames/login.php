@@ -59,9 +59,9 @@ Author: Nikkala Thomson
 
                 <form action="action_page.php" method="post">
                     <label for="username" class="label_long"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required /><br>
+                    <input type="text" placeholder="Enter Username" name="l_username" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required /><br>
+                    <input type="password" placeholder="Enter Password" name="l_password" required /><br>
                     <button type="submit" class="submit_btn">LOGIN</button>
                 </form>
             </section>
