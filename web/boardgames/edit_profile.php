@@ -30,7 +30,7 @@ Author: Nikkala Thomson
     <header>
         <div id="header-band"></div>
         <div id="header-text" class="center-block">
-            <h1>Edit Profile</h1>
+            <h1>Edit User Profile</h1>
         </div>
     </header>
     <div class=center-block>
