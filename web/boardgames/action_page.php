@@ -27,7 +27,7 @@ if (isset($_POST['r_username'])){
 }
 
 // If profile update submitted
-if (isset(@_POST['u_display_name'])){
+if (isset($_POST['u_display_name'])){
     
 }
 
