@@ -5,10 +5,10 @@
 
 DROP TABLE public.recommendation;
 -- recommendation depends on gamer and board_game
-DROP TABLE public.board_game;
+DROP TABLE public.board_game CASCADE;
 DROP TABLE public.preference;
--- preference depends on gamer;
-DROP TABLE public.gamer;
+-- preference depends on gamer
+DROP TABLE public.gamer CASCADE;
 
 -- Create function to trigger user time stamp update (Source code: https://x-team.com/blog/automatic-timestamps-with-postgresql/)
 
