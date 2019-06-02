@@ -53,6 +53,6 @@ if (isset($_POST['l_username'])){
 }
 
 // Redirect to games page
-// header("Location: games.php");
-// exit();
+ header("Location: games.php");
+ exit();
 ?>
