@@ -25,7 +25,7 @@ if (isset($_POST['r_username'])){
     $statement->bindValue(':email', $email, PDO::PARAM_STR);
     $statement->bindValue(':password', $password, PDO::PARAM_STR);
     $statement->execute();
-    $_SESSION['gamer'] = $db->lastInsertId('gamer');
+    $_SESSION['gamer'] = $db->lastInsertId();
     
 }
 
