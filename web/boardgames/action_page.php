@@ -70,7 +70,7 @@ else if (isset($_POST['p_display_name'])){
         header("Location: login.php");
         exit();
         } else {
-            $hashed_password = $gamer_info['hashed_password']
+            $hashed_password = $gamer_info['hashed_password'];
             if(password_verify($password, $hashed_password)){
             // Password is correct, so start a new session
             session_start();
