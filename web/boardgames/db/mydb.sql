@@ -41,7 +41,7 @@ EXECUTE PROCEDURE trigger_timestamp();
 -- Sample input statement for the user table.  Password hashing and salting will be added later.
 
 INSERT INTO gamer (username, display_name, email)
-VALUES ('Nikkala', 'Princess Leia', 'nikkalabiz@gmail.com');
+VALUES ('Guest', 'Guest', 'guest@gmail.com');
 
 CREATE TABLE public.board_game (
     board_game          SERIAL NOT NULL PRIMARY KEY,
