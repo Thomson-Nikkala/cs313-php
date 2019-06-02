@@ -36,6 +36,7 @@ if (isset($_POST['p_display_name'])){
    $old_password = htmlspecialchars($_POST['p_old_password']);
     $new_password = htmlspecialchars($_POST['p_new_password']);
     $gamer = $_SESSION['gamer'];
+    echo 'here';
     echo $gamer;
     echo gettype($gamer);
     
