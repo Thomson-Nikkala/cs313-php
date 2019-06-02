@@ -62,7 +62,7 @@ Author: Nikkala Thomson
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
-                    <input type="email" name="email" value="<?php echo $email_safe;  ?>" required /><br>
+                    <input type="text" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" value="<?php echo $email_safe;  ?>" required /><br>
                     <label for="old_password" class="label_long"><b>Old Password</b></label>
                     <input type="password" placeholder="Enter Old Password" name="old_password" required /><br>
                     <label for="new_password" class="label_long"><b>New Password</b></label>
