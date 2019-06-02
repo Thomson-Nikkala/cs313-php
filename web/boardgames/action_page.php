@@ -36,12 +36,14 @@ if (isset($_POST['p_display_name'])){
    $old_password = htmlspecialchars($_POST['p_old_password']);
     $new_password = htmlspecialchars($_POST['p_new_password']);
     $gamer = $_SESSION['gamer'];
+    echo $gamer;
+    echo gettype($gamer);
     
-    $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, password_hashed = :password WHERE gamer=$gamer; ');
-    $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
-    $statement->bindValue(':email', $email, PDO::PARAM_STR);
-    $statement->bindValue(':password', $new_password, PDO::PARAM_STR);
-    $statement->execute();   
+  //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, password_hashed = :password WHERE gamer=$gamer; ');
+ //   $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+  //  $statement->bindValue(':email', $email, PDO::PARAM_STR);
+  //  $statement->bindValue(':password', $new_password, PDO::PARAM_STR);
+   // $statement->execute();   
 }
 
 // If login submitted
@@ -50,6 +52,6 @@ if (isset($_POST['l_username'])){
 }
 
 // Redirect to games page
-header("Location: games.php");
-exit();
+// header("Location: games.php");
+// exit();
 ?>
