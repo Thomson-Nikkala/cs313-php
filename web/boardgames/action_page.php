@@ -14,15 +14,15 @@ error_reporting(E_ALL);
 
 // If registration submitted
 if (isset($_POST['r_username'])){
-   $username = $_POST['r_username'];
-   $display_name = $_POST['r_display_name'];    
-    $email = $_POST['r_email'];
-    $password = $_POST['r_password'];
+   $username = htmlspecialchars($_POST['r_username']);
+   $display_name = htmlspecialchars($_POST['r_display_name']);    
+   $email = htmlspecialchars($_POST['r_email']);
+   $password = htmlspecialchars($_POST['r_password']);
     
     
     
     
-    $sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
+    //$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
 }
 
 // If profile update submitted
@@ -36,6 +36,6 @@ if (isset($_POST['l_username'])){
 }
 
 // Redirect to games page
-header("Location: games.php");
-exit();
+//header("Location: games.php");
+//exit();
 ?>
