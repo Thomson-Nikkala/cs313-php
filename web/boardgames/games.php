@@ -139,7 +139,7 @@ Author: Nikkala Thomson
                     <br>
 
                     <p>Get a game recommendation based on the preferences above:</p><br>
-                    <input type="button" value="GO" class="submit_btn">
+                    <button type="submit" class="submit_btn">GET RECOMMENDATION</button>
                 </form>
 
             </section>
