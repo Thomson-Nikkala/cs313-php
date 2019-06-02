@@ -55,11 +55,9 @@ Author: Nikkala Thomson
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
-                    <input type="text" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Enter Email" required /><br>
+                    <input type="text" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="r_password" required /><br>
-                    <label for="password_repeat" class="label_long"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="r_password_repeat" required /><br>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                     <button type="submit" class="submit_btn">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>

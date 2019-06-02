@@ -14,7 +14,15 @@ error_reporting(E_ALL);
 
 // If registration submitted
 if (isset($_POST['r_username'])){
+   $username = $_POST['r_username'];
+   $display_name = $_POST['r_display_name'];    
+    $email = $_POST['r_email'];
+    $password = $_POST['r_password'];
     
+    
+    
+    
+    $sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
 }
 
 // If profile update submitted
