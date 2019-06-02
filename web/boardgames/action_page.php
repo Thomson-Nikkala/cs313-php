@@ -14,10 +14,15 @@ error_reporting(E_ALL);
 
 // If registration submitted
 if (isset($_POST['r_username'])){
+    
+    echo 'here';
+    
    $username = htmlspecialchars($_POST['r_username']);
    $display_name = htmlspecialchars($_POST['r_display_name']);    
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
+    
+    echo 'here2';
     
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, password_hashed) VALUES (:username, :display_name, :email, :password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -28,12 +33,14 @@ if (isset($_POST['r_username'])){
     $_SESSION['gamer'] = $db->lastInsertId();
     $gamer = $_SESSION['gamer'];
     
-     $statement = $db->prepare(INSERT INTO preference(gamer, preferences) 
-                               VALUES (:gamer, :preferences);
+    echo 'here3';
+    
+     $statement2 = $db->prepare('INSERT INTO preference(gamer, preferences) 
+                               VALUES (:gamer, :preferences);');
     $preferences = '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}';
-    $statement->bindValue(':gamer', $gamer, PDO::PARAM_INT);
-    $statement->bindValue(':preferences', $preferences, PDO::PARAM_STR);
-    $statement->execute();
+    $statement2->bindValue(':gamer', $gamer, PDO::PARAM_INT);
+    $statement2->bindValue(':preferences', $preferences, PDO::PARAM_STR);
+    $statement2->execute();
 }
 
 // If profile update submitted
@@ -60,6 +67,6 @@ if (isset($_POST['l_username'])){
 }
 
 // Redirect to games page
- header("Location: games.php");
- exit();
+// header("Location: games.php");
+// exit();
 ?>
