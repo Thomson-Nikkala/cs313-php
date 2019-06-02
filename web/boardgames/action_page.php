@@ -12,6 +12,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// If registration submitted
+if (isset($_POST['r_username'])){
+    
+}
+
+// If profile update submitted
+if (isset(@_POST['u_display_name'])){
+    
+}
+
+// If login submitted
+if (isset($_POST['l_username'])){
+    
+}
+
+// Redirect to games page
 header("Location: games.php");
 exit();
 ?>
