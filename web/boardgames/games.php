@@ -72,16 +72,10 @@ Author: Nikkala Thomson
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
-                if (is_null($player_prefs)) {
-                    $player_prefs_json = json_decode('{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15 "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}');
-                    $player_themes = [];
-                    $player_mechanisms = [];
-                } else {
                  $player_preferences = $player_prefs['preferences'];   // this ends up as a string
                  $player_prefs_json = json_decode($player_preferences);  // coerce to json object
                  $player_themes = $player_prefs_json->themes;
                  $player_mechanisms = $player_prefs_json->mechanisms;
-                }
                 ?>
                 <form action="" method="post">
                     <?php 

@@ -59,7 +59,7 @@ VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls 
     
 CREATE TABLE public.preference (
     preference      SERIAL      NOT NULL PRIMARY KEY,
-	gamer  INTEGER,
+	gamer  INTEGER UNIQUE,
     FOREIGN KEY (gamer) REFERENCES gamer(gamer),
     preferences json
 );

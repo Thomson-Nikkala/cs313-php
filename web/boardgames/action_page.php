@@ -26,7 +26,14 @@ if (isset($_POST['r_username'])){
     $statement->bindValue(':password', $password, PDO::PARAM_STR);
     $statement->execute();
     $_SESSION['gamer'] = $db->lastInsertId();
+    $gamer = $_SESSION['gamer'];
     
+     $statement = $db->prepare(INSERT INTO preference(gamer, preferences) 
+                               VALUES (:gamer, :preferences);
+    $preferences = '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}';
+    $statement->bindValue(':gamer', $gamer, PDO::PARAM_INT);
+    $statement->bindValue(':preferences', $preferences, PDO::PARAM_STR);
+    $statement->execute();
 }
 
 // If profile update submitted
