@@ -60,15 +60,13 @@ Author: Nikkala Thomson
 
                 <form action="action_page.php" method="post">
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
-                    <input type="text" name="display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
+                    <input type="text" name="p_display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
-                    <input type="email" name="email" value="<?php echo $email_safe;  ?>" required /><br>
+                    <input type="email" name="p_email" value="<?php echo $email_safe;  ?>" required /><br>
                     <label for="old_password" class="label_long"><b>Old Password</b></label>
-                    <input type="password" placeholder="Enter Old Password" name="old_password" required /><br>
+                    <input type="password" placeholder="Enter Old Password" name="p_old_password" required /><br>
                     <label for="new_password" class="label_long"><b>New Password</b></label>
-                    <input type="password" placeholder="Enter New Password (optional)" name="new_password" /><br>
-                    <label for="new_password_repeat" class="label_long"><b>Repeat New Password</b></label>
-                    <input type="password" placeholder="Enter New Password (optional)" name="new_password_repeat" /><br>
+                    <input type="password" placeholder="Enter New Password (optional)" name="p_new_password" /><br>
                     <button type="submit" class="submit_btn">UPDATE</button>
                 </form>
 
