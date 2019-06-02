@@ -19,9 +19,10 @@ if (isset($_POST['r_username'])){
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
     
-    
-    
-    
+  echo "$username\n";
+   echo "$display_name\n"; 
+   echo "$email\n"; 
+    echo "$password\n";
     //$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
 }
 
