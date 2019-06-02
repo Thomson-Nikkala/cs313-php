@@ -54,7 +54,7 @@ Author: Nikkala Thomson
                     $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
                     echo $display_name_safe;
                 ?>!</p><br>
-                <p> <?php echo 'here2'; ?>
+                <p>
                     <?php if(isset($_POST['submit'])) {
       echo 'here';
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
@@ -77,7 +77,7 @@ Author: Nikkala Thomson
                  $player_themes = $player_prefs_json->themes;
                  $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
-                <form action="games.php" method="post">
+                <form action="" method="post">
                     <?php 
                       $min_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
