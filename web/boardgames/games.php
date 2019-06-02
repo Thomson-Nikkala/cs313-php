@@ -54,7 +54,7 @@ Author: Nikkala Thomson
                     $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
                     echo $display_name_safe;
                 ?>!</p><br>
-                <p>
+                <p> <?php echo 'here2'; ?>
                     <?php if(isset($_POST['submit'])) {
       echo 'here';
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
