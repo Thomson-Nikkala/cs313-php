@@ -19,11 +19,14 @@ if (isset($_POST['r_username'])){
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
     
-  echo "$username\n";
-   echo "$display_name\n"; 
-   echo "$email\n"; 
-    echo "$password\n";
-    //$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
+    $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, password_hashed) VALUES (:username, :display_name, :email, :password);');
+    $statement->bindValue(':username', $username, PDO::PARAM_STR);
+    $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+    $statement->bindValue(':email', $email, PDO::PARAM_STR);
+    $statement->bindValue(':password_hashed', $password, PDO::PARAM_STR);
+    $statement->execute();
+    $_SESSION['gamer'] = $this->pdo->lastInsertId('gamer');
+    
 }
 
 // If profile update submitted
@@ -37,6 +40,6 @@ if (isset($_POST['l_username'])){
 }
 
 // Redirect to games page
-//header("Location: games.php");
-//exit();
+header("Location: games.php");
+exit();
 ?>
