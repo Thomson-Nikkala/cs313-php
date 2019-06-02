@@ -19,13 +19,13 @@ if (isset($_POST['r_username'])){
    $display_name = htmlspecialchars($_POST['r_display_name']);    
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
-    $hashed_password = password_hash($password);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
-    $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :password);');
+    $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
     $statement->bindValue(':email', $email, PDO::PARAM_STR);
-    $statement->bindValue(':password', $hashed_password, PDO::PARAM_STR);
+    $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
     $statement->execute();
     $_SESSION['gamer'] = $db->lastInsertId();
     $gamer = $_SESSION['gamer'];
