@@ -55,7 +55,7 @@ Author: Nikkala Thomson
                     echo $display_name_safe;
                 ?>!</p><br>
                 <p>
-                    <?php if(isset($_POST['submit']) && !empty($_POST['submit']))) {
+                    <?php if(isset($_POST['submit']) && !empty($_POST['submit'])) {
       echo 'here';
                     $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
                     $statement = $db->prepare($query);
