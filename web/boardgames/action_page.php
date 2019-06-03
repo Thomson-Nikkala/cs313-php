@@ -78,8 +78,7 @@ else if (isset($_POST['p_display_name'])){
         $statement->bindValue(':username', $username, PDO::PARAM_STR);
         $statement->execute();
         $gamer_info = $statement->fetchAll();
-        print_r($gamer_info);
-        echo $gamer_info[3];
+        echo $gamer_info[0]['username'];
                 
 // Check if username exists, if yes then verify password
         if (empty($gamer_info['username'])) {
