@@ -36,6 +36,10 @@ if (isset($_POST['r_username'])){
     $statement2->bindValue(':gamer', $gamer, PDO::PARAM_INT);
     $statement2->bindValue(':preferences', $preferences, PDO::PARAM_STR);
     $statement2->execute();
+    
+     // Redirect to games page
+ header("Location: games.php");
+ exit();
 }
 
 // If profile update submitted
@@ -44,16 +48,22 @@ else if (isset($_POST['p_display_name'])){
    $email = htmlspecialchars($_POST['p_email']);
    $old_password = htmlspecialchars($_POST['p_old_password']);
     $new_password = htmlspecialchars($_POST['p_new_password']);
+    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     $gamer = $_SESSION['gamer'];
     echo 'here';
     echo $gamer;
     echo gettype($gamer);
     
-  //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :password WHERE gamer=$gamer; ');
- //   $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
-  //  $statement->bindValue(':email', $email, PDO::PARAM_STR);
-  //  $statement->bindValue(':password', $new_password, PDO::PARAM_STR);
-   // $statement->execute();   
+   // $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :password WHERE gamer=$gamer; ');
+  //  $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+   // $statement->bindValue(':email', $email, PDO::PARAM_STR);
+   // $statement->bindValue(':password', $hashed_password, PDO::PARAM_STR);
+   // $statement->execute(); 
+    
+    // Redirect to games page
+ //header("Location: games.php");
+ //exit();    
+
 }
 
 // If login submitted
@@ -67,6 +77,8 @@ else if (isset($_POST['p_display_name'])){
 // Check if username exists, if yes then verify password
         if (empty($gamer_info['username'])) {
             // Redirect to login page
+            
+            
         header("Location: login.php");
         exit();
         } else {
@@ -78,10 +90,11 @@ else if (isset($_POST['p_display_name'])){
             $_SESSION["gamer"] = $gamer_info['gamer'];
             }
         }
-    }
-                
-            
-// Redirect to games page
+        
+        // Redirect to games page
  header("Location: games.php");
  exit();
+    }
+                
+
 ?>
