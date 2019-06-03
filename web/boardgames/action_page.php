@@ -89,17 +89,13 @@ else if (isset($_POST['p_display_name'])){
         } else {
             $hashed_password = $gamer_info[0]['hashed_password'];
             if(password_verify($password, $hashed_password)){
-            // Password is correct, so start a new session
-            session_start();
-            // Store data in session variables
+            // Update session variables
             $_SESSION["gamer"] = $gamer_info[0]['gamer'];
+            // Redirect to games page
+            header("Location: games.php");
+            exit();
             }
-        }
-        
-        // Redirect to games page
- //header("Location: games.php");
- //exit();
+        }   
     }
                 
-
 ?>
