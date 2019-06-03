@@ -112,7 +112,6 @@ else if (isset($_POST['p_display_name'])){
             else $themes = [];
         if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
             else $mechanisms = [];
-         print_r($mechanisms);
         $gamer = (int)$_SESSION['gamer'];
      
 
@@ -124,8 +123,8 @@ else if (isset($_POST['p_display_name'])){
         
         
         // Redirect to games page
-          //  header("Location: games.php");
-         //   exit(); 
+          header("Location: games.php");
+    exit(); 
     }
                 
 ?>
