@@ -67,7 +67,6 @@ else if (isset($_POST['p_display_name'])){
 // If login submitted
     else if (isset($_POST['l_username'])){
         $username = htmlspecialchars($_POST['l_username']); 
-        echo $username;
         $password = htmlspecialchars($_POST['l_password']);
         $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
         $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -89,7 +88,11 @@ else if (isset($_POST['p_display_name'])){
             // Redirect to games page
             header("Location: games.php");
             exit();
+            } else {
+                echo 'wrong password--needs error message and redirect here';
+                    
             }
+            
         }   
     }
                 
