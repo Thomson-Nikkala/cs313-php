@@ -95,8 +95,8 @@ else if (isset($_POST['p_display_name'])){
         }
         
         // Redirect to games page
- header("Location: games.php");
- exit();
+ //header("Location: games.php");
+ //exit();
     }
                 
 
