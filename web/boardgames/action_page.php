@@ -47,25 +47,23 @@ else if (isset($_POST['p_display_name'])){
    $display_name = htmlspecialchars($_POST['p_display_name']);    
    $email = htmlspecialchars($_POST['p_email']);
    $old_password = htmlspecialchars($_POST['p_old_password']);
-    $new_password = htmlspecialchars($_POST['p_new_password']);
+   $new_password = htmlspecialchars($_POST['p_new_password']);
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     $gamer = (int)$_SESSION['gamer'];
 
-
     $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :password WHERE gamer=:gamer; ');
+    
+    echo "here";
     
     $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
     $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
    $statement->bindValue(':email', $email, PDO::PARAM_STR);
    $statement->bindValue(':password', $hashed_password, PDO::PARAM_STR);
-    
-     echo 'here';
-    
    $statement->execute(); 
     
    //Redirect to games page
-    header("Location: games.php");
-    exit();    
+   // header("Location: games.php");
+  //  exit();    
 
 }
 
