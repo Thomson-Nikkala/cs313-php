@@ -90,6 +90,9 @@ else if (isset($_POST['p_display_name'])){
             exit();
             } else {
                 echo 'wrong password--needs error message and redirect here';
+              // Redirect to login page
+            header("Location: login.php");
+            exit();  
                     
             }
             
