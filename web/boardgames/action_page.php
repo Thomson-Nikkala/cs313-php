@@ -44,10 +44,10 @@ if (isset($_POST['r_username'])){
 
 // If profile update submitted
 else if (isset($_POST['p_display_name'])){
-   $display_name = htmlspecialchars($_POST['p_display_name']);    
-   $email = htmlspecialchars($_POST['p_email']);
-   $old_password = htmlspecialchars($_POST['p_old_password']);
-   $new_password = htmlspecialchars($_POST['p_new_password']);
+    $display_name = htmlspecialchars($_POST['p_display_name']);    
+    $email = htmlspecialchars($_POST['p_email']);
+    $old_password = htmlspecialchars($_POST['p_old_password']);
+    $new_password = htmlspecialchars($_POST['p_new_password']);
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     $gamer = (int)$_SESSION['gamer'];
 
@@ -98,11 +98,24 @@ else if (isset($_POST['p_display_name'])){
             
         }   
         
-    // if new preferences submitted    
-    } else if (isset($_POST['from_prefs'])) {
+    // if preferences submitted    
+    } else if (isset($_POST['go'])) {
+        
+        $min_players = htmlspecialchars($_POST['min_players']);    
+      
+        $gamer = (int)$_SESSION['gamer'];
+         echo $min_players . " " . $gamer;
+
+      //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer=:gamer; ');
+    
+      //  $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
+  
+      //  $statement->execute(); 
+        
+        
         // Redirect to games page
-            header("Location: games.php");
-            exit(); 
+        //    header("Location: games.php");
+        //    exit(); 
     }
                 
 ?>
