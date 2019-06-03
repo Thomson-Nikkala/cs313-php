@@ -64,9 +64,6 @@ Author: Nikkala Thomson
                     echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
     
                 // Save and update gamer preferences
-                   
-    
-    
     
                     } ?>
                 </p>
