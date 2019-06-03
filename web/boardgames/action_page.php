@@ -71,11 +71,12 @@ else if (isset($_POST['p_display_name'])){
 
 // If login submitted
     else if (isset($_POST['l_username'])){
-    $username = htmlspecialchars($_POST['l_username']);    
-    $password = htmlspecialchars($_POST['l_password']);
-    $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
-    $statement->bindValue(':username', $username, PDO::PARAM_STR);
-    $gamer_info = $statement->execute();           
+        $username = htmlspecialchars($_POST['l_username']); 
+        echo $username;
+        $password = htmlspecialchars($_POST['l_password']);
+        $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
+        $statement->bindValue(':username', $username, PDO::PARAM_STR);
+        $gamer_info = $statement->execute();           
                 
 // Check if username exists, if yes then verify password
         if (empty($gamer_info['username'])) {
