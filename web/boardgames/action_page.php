@@ -80,10 +80,9 @@ else if (isset($_POST['p_display_name'])){
 // Check if username exists, if yes then verify password
         if (empty($gamer_info['username'])) {
             // Redirect to login page
-            
-            
-        header("Location: login.php");
-        exit();
+            echo "no gamer";
+       //header("Location: login.php");
+       // exit();
         } else {
             $hashed_password = $gamer_info['hashed_password'];
             if(password_verify($password, $hashed_password)){
