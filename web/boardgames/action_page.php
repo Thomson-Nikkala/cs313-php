@@ -108,11 +108,14 @@ else if (isset($_POST['p_display_name'])){
         $min_weight = ($_POST['min_weight']);
         $max_weight = ($_POST['max_weight']);
         // These two should be arrays
-        $themes = ($_POST['themes']);
-        $mechanisms = ($_POST['mechanisms']);
-        
+        if (isset($_POST['themes'] {
+            $themes = ($_POST['themes']);
+        } else $themes = [];
+            if (isset($_POST['mechanisms'])) {
+            $mechanisms = ($_POST['mechanisms']);
+        } else $mechamisms = [];
         print_r($themes);
-            print_r($mechanisms);
+        print_r($mechanisms);
         
         $gamer = (int)$_SESSION['gamer'];
      
