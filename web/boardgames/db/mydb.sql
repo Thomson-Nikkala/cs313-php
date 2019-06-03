@@ -5,10 +5,10 @@
 
 DROP TABLE public.recommendation;
 -- recommendation depends on gamer and board_game
-DROP TABLE public.board_game CASCADE;
+DROP TABLE public.board_game;
 DROP TABLE public.preference;
 -- preference depends on gamer
-DROP TABLE public.gamer CASCADE;
+DROP TABLE public.gamer;
 
 -- Create function to trigger user time stamp update (Source code: https://x-team.com/blog/automatic-timestamps-with-postgresql/)
 
@@ -27,7 +27,7 @@ CREATE TABLE public.gamer (
 	email           VARCHAR(50) NOT NULL,
 	hashed_password TEXT NOT NULL,
     created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-	modified_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
+	updated_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 -- create trigger for timestamp modification
