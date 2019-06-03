@@ -97,6 +97,12 @@ else if (isset($_POST['p_display_name'])){
             }
             
         }   
+        
+    // if new preferences submitted    
+    } else if (isset($_POST['from_prefs'])) {
+        // Redirect to games page
+            header("Location: games.php");
+            exit(); 
     }
                 
 ?>

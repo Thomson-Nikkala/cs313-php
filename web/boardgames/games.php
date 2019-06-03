@@ -80,7 +80,7 @@ Author: Nikkala Thomson
                  $player_themes = $player_prefs_json->themes;
                  $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
-                <form action="" method="post">
+                <form action="action_page.php" method="post">
                     <?php 
                       $min_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
@@ -91,7 +91,7 @@ Author: Nikkala Thomson
                       $themes = array('Abstract', 'Old West', 'Espionage', 'Superhero', 'Martial Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science Fiction', 'Empire Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
                       $mechanisms = array('Worker Placement', 'Area Control', 'Tile Placement', 'Cooperative', 'Deck Building', 'Drafting', 'Engine Building', 'Take That', 'Trick Taking', 'Puzzle', 'Legacy', 'Set Collection');
                     ?>
-
+                    <input id="from_prefs" name="from_prefs" type="hidden" value="Preferences Submitted">
                     <p>Minimum number of players: <select name="min_players">
                             <?php foreach( $min_players as $min_player ): ?>
                             <option value="<?php echo $min_player ?>" <?php if( $min_player == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
