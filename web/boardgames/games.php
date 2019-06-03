@@ -116,13 +116,13 @@ Author: Nikkala Thomson
                             <?php endforeach; ?>
                         </select></p>
 
-                    <p>Minimum game weight (complexity) on a 1.0 to 5.0 scale: <select name="min_playtime">
+                    <p>Minimum game weight (complexity) on a 1.0 to 5.0 scale: <select name="min_weight">
                             <?php foreach( $min_weights as $min_weight ): ?>
                             <option value="<?php echo $min_weight ?>" <?php if( $min_weight == ($player_prefs_json->min_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $min_weight ?></option>
                             <?php endforeach; ?>
                         </select></p>
 
-                    <p>Maximum game weight (complexity) on a 1.0 to 5.0 scale: <select name="max_playtime">
+                    <p>Maximum game weight (complexity) on a 1.0 to 5.0 scale: <select name="max_weight">
                             <?php foreach( $max_weights as $max_weight ): ?>
                             <option value="<?php echo $max_weight ?>" <?php if( $max_weight == ($player_prefs_json->max_weight) ): ?> selected="selected" <?php endif; ?>><?php echo $max_weight ?></option>
                             <?php endforeach; ?>
