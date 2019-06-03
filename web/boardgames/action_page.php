@@ -104,7 +104,7 @@ else if (isset($_POST['p_display_name'])){
         $min_players = htmlspecialchars($_POST['min_players']);    
       
         $gamer = (int)$_SESSION['gamer'];
-         echo $min_players . " " . $gamer;
+     
 
       //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer=:gamer; ');
     
@@ -114,8 +114,8 @@ else if (isset($_POST['p_display_name'])){
         
         
         // Redirect to games page
-        //    header("Location: games.php");
-        //    exit(); 
+            header("Location: games.php");
+            exit(); 
     }
                 
 ?>
