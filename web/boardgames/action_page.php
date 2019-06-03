@@ -111,10 +111,8 @@ else if (isset($_POST['p_display_name'])){
         if (isset($_POST['themes'])) $themes = ($_POST['themes']);
             else $themes = [];
         if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
-            else $mechamisms = [];
-        print_r($themes);
-        print_r($mechanisms);
-        
+            else $mechanisms = [];
+         print_r($mechanisms);
         $gamer = (int)$_SESSION['gamer'];
      
 
