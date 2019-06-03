@@ -109,10 +109,10 @@ else if (isset($_POST['p_display_name'])){
         $max_weight = ($_POST['max_weight']);
         // These two should be arrays
         if (isset($_POST['themes'] {
-            $themes = ($_POST['themes']);
+            $themes = ($_POST['themes'])
         } else $themes = [];
             if (isset($_POST['mechanisms'])) {
-            $mechanisms = ($_POST['mechanisms']);
+            $mechanisms = ($_POST['mechanisms'])
         } else $mechamisms = [];
         print_r($themes);
         print_r($mechanisms);
