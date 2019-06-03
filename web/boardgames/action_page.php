@@ -54,16 +54,16 @@ else if (isset($_POST['p_display_name'])){
     echo $gamer;
     echo gettype($gamer);
     
-   // $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :password WHERE gamer=$gamer; ');
+    $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :password WHERE gamer=$gamer; ');
     
-  //  $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
-   // $statement->bindValue(':email', $email, PDO::PARAM_STR);
-   // $statement->bindValue(':password', $hashed_password, PDO::PARAM_STR);
-   // $statement->execute(); 
+    $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+   $statement->bindValue(':email', $email, PDO::PARAM_STR);
+   $statement->bindValue(':password', $hashed_password, PDO::PARAM_STR);
+   $statement->execute(); 
     
-    // Redirect to games page
- //header("Location: games.php");
- //exit();    
+   //Redirect to games page
+    header("Location: games.php");
+    exit();    
 
 }
 
