@@ -78,21 +78,21 @@ else if (isset($_POST['p_display_name'])){
         $statement->bindValue(':username', $username, PDO::PARAM_STR);
         $statement->execute();
         $gamer_info = $statement->fetchAll();
-        echo $gamer_info[0]['username'];
+        $gamer_name = $gamer_info[0]['username'];
                 
 // Check if username exists, if yes then verify password
-        if (empty($gamer_info['username'])) {
+        if (empty($gamer_name)) {
             // Redirect to login page
             echo "no gamer";
-       //header("Location: login.php");
-       // exit();
+            header("Location: login.php");
+            exit();
         } else {
             $hashed_password = $gamer_info['hashed_password'];
             if(password_verify($password, $hashed_password)){
             // Password is correct, so start a new session
             session_start();
             // Store data in session variables
-            $_SESSION["gamer"] = $gamer_info['gamer'];
+            $_SESSION["gamer"] = $gamer_info[0]['gamer'];
             }
         }
         
