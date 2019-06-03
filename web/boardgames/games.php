@@ -131,13 +131,13 @@ Author: Nikkala Thomson
 
                     <p> Preferred themes:</p>
                     <?php foreach( $themes as $theme ): ?>
-                    <input type="checkbox" name=<?php echo $theme ?> value=<?php echo $theme ?> <?php if( in_array($theme, $player_themes) ): ?> checked="checked" <?php endif; ?>><?php echo $theme ?><br>
+                    <input type="checkbox" name="themes[]" value=<?php echo $theme ?> <?php if( in_array($theme, $player_themes) ): ?> checked="checked" <?php endif; ?>><?php echo $theme ?><br>
                     <?php endforeach; ?>
                     <br>
 
                     <p> Preferred gameplay mechanisms:</p>
                     <?php foreach( $mechanisms as $mechanism ): ?>
-                    <input type="checkbox" name=<?php echo $mechanism ?> value=<?php echo $mechanism ?> <?php if( in_array($mechanism, $player_mechanisms) ): ?> checked="checked" <?php endif; ?>><?php echo $mechanism ?><br>
+                    <input type="checkbox" name="mechanisms[]" value=<?php echo $mechanism ?> <?php if( in_array($mechanism, $player_mechanisms) ): ?> checked="checked" <?php endif; ?>><?php echo $mechanism ?><br>
                     <?php endforeach; ?>
                     <br>
 

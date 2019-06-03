@@ -100,9 +100,20 @@ else if (isset($_POST['p_display_name'])){
         
     // if preferences submitted    
     } else if (isset($_POST['go'])) {
+        // Since these values are selected by dropdown and checkbox, no need for html sanitization
+        $min_players = ($_POST['min_players']);    
+        $max_players = ($_POST['max_players']);
+        $min_playtime = ($_POST['min_playtime']);
+        $max_playtime = ($_POST['max_playtime']);
+        $min_weight = ($_POST['min_weight']);
+        $max_weight = ($_POST['max_weight']);
+        // These two should be arrays
+        $themes = ($_POST['$themes']);
+        $mechanisms = ($_POST['$mechanisms']);
         
-        $min_players = htmlspecialchars($_POST['min_players']);    
-      
+        print_r($themes);
+            print_r($mechanisms);
+        
         $gamer = (int)$_SESSION['gamer'];
      
 
@@ -114,8 +125,8 @@ else if (isset($_POST['p_display_name'])){
         
         
         // Redirect to games page
-            header("Location: games.php");
-            exit(); 
+          //  header("Location: games.php");
+         //   exit(); 
     }
                 
 ?>
