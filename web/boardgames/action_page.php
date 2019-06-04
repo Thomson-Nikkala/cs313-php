@@ -99,21 +99,25 @@ else if (isset($_POST['p_display_name'])){
         }   
         
     // if preferences submitted    
-    } else if (isset($_POST['go'])) {
+    } // else if (isset($_POST['go'])) {
         // Since these values are selected by dropdown and checkbox, no need for html sanitization
-        $min_players = ($_POST['min_players']);    
-        $max_players = ($_POST['max_players']);
-        $min_playtime = ($_POST['min_playtime']);
-        $max_playtime = ($_POST['max_playtime']);
-        $min_weight = ($_POST['min_weight']);
-        $max_weight = ($_POST['max_weight']);
-        // These two should be arrays
-        if (isset($_POST['themes'])) $themes = ($_POST['themes']);
-            else $themes = [];
-        if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
-            else $mechanisms = [];
-        $gamer = (int)$_SESSION['gamer'];
+       // $min_players = ($_POST['min_players']);    
+      //  $max_players = ($_POST['max_players']);
+      //  $min_playtime = ($_POST['min_playtime']);
+     //   $max_playtime = ($_POST['max_playtime']);
+      //  $min_weight = ($_POST['min_weight']);
+       // $max_weight = ($_POST['max_weight']);
+        // These two should be arrays, could be empty
+     //   if (isset($_POST['themes'])) $themes = ($_POST['themes']);
+     //       else $themes = [];
+      //  if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
+     //       else $mechanisms = [];
+     //   $gamer = (int)$_SESSION['gamer'];
      
+        //create json preferences statement for UPDATE
+      //  $prefs_json = '';
+      //  
+        // '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}');
 
       //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer=:gamer; ');
     
@@ -123,8 +127,8 @@ else if (isset($_POST['p_display_name'])){
         
         
         // Redirect to games page
-          header("Location: games.php");
-    exit(); 
-    }
+       //   header("Location: games.php");
+    //exit(); 
+   // }
                 
 ?>
