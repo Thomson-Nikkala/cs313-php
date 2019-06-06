@@ -11,12 +11,7 @@ if (!isset($_SESSION['duplicate_gamer'])) {
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
-// Force display of all errors (for debugging)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 ?>
-
 <!DOCTYPE html>
 <!--
 This is the registration page for the Board Game Whisperer
@@ -30,7 +25,7 @@ Author: Nikkala Thomson
     include '../modules/head.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/register.js"></script>
-    <title>The Board Game Whisperer</title>
+    <title>The Board Game Whisperer | Register</title>
 </head>
 
 <body>
@@ -59,14 +54,14 @@ Author: Nikkala Thomson
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="username" onBlur="checkAvailability()" required pattern="\w+" /><span id="user-availability-status"></span>
 
-                    <br>
+                    <br><br>
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
-                    <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br>
+                    <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br><br>
                     <label for="email" class="label_long"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="r_email" required /><br>
+                    <input type="email" placeholder="Enter Email" name="r_email" required /><br><br>
                     <label for="password" class="label_long"><b>Password</b></label>
                     <input type="password" id="field_pwd1" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." placeholder="Enter Password (6+ characters including UPPER/lowercase and number)" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
-  if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
+  if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br><br>
                     <label for="password2" class="label_long"><b>Repeat Password</b></label>
                     <input type="password" id="field_pwd2" title="Please enter the same password as above" placeholder="Confirm Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
   this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>

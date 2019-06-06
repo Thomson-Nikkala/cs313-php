@@ -23,7 +23,9 @@ Author: Nikkala Thomson
 <head>
     <?php $ROOT = '../';
     include '../modules/head.php'; ?>
-    <title>The Board Game Whisperer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <title>The Board Game Whisperer | Edit Profile</title>
 </head>
 
 <body>
@@ -64,7 +66,7 @@ Author: Nikkala Thomson
                 <p>Here you may edit your user profile. Username cannot be changed.</p>
                 <br>
 
-                <form action="action_page.php" method="post">
+                <form id="myForm" action="action_page.php" method="post">
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" name="p_display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
@@ -72,8 +74,12 @@ Author: Nikkala Thomson
                     <label for="old_password" class="label_long"><b>Old Password</b></label>
                     <input type="password" placeholder="Enter Old Password" name="p_old_password" required /><br>
                     <label for="new_password" class="label_long"><b>New Password</b></label>
-                    <input type="password" placeholder="Enter New Password (optional)" name="p_new_password" /><br>
-                    <button type="submit" class="submit_btn">UPDATE</button>
+                    <input type="password" id="field_pwd1" placeholder="Enter New Password (optional, must contain 6+ characters, UPPER/lowercase and number)" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers."name="p_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+  if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
+                     <label for="new_password2" class="label_long"><b>Repeat New Password</b></label>
+                    <input type="password" id="field_pwd2" placeholder="Repeat New Password (optional)" name="p_new_password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+  this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>
+                    <button type="submit" class="submit_btn" onclick="check_password()">UPDATE</button>
                 </form>
 
 
