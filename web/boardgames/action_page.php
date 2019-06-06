@@ -17,9 +17,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // If registration submitted
-if (isset($_POST['r_username'])){
+if (isset($_POST['r_email'])){
     
-   $username = htmlspecialchars($_POST['r_username']);
+   $username = htmlspecialchars($_POST['username']);
    $display_name = htmlspecialchars($_POST['r_display_name']);    
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
@@ -27,22 +27,18 @@ if (isset($_POST['r_username'])){
     $password2 = htmlspecialchars($_POST['r_password_2']);
     
     // Check for preexisting username
-    $username = $_POST["r_username"];
-    $statement = $db->prepare('SELECT * FROM gamer WHERE username=:username;');
-    $statement->bindValue(':username', $username, PDO::PARAM_STR);
-    $statement->execute();
-    $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
-    if (!$duplicate_gamer) {
-        echo "<span class='status-available'> Username Available.</span>";
+    $statement1 = $db->prepare('SELECT * FROM gamer WHERE username=:username;');
+    $statement1->bindValue(':username', $username, PDO::PARAM_STR);
+    $statement1->execute();
+    $duplicate_gamer = $statement1->fetch(PDO::FETCH_ASSOC);
+    if ($duplicate_gamer) {
+        $_SESSION["reg_error"]="Username not available.";
+        header("Location: register.php");
+        exit();
         } else {
-            echo "<span class='status-not-available'> Username Not Available.</span>";
-            // Go back to registration page
-            header("Location: register.php");
-            exit();
-        }
+        $_SESSION["reg_error"]="";
+    }
                         
-    
-   
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);

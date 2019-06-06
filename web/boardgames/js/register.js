@@ -1,25 +1,24 @@
 /*jslint devel: true */
 
+
+function checkAvailability() {
+$("#loaderIcon").show();
+jQuery.ajax({
+url: "check_availability.php",
+data:'username='+$("#username").val(),
+type: "POST",
+success:function(data){
+$("#user-availability-status").html(data);
+$("#loaderIcon").hide();
+},
+error:function (){}
+});
+}
+
 // Source code: https://www.the-art-of-web.com/javascript/validate-password/
 
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    // function to check whether username is available
-    
-    function checkAvailability() {
-        $("#loaderIcon").show();
-        jQuery.ajax({
-            url: "check_availability.php",
-            data: 'username=' + $("#username").val(),
-            type: "POST",
-            success: function (data) {
-                $("#user-availability-status").html(data);
-                $("#loaderIcon").hide();
-            },
-            error: function () {}
-        });
-    }
 
     // JavaScript form validation (if HTML form validation fails)
 
@@ -38,11 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         re = /^\w+$/;
         if (!re.test(this.username.value)) {
-            alert("Error: Username must contain only letters, numbers and underscores!");
+            alert("Error: Username must contain only letters, numbers and underscores.");
             this.username.focus();
             e.preventDefault();
             return;
         }
+
         if (this.pwd1.value != "" && this.pwd1.value == this.pwd2.value) {
             if (!checkPassword(this.pwd1.value)) {
                 alert("The password you have entered is not valid!");
