@@ -4,7 +4,6 @@ require_once 'db_connect.php';
 $db = get_db();
 
 if(!empty($_POST['username'])) {
-    echo $username;
     $username = htmlspecialchars($_POST['username']);
     $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
