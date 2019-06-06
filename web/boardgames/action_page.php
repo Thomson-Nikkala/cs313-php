@@ -10,7 +10,7 @@ if (!isset($_SESSION['error'])) {
 }
 if (!isset($_SESSION['duplicate_gamer'])) {
     $_SESSION['duplicate_gamer'] = 'no';
-})
+}
 
 // Get the Heroku database
 require_once "db_connect.php";
