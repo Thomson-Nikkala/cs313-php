@@ -4,6 +4,7 @@ require_once 'db_connect.php';
 $db = get_db();
 
 if(!empty($_POST['username'])) {
+    echo $username;
     $username = htmlspecialchars($_POST['username']);
     $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -13,7 +14,7 @@ if(!empty($_POST['username'])) {
     if (!empty($duplicate_gamer)){
       echo "<span class='status-not-available'> Username Not Available. </span>"; 
     } else {
-      echo "<span class='status-available'> Username Available. $username</span>";
+      echo "<span class='status-available'> Username Available. </span>";
     }
 }
 ?>
