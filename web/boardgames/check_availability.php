@@ -12,9 +12,9 @@ if(!empty($_POST['username'])) {
     $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->execute();
-    $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
+    $duplicate_gamer = $statement->fetchAll();
   if (!empty($duplicate_gamer)){
-      echo "<span class='status-not-available'> Username Not Available. $duplicate_gamer </span>" ;
+      echo "<span class='status-not-available'> Username Not Available. </span>" ;
   } else {
       echo "<span class='status-available'> Username Available.</span>";
   }
