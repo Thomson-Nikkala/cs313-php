@@ -3,7 +3,11 @@
 session_start();
 // Initialize session variables
 if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer'] = 1;}
+$_SESSION['gamer'] = 1;
+}
+if (!isset($_SESSION['duplicate_gamer'])) {
+    $_SESSION['duplicate_gamer'] = FALSE;
+}
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();

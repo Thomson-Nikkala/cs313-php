@@ -13,8 +13,10 @@ if(!empty($_POST['username'])) {
 
     if (!empty($duplicate_gamer)){
       echo "<span class='status-not-available'> Username $username Not Available. </span>"; 
+      $_SESSION["duplicate_gamer"]=TRUE;
     } else {
       echo "<span class='status-available'> Username Available. </span>";
+        $_SESSION["duplicate_gamer"]=FALSE;
     }
 }
 ?>

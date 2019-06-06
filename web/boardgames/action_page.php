@@ -25,7 +25,13 @@ if (isset($_POST['r_email'])){
    $password = htmlspecialchars($_POST['r_password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $password2 = htmlspecialchars($_POST['r_password_2']);
-        
+      // Check for duplicate gamer
+    if $_SESSION['duplicate_gamer']==TRUE {
+        // Send back to registration page
+        header("Location: registration.php");
+        exit();
+    }
+    
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
