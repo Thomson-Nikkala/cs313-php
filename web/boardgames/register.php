@@ -59,6 +59,7 @@ Author: Nikkala Thomson
                         $db = get_db();
                         if(!empty($_POST["r_username"])) {
                         // Check for preexisting username
+                        $username = $_POST["r_username"];
                         $statement = $db->prepare('SELECT * FROM gamer WHERE username=:username;');
                         $statement->bindValue(':username', $username, PDO::PARAM_STR);
                         $statement->execute();
