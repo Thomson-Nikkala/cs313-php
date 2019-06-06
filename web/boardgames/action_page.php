@@ -8,7 +8,7 @@ $_SESSION['gamer'] = 1;
 if (!isset($_SESSION['error'])) {
     $_SESSION['error']='';
 }
-if (!isset($_SESSION['duplicate_gamer']) {
+if (!isset($_SESSION['duplicate_gamer'])) {
     $_SESSION['duplicate_gamer'] = 'no';
 })
 
