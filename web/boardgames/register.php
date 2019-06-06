@@ -64,7 +64,7 @@ Author: Nikkala Thomson
                         $statement->bindValue(':username', $username, PDO::PARAM_STR);
                         $statement->execute();
                         $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
-                        if !$duplicate_gamer {
+                        if (!$duplicate_gamer) {
                             echo "<span class='status-available'> Username Available.</span>";
                         } else {
                         echo "<span class='status-not-available'> Username Not Available.</span>";
