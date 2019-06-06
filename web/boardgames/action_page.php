@@ -25,8 +25,8 @@ if (isset($_POST['r_email'])){
    $password = htmlspecialchars($_POST['r_password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $password2 = htmlspecialchars($_POST['r_password_2']);
-      // Check for duplicate gamer
-    if $_SESSION['duplicate_gamer']==TRUE {
+      // Check for duplicate gamer username
+    if ($_SESSION['duplicate_gamer']){
         // Send back to registration page
         header("Location: registration.php");
         exit();
