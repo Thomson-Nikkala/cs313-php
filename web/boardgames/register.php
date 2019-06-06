@@ -58,10 +58,10 @@ Author: Nikkala Thomson
                     <label for="email" class="label_long"><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password (6 characters including UPPER/lowercase and at least one number)</b></label>
-                    <input type="password" id="field_pwd1" id="field_pwd1" placeholder="Enter Password" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                    <input type="password" id="field_pwd1" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." placeholder="Enter Password (6+ characters including UPPER/lower and number)" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
   if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
                     <label for="password2" class="label_long"><b>Repeat Password</b></label>
-                    <input type="password" id="field_pwd2" title="Please enter the same Password as above" placeholder="Enter Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+                    <input type="password" id="field_pwd2" title="Please enter the same password as above" placeholder="Confirm Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
   this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>
                     <p>By creating an account you agree to our <a href="#">Terms and Privacy</a>.</p>
                     <button type="submit" class="submit_btn" onclick="check_password()">REGISTER</button>
