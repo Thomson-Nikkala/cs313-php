@@ -14,7 +14,7 @@ if(!empty($_POST['username'])) {
     $statement->execute();
     $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
   if (!empty($duplicate_gamer)){
-      echo "<span class='status-not-available'> Username Not Available. </span>" ;
+      echo "<span class='status-not-available'> Username Not Available. $duplicate_gamer </span>" ;
   } else {
       echo "<span class='status-available'> Username Available.</span>";
   }
