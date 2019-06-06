@@ -58,7 +58,8 @@ Author: Nikkala Thomson
                     <br>
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="username" onBlur="checkAvailability()" required pattern="\w+" /><span id="user-availability-status"></span>
-                    <br><br>
+
+                    <br>
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
