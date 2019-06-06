@@ -27,9 +27,9 @@ if (isset($_POST['r_username'])){
     $password2 = htmlspecialchars($_POST['r_password_2']);
     
     
-    if ($password != $password2) {
-        $_SESSION['error']
-    }
+    //if ($password != $password2) {
+    //    $_SESSION['error'];
+    //}
     
     // Check if both passwords are the same
     
