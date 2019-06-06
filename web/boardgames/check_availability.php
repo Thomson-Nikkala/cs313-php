@@ -13,7 +13,7 @@ if(!empty($_POST['username'])) {
     if (!empty($duplicate_gamer)){
       echo "<span class='status-not-available'> Username Not Available. </span>"; 
     } else {
-      echo "<span class='status-available'> Username Available. </span>";
+      echo "<span class='status-available'> Username Available. $username</span>";
     }
 }
 ?>
