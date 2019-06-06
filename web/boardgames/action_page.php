@@ -25,20 +25,7 @@ if (isset($_POST['r_email'])){
    $password = htmlspecialchars($_POST['r_password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $password2 = htmlspecialchars($_POST['r_password_2']);
-    
-    // Check for preexisting username
-    $statement1 = $db->prepare('SELECT * FROM gamer WHERE username=:username;');
-    $statement1->bindValue(':username', $username, PDO::PARAM_STR);
-    $statement1->execute();
-    $duplicate_gamer = $statement1->fetch(PDO::FETCH_ASSOC);
-    if ($duplicate_gamer) {
-        $_SESSION["reg_error"]="Username not available.";
-        header("Location: register.php");
-        exit();
-        } else {
-        $_SESSION["reg_error"]="";
-    }
-                        
+        
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);

@@ -53,7 +53,7 @@ Author: Nikkala Thomson
                 <form id="myForm" action="action_page.php" method="post">
                     <br>
                     <label for="username" class="label_long"><b>Username</b></label>
-                    <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="username" onBlur="checkAvailability()" required pattern="\w+" /><span id="user-availability-status">Username Available</span>
+                    <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="username" onBlur="checkAvailability()" required pattern="\w+" /><span id="user-availability-status"></span>
 
                     <br><br>
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
