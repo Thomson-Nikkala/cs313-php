@@ -8,6 +8,10 @@ $_SESSION['gamer'] = 1;
 if (!isset($_SESSION['error'])) {
     $_SESSION['error']='';
 }
+if (!isset($_SESSION['duplicate_gamer']) {
+    $_SESSION['duplicate_gamer'] = 'no';
+})
+
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
