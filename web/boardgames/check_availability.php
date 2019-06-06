@@ -6,9 +6,8 @@ $db = get_db();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+echo "here";
 if(!empty($_POST['username'])) {
-    echo "here";
     $username = htmlspecialchars($_POST['username']);
     $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
