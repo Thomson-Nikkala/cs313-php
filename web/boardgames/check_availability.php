@@ -12,7 +12,7 @@ if(!empty($_POST['username'])) {
     $duplicate_gamer = $statement->fetchAll();
 
     if (!empty($duplicate_gamer)){
-      echo "<span class='status-not-available'> Username $username Not Available. </span>"; 
+      echo "<span class='status-not-available'> Username $username is not available.  Please try again. </span>"; 
       $_SESSION["duplicate_gamer"]=TRUE;
     } else {
       echo "<span class='status-available'> Username Available. </span>";
