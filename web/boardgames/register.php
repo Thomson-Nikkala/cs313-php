@@ -49,7 +49,7 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-                <form action="action_page.php" method="post">
+                <form action="action_page.php" method="post" onSubmit="return check_password(this)">
                     <br>
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="r_username" required /><br>
