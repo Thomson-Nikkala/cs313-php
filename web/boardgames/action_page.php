@@ -23,14 +23,14 @@ if (isset($_POST['r_email'])){
    $display_name = htmlspecialchars($_POST['r_display_name']);    
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $password2 = htmlspecialchars($_POST['r_password2']);
+   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+   
       // Check for duplicate gamer username
-    if ($_SESSION['duplicate_gamer']){
+    if ($_SESSION['duplicate_gamer']=='yes'){
         // Send back to registration page
         header("Location: registration.php");
         exit();
-    }
+    } else {
     
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -49,8 +49,9 @@ if (isset($_POST['r_email'])){
     $statement2->execute();
     
      // Redirect to games page
- header("Location: games.php");
- exit();
+    header("Location: games.php");
+    exit();
+    }
 }
 
 // If profile update submitted
