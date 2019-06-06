@@ -55,6 +55,7 @@ Author: Nikkala Thomson
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="r_username" required pattern="\w+" onBlur="checkAvailability()" /><br><span id="user-availability-status"></span>
                     <?php
+                    echo "here";
                         require_once "db_connect.php";
                         $db = get_db();
                         if(!empty($_POST["r_username"])) {
