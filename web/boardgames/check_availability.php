@@ -3,6 +3,8 @@
 require_once 'db_connect.php';
 $db = get_db();
 
+print_r($_POST['username']);
+
 if(!empty($_POST['username'])) {
     echo $username;
     $username = htmlspecialchars($_POST['username']);

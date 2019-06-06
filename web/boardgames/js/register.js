@@ -2,17 +2,17 @@
 
 
 function checkAvailability() {
-$("#loaderIcon").show();
-jQuery.ajax({
-url: "check_availability.php",
-data:'username='+$("#username").val(),
-type: "POST",
-success:function(data){
-$("#user-availability-status").html(data);
-$("#loaderIcon").hide();
-},
-error:function (){}
-});
+    $("#loaderIcon").show();
+    jQuery.ajax({
+        url: "check_availability.php",
+        data: 'username=' + $("#username").val(),
+        type: "POST",
+        success: function (data) {
+            $("#user-availability-status").html(data);
+            $("#loaderIcon").hide();
+        },
+        error: function () {}
+    });
 }
 
 // Source code: https://www.the-art-of-web.com/javascript/validate-password/
