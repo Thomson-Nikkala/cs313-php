@@ -13,6 +13,9 @@ if(!empty($_POST['username'])) {
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->execute();
     $duplicate_gamer = $statement->fetch();
+    print_r($duplicate_gamer);
+    break;
+    
   if (!empty($duplicate_gamer)){
       echo "<span class='status-not-available'> Username Not Available. </span>" ;
   } else {
