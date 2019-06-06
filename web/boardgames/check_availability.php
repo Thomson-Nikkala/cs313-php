@@ -3,8 +3,6 @@
 require_once 'db_connect.php';
 $db = get_db();
 
-print_r($_POST['username']);
-
 if(!empty($_POST['username'])) {
     echo $username;
     $username = htmlspecialchars($_POST['username']);
@@ -14,7 +12,7 @@ if(!empty($_POST['username'])) {
     $duplicate_gamer = $statement->fetchAll();
 
     if (!empty($duplicate_gamer)){
-      echo "<span class='status-not-available'> Username Not Available. </span>"; 
+      echo "<span class='status-not-available'> Username $username Not Available. </span>"; 
     } else {
       echo "<span class='status-available'> Username Available. </span>";
     }
