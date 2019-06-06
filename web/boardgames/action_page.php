@@ -2,8 +2,12 @@
 // Start the session
 session_start();
 // Initialize session variables
-if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer'] = 1;}
+if (!isset($_SESSION['gamer'])) {
+$_SESSION['gamer'] = 1;
+}
+if (!isset($_SESSION['error'])) {
+    $_SESSION['error']='';
+}
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
@@ -20,6 +24,16 @@ if (isset($_POST['r_username'])){
    $email = htmlspecialchars($_POST['r_email']);
    $password = htmlspecialchars($_POST['r_password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $password2 = htmlspecialchars($_POST['r_password_2']);
+    
+    
+    if ($password != $password2) {
+        $_SESSION['error']
+    }
+    
+    // Check if both passwords are the same
+    
+    
     
     $statement = $db->prepare('INSERT INTO gamer (username, display_name, email, hashed_password) VALUES (:username, :display_name, :email, :hashed_password);');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);

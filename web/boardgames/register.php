@@ -24,6 +24,7 @@ Author: Nikkala Thomson
 <head>
     <?php $ROOT = '../';
     include '../modules/head.php'; ?>
+    <script type="text/javascript" src="js/register.js"></script>
     <title>The Board Game Whisperer</title>
 </head>
 
@@ -58,8 +59,10 @@ Author: Nikkala Thomson
                     <input type="email" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="r_password" required /><br>
+                    <label for="password2" class="label_long"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="r_password2" required /><br>
                     <p>By creating an account you agree to our <a href="#">Terms and Privacy</a>.</p>
-                    <button type="submit" class="submit_btn">REGISTER</button>
+                    <button type="submit" class="submit_btn" onclick="check_password()">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>
             </section>
