@@ -49,24 +49,27 @@ Author: Nikkala Thomson
 
 
             <section class="wide-section">
-                <form action="action_page.php" method="post" onSubmit="return check_password(this)">
+                <form id="myForm" action="action_page.php" method="post">
                     <br>
                     <label for="username" class="label_long"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="r_username" required /><br>
+                    <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="r_username" required pattern="\w+" /><br>
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="r_password" required /><br>
+                    <input type="password" id="field_pwd1" id="field_pwd1" placeholder="Enter Password containing at least 6 characters, including UPPER/lowercase and at least one number" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+  if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
                     <label for="password2" class="label_long"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="r_password2" required /><br>
+                    <input type="password" id="field_pwd2" title="Please enter the same Password as above" placeholder="Enter Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+  this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>
                     <p>By creating an account you agree to our <a href="#">Terms and Privacy</a>.</p>
                     <button type="submit" class="submit_btn" onclick="check_password()">REGISTER</button>
                     <p>Already have an account? <a href="login.php">Log in</a>.</p>
                 </form>
             </section>
         </main>
+
         <footer>
             <?php include("../modules/footer.php"); ?>
         </footer>
