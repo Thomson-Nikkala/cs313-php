@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 if(!empty($_POST['username'])) {
     $username = htmlspecialchars($_POST['username']);
-    $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username;');
+    $statement = $db->prepare('SELECT * FROM gamer WHERE username = :username');
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->execute();
     $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
