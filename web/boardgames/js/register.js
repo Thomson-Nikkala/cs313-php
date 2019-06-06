@@ -5,7 +5,23 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // JavaScript form validation
+    // function to check whether username is available
+    
+    function checkAvailability() {
+        $("#loaderIcon").show();
+        jQuery.ajax({
+            url: "check_availability.php",
+            data: 'username=' + $("#username").val(),
+            type: "POST",
+            success: function (data) {
+                $("#user-availability-status").html(data);
+                $("#loaderIcon").hide();
+            },
+            error: function () {}
+        });
+    }
+
+    // JavaScript form validation (if HTML form validation fails)
 
     var checkPassword = function (str) {
         var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -19,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault(); // equivalent to return false
             return;
         }
+
         re = /^\w+$/;
         if (!re.test(this.username.value)) {
             alert("Error: Username must contain only letters, numbers and underscores!");

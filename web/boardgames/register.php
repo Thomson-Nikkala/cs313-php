@@ -24,6 +24,7 @@ Author: Nikkala Thomson
 <head>
     <?php $ROOT = '../';
     include '../modules/head.php'; ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/register.js"></script>
     <title>The Board Game Whisperer</title>
 </head>
@@ -52,13 +53,30 @@ Author: Nikkala Thomson
                 <form id="myForm" action="action_page.php" method="post">
                     <br>
                     <label for="username" class="label_long"><b>Username</b></label>
-                    <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="r_username" required pattern="\w+" /><br>
+                    <input id="field_username" type="text" title="Username must not be blank and contain only letters, numbers and underscores." placeholder="Enter Username" name="r_username" required pattern="\w+" onBlur="checkAvailability()" /><br>
+                    <?php
+                        require_once "db_connect.php";
+                        $db = get_db();
+                        if(!empty($_POST["r_username"])) {
+                        // Check for preexisting username
+                        $statement = $db->prepare('SELECT * FROM gamer WHERE username=:username;');
+                        $statement->bindValue(':username', $username, PDO::PARAM_STR);
+                        $statement->execute();
+                        $duplicate_gamer = $statement->fetch(PDO::FETCH_ASSOC);
+                        if !$duplicate_gamer {
+                            echo "<span class='status-available'> Username Available.</span>";
+                        } else {
+                        echo "<span class='status-not-available'> Username Not Available.</span>";
+                            }
+                        }
+                    ?>
+
                     <label for="display_name" class="label_long"><b>Display Name</b></label>
                     <input type="text" placeholder="Enter Display Name" name="r_display_name" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
                     <input type="email" placeholder="Enter Email" name="r_email" required /><br>
                     <label for="password" class="label_long"><b>Password</b></label>
-                    <input type="password" id="field_pwd1" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." placeholder="Enter Password (6+ characters including UPPER/lower and number)" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                    <input type="password" id="field_pwd1" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." placeholder="Enter Password (6+ characters including UPPER/lowercase and number)" name="r_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
   if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
                     <label for="password2" class="label_long"><b>Repeat Password</b></label>
                     <input type="password" id="field_pwd2" title="Please enter the same password as above" placeholder="Confirm Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
