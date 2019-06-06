@@ -32,7 +32,7 @@ if (isset($_POST['r_email'])){
       // Check for duplicate gamer username
     if ($_SESSION['duplicate_gamer']=='yes'){
         // Send back to registration page
-        header("Location: registration.php");
+        header("Location: register.php");
         exit();
     } else {
     
