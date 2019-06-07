@@ -80,7 +80,7 @@ Author: Nikkala Thomson
                  $player_themes = $player_prefs_json->themes;
                  $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
-                <form action="" method="post">
+                <form action="action_page.php" method="post">
                     <?php 
                       $min_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
