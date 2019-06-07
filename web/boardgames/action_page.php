@@ -88,7 +88,7 @@ else if (isset($_POST['p_display_name'])){
                 $statement->bindValue(':email', $email, PDO::PARAM_STR);
             }
             $statement->execute(); 
-    
+              echo "right password";
             // Redirect to games page
            // header("Location: games.php");
             //exit();   
@@ -97,7 +97,7 @@ else if (isset($_POST['p_display_name'])){
               // Redirect to update page 
           //  header("Location: edit_profile.php");
           //  exit();  
-                    
+                    echo "wrong password";
             }
     }   
                     
