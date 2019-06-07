@@ -67,18 +67,43 @@ else if (isset($_POST['p_display_name'])){
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     $gamer = (int)$_SESSION['gamer'];
 
-    $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer=:gamer; ');
+    // Check for correct old password    
+   $statement = $db->prepare("SELECT * FROM gamer WHERE gamer = $gamer");
+    $statement->execute();
+    $gamer_info = $statement->fetchAll();
+       
+    $hashed_password = $gamer_info[0]['hashed_password'];
+        if (password_verify($password, $hashed_password)) {
+            // If password is correct, update user profile
+            if (!empty($new_password)) {           
+               $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer = :gamer;');
+                $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
+                $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+                $statement->bindValue(':email', $email, PDO::PARAM_STR);
+                $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+            } else {
+                $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email WHERE gamer = :gamer;');
+                $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
+                $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
+                $statement->bindValue(':email', $email, PDO::PARAM_STR);
+            }
+            $statement->execute(); 
     
-    $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
-    $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
-    $statement->bindValue(':email', $email, PDO::PARAM_STR);
-    $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-    $statement->execute(); 
+            // Redirect to games page
+            header("Location: games.php");
+            exit();   
+           
+            } else {
+              // Redirect to update page 
+            header("Location: edit_profile.php");
+            exit();  
+                    
+            }
+    }   
+                    
     
-   // Redirect to games page
-        header("Location: games.php");
-        exit();    
-}
+    
+
 
 // If login submitted
     else if (isset($_POST['l_username'])){
@@ -93,7 +118,6 @@ else if (isset($_POST['p_display_name'])){
 // Check if username exists, if yes then verify password
         if (empty($gamer_name)) {
             // Redirect to login page
-            echo "no gamer";
             header("Location: login.php");
             exit();
         } else {
@@ -105,7 +129,6 @@ else if (isset($_POST['p_display_name'])){
             header("Location: games.php");
             exit();
             } else {
-                echo 'wrong password--needs error message and redirect here';
               // Redirect to login page
             header("Location: login.php");
             exit();  

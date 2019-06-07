@@ -66,8 +66,8 @@ Author: Nikkala Thomson
                     <input type="password" id="field_pwd2" title="Please enter the same password as above" placeholder="Confirm Password" name="r_password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
   this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>
                     <p>By creating an account you agree to our <a href="#">Terms and Privacy</a>.</p>
-                    <button type="submit" class="submit_btn" onclick="check_password()">REGISTER</button>
-                    <p>Already have an account? <a href="login.php">Log in</a>.</p>
+                    <button type="submit" class="submit_btn" onclick="check_password()">REGISTER</button><br>
+                    <p>Already have an account? <a href="login.php">Log in</a>.</p><br>
                 </form>
             </section>
         </main>
