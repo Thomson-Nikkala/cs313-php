@@ -53,8 +53,8 @@ Author: Nikkala Thomson
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     // sanitize here for safe display
-                    $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
-                    $email_safe = htmlentities($gamer_data['email'], ENT_QUOTES, 'UTF-8');
+                    $display_name_safe = htmlspecialchars($gamer_data['display_name']);
+                    $email_safe = htmlspecialchars($gamer_data['email']);
                 
                 // Redirect to login page if logged in as Guest
                    if ($gamer_data['gamer']==1) {
@@ -74,9 +74,9 @@ Author: Nikkala Thomson
                     <label for="old_password" class="label_long"><b>Old Password</b></label>
                     <input type="password" placeholder="Enter Old Password" name="p_old_password" required /><br>
                     <label for="new_password" class="label_long"><b>New Password</b></label>
-                    <input type="password" id="field_pwd1" placeholder="Enter New Password (optional, must contain 6+ characters, UPPER/lowercase and number)" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers."name="p_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                    <input type="password" id="field_pwd1" placeholder="Enter New Password (optional, must contain 6+ characters, UPPER/lowercase and number)" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." name="p_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
   if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);" /><br>
-                     <label for="new_password2" class="label_long"><b>Repeat New Password</b></label>
+                    <label for="new_password2" class="label_long"><b>Repeat New Password</b></label>
                     <input type="password" id="field_pwd2" placeholder="Repeat New Password (optional)" name="p_new_password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
   this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" /><br>
                     <button type="submit" class="submit_btn" onclick="check_password()">UPDATE</button>

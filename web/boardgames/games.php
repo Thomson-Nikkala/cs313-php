@@ -51,7 +51,7 @@ Author: Nikkala Thomson
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
-                    $display_name_safe = htmlentities($gamer_data['display_name'], ENT_QUOTES, 'UTF-8');
+                    $display_name_safe = htmlspecialchars($gamer_data['display_name']);
                     echo $display_name_safe;
                 ?>!</p><br>
                 <p>
@@ -60,7 +60,7 @@ Author: Nikkala Thomson
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
-                    $board_game_safe = htmlentities($board_game['name'], ENT_QUOTES, 'UTF-8');
+                    $board_game_safe = htmlspecialchars($board_game['name']);
                     echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
     
                 // Save and update gamer preferences

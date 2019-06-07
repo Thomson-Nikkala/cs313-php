@@ -90,13 +90,13 @@ else if (isset($_POST['p_display_name'])){
             $statement->execute(); 
     
             // Redirect to games page
-            header("Location: games.php");
-            exit();   
+           // header("Location: games.php");
+            //exit();   
            
             } else {
               // Redirect to update page 
-            header("Location: edit_profile.php");
-            exit();  
+          //  header("Location: edit_profile.php");
+          //  exit();  
                     
             }
     }   
