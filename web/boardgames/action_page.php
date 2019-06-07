@@ -92,8 +92,8 @@ else if (isset($_POST['p_display_name'])){
             }
             $statement->execute(); 
            // Redirect to games page
-         //   header("Location: games.php");
-         //   exit();   
+            header("Location: games.php");
+            exit();   
            
             } else {
               // Redirect to update page 
@@ -101,10 +101,6 @@ else if (isset($_POST['p_display_name'])){
             exit();  
             }
     }   
-                    
-    
-    
-
 
 // If login submitted
     else if (isset($_POST['l_username'])){
@@ -132,10 +128,8 @@ else if (isset($_POST['p_display_name'])){
             } else {
               // Redirect to login page
             header("Location: login.php");
-            exit();  
-                    
-            }
-            
+            exit();                    
+            }   
         }   
         
     // if preferences submitted    
