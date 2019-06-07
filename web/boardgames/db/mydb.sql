@@ -37,11 +37,6 @@ BEFORE UPDATE ON gamer
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_timestamp();
 
--- Sample input statement for the user table.  Password hashing and salting will be added later.
-
-INSERT INTO gamer (username, display_name, email, hashed_password)
-VALUES ('Guest', 'Guest', 'guest@gmail.com', 'gobbledygook');
-
 CREATE TABLE public.board_game (
     board_game          SERIAL NOT NULL PRIMARY KEY,
     name        VARCHAR(50) NOT NULL,
@@ -51,22 +46,12 @@ CREATE TABLE public.board_game (
     properties json  
 );
     
--- sample input statement for the board_game table
-
-INSERT INTO board_game (name, designer, description, image_url, properties)
-VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://cf.geekdo-images.com/itemrep/img/ql-0-t271LVGqbmWA1gdkIH7WvM=/fit-in/246x300/pic3718275.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45, "themes":["Art", "Renaissance"], "weight":1.8, "mechanisms":[ "Card Drafting", "Pattern Building", "Set Collection", "Tile Placement"]}' );
-    
 CREATE TABLE public.preference (
     preference      SERIAL      NOT NULL PRIMARY KEY,
 	gamer  INTEGER UNIQUE,
     FOREIGN KEY (gamer) REFERENCES gamer(gamer),
     preferences json
 );
-
--- sample input statement for the preference table
-
-INSERT INTO preference(gamer, preferences)
-VALUES (1, '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}');
 
 CREATE TABLE public.recommendation (
     gamer             INTEGER NOT NULL,
@@ -82,14 +67,7 @@ CREATE TABLE public.recommendation (
       ON UPDATE NO ACTION ON DELETE CASCADE
 );
 
--- sample input statement for the recommendation table 
-
-INSERT INTO recommendation(gamer, board_game, recommended)
-VALUES (1,1,TRUE);
-
-
 -- list tables
-
 \dt
 
 

@@ -59,7 +59,7 @@ if (isset($_POST['r_email'])){
 }
 
 // If profile update submitted
-else if (isset($_POST['p_display_name'])){
+if (isset($_POST['p_display_name'])){
     $display_name = htmlspecialchars($_POST['p_display_name']);    
     $email = htmlspecialchars($_POST['p_email']);
     $old_password = htmlspecialchars($_POST['p_old_password']);
@@ -103,66 +103,68 @@ else if (isset($_POST['p_display_name'])){
     }   
 
 // If login submitted
-    else if (isset($_POST['l_username'])){
-        $username = htmlspecialchars($_POST['l_username']); 
-        $password = htmlspecialchars($_POST['l_password']);
-        $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
-        $statement->bindValue(':username', $username, PDO::PARAM_STR);
-        $statement->execute();
-        $gamer_info = $statement->fetchAll();
-        $gamer_name = $gamer_info[0]['username'];
+if (isset($_POST['l_username'])){
+    $username = htmlspecialchars($_POST['l_username']); 
+    $password = htmlspecialchars($_POST['l_password']);
+    $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
+    $statement->bindValue(':username', $username, PDO::PARAM_STR);
+    $statement->execute();
+    $gamer_info = $statement->fetchAll();
+    $gamer_name = $gamer_info[0]['username'];
                 
 // Check if username exists, if yes then verify password
-        if (empty($gamer_name)) {
-            // Redirect to login page
-            header("Location: login.php");
-            exit();
+    if (empty($gamer_name)) {
+        // Redirect to login page
+        header("Location: login.php");
+        exit();
+    } else {
+        $hashed_password = $gamer_info[0]['hashed_password'];
+        if(password_verify($password, $hashed_password)){
+        // Update session variables
+        $_SESSION["gamer"] = $gamer_info[0]['gamer'];
+        // Redirect to games page
+        header("Location: games.php");
+        exit();
         } else {
-            $hashed_password = $gamer_info[0]['hashed_password'];
-            if(password_verify($password, $hashed_password)){
-            // Update session variables
-            $_SESSION["gamer"] = $gamer_info[0]['gamer'];
-            // Redirect to games page
-            header("Location: games.php");
-            exit();
-            } else {
-              // Redirect to login page
+            // Redirect to login page
             header("Location: login.php");
             exit();                    
             }   
         }   
-        
-    // if preferences submitted    
-    } // else if (isset($_POST['go'])) {
-        // Since these values are selected by dropdown and checkbox, no need for html sanitization
-       // $min_players = ($_POST['min_players']);    
-      //  $max_players = ($_POST['max_players']);
-      //  $min_playtime = ($_POST['min_playtime']);
-     //   $max_playtime = ($_POST['max_playtime']);
-      //  $min_weight = ($_POST['min_weight']);
-       // $max_weight = ($_POST['max_weight']);
-        // These two should be arrays, could be empty
-     //   if (isset($_POST['themes'])) $themes = ($_POST['themes']);
-     //       else $themes = [];
-      //  if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
-     //       else $mechanisms = [];
-     //   $gamer = (int)$_SESSION['gamer'];
-     
-        //create json preferences statement for UPDATE
-      //  $prefs_json = '';
-      //  
-        // '{ "min_players":1, "max_players":1, "min_playtime":1, "max_playtime":15, "themes":[], "min_weight":1.0, "max_weight":1.5, "mechanisms":[]}');
+    }
 
-      //  $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer=:gamer; ');
+
+// if preferences submitted    
+if (isset($_POST['go'])) {
+    // Since these values are selected by dropdown and checkbox, no need for html sanitization
+    $min_players = ($_POST['min_players']);    
+    $max_players = ($_POST['max_players']);
+    $min_playtime = ($_POST['min_playtime']);
+    $max_playtime = ($_POST['max_playtime']);
+    $min_weight = ($_POST['min_weight']);
+    $max_weight = ($_POST['max_weight']);
+    //  These two should be arrays, could be empty
+    if (isset($_POST['themes'])) $themes = ($_POST['themes']);
+        else $themes = [];
+    if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
+        else $mechanisms = [];
+    $gamer = (int)$_SESSION['gamer'];
+     
+    // create json preferences statement for UPDATE
+    $prefs_json = '{ "min_players":' . $min_players . ', "max_players":' . $max_players . ', "min_playtime":' . $min_playtime . ', "max_playtime":' . $max_playtime . ',  "min_weight":' . $min_weight . ', "max_weight":' . $max_weight; 
+    // still need to add themes and mechanisms
+    $themes = $POST['themes'];
+    $mechanisms = $POST['mechanisms'];
     
-      //  $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
-  
-      //  $statement->execute(); 
+    print_r($themes);
+    
+    //$statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json ');
+    //$statement->execute(); 
         
         
         // Redirect to games page
        //   header("Location: games.php");
     //exit(); 
-   // }
+    }
                 
 ?>
