@@ -72,22 +72,23 @@ else if (isset($_POST['p_display_name'])){
     $statement->execute();
     $gamer_info = $statement->fetchAll();
        
-    $hashed_password = $gamer_info[0]['hashed_password'];
-        if (password_verify($old_password, $hashed_password)) {
+    $hashed_old_password = $gamer_info[0]['hashed_password'];
+        if (password_verify($old_password, $hashed_old_password)) {
             // If password is correct, update user profile
-            if (!empty($new_password)) {           
+            if (!empty($new_password)) { 
+                $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
                $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer = :gamer;');
                 $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
                 $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
                 $statement->bindValue(':email', $email, PDO::PARAM_STR);
-                $statement ->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-                echo "in new password";
+                $statement ->bindValue(':hashed_password', $hashed_new_password, PDO::PARAM_STR);
+           
             } else {
                 $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email WHERE gamer = :gamer;');
                 $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
                 $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
                 $statement->bindValue(':email', $email, PDO::PARAM_STR);
-                echo "no new password";
+           
             }
             $statement->execute(); 
            // Redirect to games page

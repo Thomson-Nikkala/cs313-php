@@ -46,8 +46,6 @@ Author: Nikkala Thomson
             </ul>
         </nav>
         <main>
-
-
             <section class="wide-section">
                 <form id="myForm" action="action_page.php" method="post">
                     <br>
