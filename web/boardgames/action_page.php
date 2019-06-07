@@ -73,7 +73,7 @@ else if (isset($_POST['p_display_name'])){
     $gamer_info = $statement->fetchAll();
        
     $hashed_password = $gamer_info[0]['hashed_password'];
-        if (password_verify($password, $hashed_password)) {
+        if (password_verify($old_password, $hashed_password)) {
             // If password is correct, update user profile
             if (!empty($new_password)) {           
                $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email, hashed_password = :hashed_password WHERE gamer = :gamer;');
