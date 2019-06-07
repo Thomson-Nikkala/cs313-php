@@ -153,10 +153,10 @@ if (isset($_POST['go'])) {
     // create json preferences statement for UPDATE
     $prefs_json = '{ "min_players":' . $min_players . ', "max_players":' . $max_players . ', "min_playtime":' . $min_playtime . ', "max_playtime":' . $max_playtime . ',  "min_weight":' . $min_weight . ', "max_weight":' . $max_weight; 
     // still need to add themes and mechanisms
-    $themes = $_POST['themes'];
-    $mechanisms = $_POST['mechanisms'];
+ 
     
     print_r($themes);
+    print_r($mechanisms);
     
     //$statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json ');
     //$statement->execute(); 
