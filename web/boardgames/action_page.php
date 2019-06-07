@@ -163,8 +163,13 @@ if (isset($_POST['go'])) {
         }
     }
     $prefs_json = $prefs_json . '], "mechanisms":[';
+    $i=0;
     foreach ($mechanisms as $mechanism) {
-        
+        if(++$i === count($mechanisms)) {
+            $prefs_json = $prefs_json . '"' . "$mechanism" . '"';
+        } else {
+        $prefs_json = $prefs_json . '"' . "$mechanism" . '", ';
+        }
     }
     $prefs_json = $prefs_json . ']}';
     
