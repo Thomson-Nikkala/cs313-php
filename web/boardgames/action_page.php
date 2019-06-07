@@ -154,7 +154,7 @@ if (isset($_POST['go'])) {
     $prefs_json = '{ "min_players":' . $min_players . ', "max_players":' . $max_players . ', "min_playtime":' . $min_playtime . ', "max_playtime":' . $max_playtime . ',  "min_weight":' . $min_weight . ', "max_weight":' . $max_weight; 
     // still need to add themes and mechanisms
     $prefs_json = $prefs_json . ', "themes":[';
-    $i = 0
+    $i = 0;
     foreach ($themes as $theme) {
         if(++$i === count($themes)) {
             $prefs_json = $prefs_json . '"' . "$theme" . '"';
