@@ -80,17 +80,19 @@ else if (isset($_POST['p_display_name'])){
                 $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
                 $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
                 $statement->bindValue(':email', $email, PDO::PARAM_STR);
-                $statement->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+                $statement=->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
+                echo "in new password";
             } else {
                 $statement = $db->prepare('UPDATE gamer SET display_name = :display_name, email = :email WHERE gamer = :gamer;');
                 $statement->bindvalue(':gamer', $gamer, PDO::PARAM_INT);
                 $statement->bindValue(':display_name', $display_name, PDO::PARAM_STR);
                 $statement->bindValue(':email', $email, PDO::PARAM_STR);
+                echo "no new password";
             }
             $statement->execute(); 
            // Redirect to games page
-            header("Location: games.php");
-            exit();   
+         //   header("Location: games.php");
+         //   exit();   
            
             } else {
               // Redirect to update page 
