@@ -193,7 +193,7 @@ if (isset($_POST['go'])) {
         
         // get game properties
         $properties = $board_game['properties'];   // this ends up as a string
-        $properties_json = json_decode($player_preferences);  // coerce to json object
+        $properties_json = json_decode($properties);  // coerce to json object
         $game_min_players = $properties_json->min_players;
         $game_max_players = $properties_json->max_players;
         $game_min_playtime = $properties_json->min_playtime;
