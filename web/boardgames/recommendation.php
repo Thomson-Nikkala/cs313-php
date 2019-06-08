@@ -60,11 +60,12 @@ Author: Nikkala Thomson
                     $statement->execute();   
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                     $board_game_safe = htmlspecialchars($board_game['name']);
-                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
-                        ?>
+                    $game_image_safe = htmlspecialchars($board_game['image_url'])
+                    echo '<p>A board game you may enjoy is ' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
+                    ?>
                 </p>
 
-
+                <br>
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
                 </form>
