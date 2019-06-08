@@ -186,7 +186,7 @@ if (isset($_POST['go'])) {
     // Get board game data
     $statement2 = $db->prepare('SELECT * FROM board_game');
     $statement2->execute();
-    $board_games->fetchAll($statement2);
+    $board_games->$statement2->fetchAll();
     
     foreach ($board_games AS $board_game){   
         $game_score = 0;  // min 0 max 100
