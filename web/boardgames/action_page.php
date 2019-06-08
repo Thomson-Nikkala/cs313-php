@@ -11,6 +11,9 @@ if (!isset($_SESSION['error'])) {
 if (!isset($_SESSION['duplicate_gamer'])) {
     $_SESSION['duplicate_gamer'] = 'no';
 }
+if (!isset($_SESSION['best_game'])) {
+    $_SESSION['best_game'] = 0;
+}
 
 // Get the Heroku database
 require_once "db_connect.php";
@@ -172,14 +175,99 @@ if (isset($_POST['go'])) {
         }
     }
     $prefs_json = $prefs_json . ']}';
+    // Update preferences
+    $statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json ');
+    $statement->execute(); 
     
-    print_r($prefs_json);
-    //$statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json ');
-    //$statement->execute(); 
+    // Now to get game recommendation from algorithm
+    $recommended_game = '';
+    $best_game_score = 0;
+    $best_board_game = 0;  
+    // Get board game data
+    $statement2 = $db->prepare('SELECT * FROM board_game');
+    $statement2->execute();
+    $board_games->fetchAll($statement2);
+    
+    foreach ($board_games AS $board_game){   
+        $game_score = 0;  // min 0 max 100
         
+        // get game properties
+        $properties = $board_game['properties'];   // this ends up as a string
+        $properties_json = json_decode($player_preferences);  // coerce to json object
+        $game_min_players = $properties_json->min_players;
+        $game_max_players = $properties_json->max_players;
+        $game_min_playtime = $properties_json->min_playtime;
+        $game_max_playtime = $properties_json->max_playtime;
+        $game_weight = $properties_json->weight;
+        $game_themes = $properties_json->themes;
+        $game_mechanisms = $properties_json->mechanisms;
         
-        // Redirect to games page
-       //   header("Location: games.php");
+        // adjust game score for number of players
+        if !(($game_max_players < $min_players) OR ($game_min_players > $max_players)) {
+            $game_score = $game_score + 20;
+            
+            echo $game_score;
+        }
+        
+        // adjust game score for playtime
+        if !(($game_max_playtime < $min_playtime) OR ($game_min_playtime > $max_playtime)) {
+            $game_score = $game_score + 20;
+            
+            echo $game_score . " ";
+        }
+        
+        // adjust game score for game weight
+        if (($game_weight > $min_weight) AND ($game_weight < $max_weight)) {
+            game_score = $game_score + 20;
+            
+            echo $game_score . " ";
+        }
+        
+        // adjust game score for theme
+        $score_from_theme = 0;
+        foreach ($themes as $theme) {
+            foreach ($game_themes as $game_theme) {
+                if ($theme == $game_theme) {
+                    $score_from_theme = $score_from_theme + 5;
+                }
+            }
+        }
+        // max score for theme is 20
+        if ($score_from_theme > 20) {
+            $score_from_theme = 20;
+        }
+        $game_score = $game_score + $score_from_theme;
+        
+        echo $game_score . " ";
+        
+        // adjust game score for mechanisms
+        $score_from_mechanisms = 0;
+        foreach ($mechanisms as $mechanism) {
+            foreach ($game_mechanisms as $game_mechanism) {
+                if ($mechanism == $game_mechanism) {
+                    $score_from_mechanism = $score_from_mechanism+ 5;
+                }
+            }
+        }
+        // max score for mechanism is 20
+        if ($score_from_mechanisms > 20) {
+            $score_from_mechanisms = 20;
+        }
+        $game_score = $game_score + $score_from_mechanisms;   
+        
+        echo $game_score . " ";
+        
+        if ($game_score > $best_game_score) {
+            // check if this game has already been recommended to this gamer
+            // if not, set this game to the best game
+            $best_game_score = $game_score;
+            $best_board_game = $board_game['board_game'];
+        }
+    }
+    
+    // Redirect to recommendation page
+       $_SESSION('best_game')=$best_board_game; 
+       //   header("Location: recommendation.php");
     //exit(); 
     }
                 
