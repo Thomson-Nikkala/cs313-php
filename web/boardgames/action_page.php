@@ -218,7 +218,7 @@ if (isset($_POST['go'])) {
         
         // adjust game score for game weight
         if (($game_weight > $min_weight) AND ($game_weight < $max_weight)) {
-            game_score = $game_score + 20;
+            $game_score = $game_score + 20;
             
             echo $game_score . " ";
         }
