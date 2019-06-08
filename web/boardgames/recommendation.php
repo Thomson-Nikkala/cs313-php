@@ -60,7 +60,7 @@ Author: Nikkala Thomson
                     $statement->execute();   
                     $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                     $board_game_safe = htmlspecialchars($board_game['name']);
-                    $game_image_safe = htmlspecialchars($board_game['image_url'])
+                    $game_image_safe = htmlspecialchars($board_game['image_url']);
                     echo '<p>A board game you may enjoy is ' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
                     ?>
                 </p>
