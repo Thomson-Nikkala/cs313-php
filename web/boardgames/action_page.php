@@ -176,7 +176,7 @@ if (isset($_POST['go'])) {
     }
     $prefs_json = $prefs_json . ']}';
     // Update preferences
-    $statement = $db->prepare("UPDATE gamer SET preferences = '$prefs_json' WHERE gamer = $gamer");
+    $statement = $db->prepare("UPDATE preference SET preferences = '$prefs_json' WHERE gamer = $gamer");
     $statement->execute(); 
     
     // Now to get game recommendation from algorithm
@@ -184,8 +184,7 @@ if (isset($_POST['go'])) {
     $best_game_score = 0;
     $best_board_game = 0;  
     // Get board game data
-    $statement2 = $db->prepare('SELECT * FROM board_game');
-    $statement2->execute();
+    $statement2 = $db->prepare('SELECT * FROM board_game');$statement2->execute();
     $board_games->fetchAll($statement2);
     
     foreach ($board_games AS $board_game){   
