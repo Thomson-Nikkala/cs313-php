@@ -53,7 +53,17 @@ Author: Nikkala Thomson
 
             <section class="wide-section">
                 <br>
-                <?php echo $_SESSION['best_game'] ?>
+                <p>
+                    <?php 
+                    $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
+                    $statement = $db->prepare($query);
+                    $statement->execute();   
+                    $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
+                    $board_game_safe = htmlspecialchars($board_game['name']);
+                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
+                        ?>
+                </p>
+
 
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>

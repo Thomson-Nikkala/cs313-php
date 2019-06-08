@@ -46,6 +46,7 @@ Author: Nikkala Thomson
         </nav>
         <main>
             <section class="wide-section">
+                <br>
                 <p> Welcome, <?php
                     $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
                     $statement = $db->prepare($query);
@@ -54,22 +55,9 @@ Author: Nikkala Thomson
                     $display_name_safe = htmlspecialchars($gamer_data['display_name']);
                     echo $display_name_safe;
                 ?>!</p><br>
-                <p>
-                    <?php if(isset($_POST['submit'])) {
-                    $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
-                    $statement = $db->prepare($query);
-                    $statement->execute();   
-                    $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
-                    $board_game_safe = htmlspecialchars($board_game['name']);
-                    echo 'A board game you may enjoy is ' . $board_game_safe . '.  Click "GO" again for another recommendation.';
-    
-                // Save and update gamer preferences
-    
-                    } ?>
-                </p>
-
+            
                 <?php 
-                
+                // Save and update gamer preferences
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
                  $statement = $db->prepare($query);
                  $statement->execute(); 
@@ -92,7 +80,7 @@ Author: Nikkala Thomson
                       $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building');
                     ?>
 
-                    <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button>
+                    <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button><br>
                     <input id="go" name="go" type="hidden" value="Preferences Submitted">
                     <p>Minimum number of players: <select name="min_players">
                             <?php foreach( $min_players as $min_player ): ?>
