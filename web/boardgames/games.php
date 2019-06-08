@@ -55,7 +55,7 @@ Author: Nikkala Thomson
                     $display_name_safe = htmlspecialchars($gamer_data['display_name']);
                     echo $display_name_safe;
                 ?>!</p><br>
-            
+
                 <?php 
                 // Save and update gamer preferences
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
@@ -81,7 +81,7 @@ Author: Nikkala Thomson
                     ?>
 
                     <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button><br>
-                    <input id="go" name="go" type="hidden" value="Preferences Submitted">
+                    <input id="go" name="go" type="hidden" value="Preferences Submitted"><br>
                     <p>Minimum number of players: <select name="min_players">
                             <?php foreach( $min_players as $min_player ): ?>
                             <option value="<?php echo $min_player ?>" <?php if( $min_player == ($player_prefs_json->min_players) ): ?> selected="selected" <?php endif; ?>><?php echo $min_player ?></option>
