@@ -176,7 +176,7 @@ if (isset($_POST['go'])) {
     }
     $prefs_json = $prefs_json . ']}';
     // Update preferences
-    $statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json ');
+    $statement = $db->prepare('UPDATE gamer SET preferences = $prefs_json WHERE gamer = $_SESSION["gamer"] ');
     $statement->execute(); 
     
     // Now to get game recommendation from algorithm
