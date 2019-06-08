@@ -239,7 +239,7 @@ if (isset($_POST['go'])) {
         foreach ($mechanisms as $mechanism) {
             foreach ($game_mechanisms as $game_mechanism) {
                 if ($mechanism == $game_mechanism) {
-                    $score_from_mechanism = $score_from_mechanism+ 5;
+                    $score_from_mechanism = $score_from_mechanisms 5;
                 }
             }
         }
