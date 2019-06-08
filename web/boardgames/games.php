@@ -67,8 +67,7 @@ Author: Nikkala Thomson
     
                     } ?>
                 </p>
-                <br>
-                <p>Change your gaming preferences if you wish. Your current preferences are:</p><br>
+
                 <?php 
                 
                  $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
@@ -92,8 +91,8 @@ Author: Nikkala Thomson
                       $themes = array('Abstract', 'Old_West', 'Espionage', 'Superhero', 'Martial_Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science_Fiction', 'Empire_Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
                       $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building');
                     ?>
-                    <p>Get a game recommendation based on the preferences below:</p><br>
-                    <button type="submit" name="submit" class="submit_btn">GO</button>
+
+                    <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button>
                     <input id="go" name="go" type="hidden" value="Preferences Submitted">
                     <p>Minimum number of players: <select name="min_players">
                             <?php foreach( $min_players as $min_player ): ?>
