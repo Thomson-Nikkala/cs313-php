@@ -81,6 +81,7 @@ Author: Nikkala Thomson
                  $player_mechanisms = $player_prefs_json->mechanisms;
                 ?>
                 <form action="action_page.php" method="post">
+
                     <?php 
                       $min_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
                       $max_players = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
@@ -91,6 +92,8 @@ Author: Nikkala Thomson
                       $themes = array('Abstract', 'Old_West', 'Espionage', 'Superhero', 'Martial_Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science_Fiction', 'Empire_Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
                       $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building');
                     ?>
+                    <p>Get a game recommendation based on the preferences below:</p><br>
+                    <button type="submit" name="submit" class="submit_btn">GO</button>
                     <input id="go" name="go" type="hidden" value="Preferences Submitted">
                     <p>Minimum number of players: <select name="min_players">
                             <?php foreach( $min_players as $min_player ): ?>
@@ -140,9 +143,6 @@ Author: Nikkala Thomson
                     <input type="checkbox" name="mechanisms[]" value=<?php echo $mechanism ?> <?php if( in_array($mechanism, $player_mechanisms) ): ?> checked="checked" <?php endif; ?>><?php echo $mechanism ?><br>
                     <?php endforeach; ?>
                     <br>
-
-                    <p>Get a game recommendation based on the preferences above:</p><br>
-                    <button type="submit" name="submit" class="submit_btn">GO</button>
                 </form>
 
             </section>
