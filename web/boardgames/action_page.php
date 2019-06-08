@@ -14,6 +14,10 @@ if (!isset($_SESSION['duplicate_gamer'])) {
 if (!isset($_SESSION['best_game'])) {
     $_SESSION['best_game'] = 0;
 }
+if (!isset($_SESSION['best_game_score'])) {
+    $_SESSION['best_game_score'] = 0;
+}
+
 
 // Get the Heroku database
 require_once "db_connect.php";
@@ -247,8 +251,6 @@ if (isset($_POST['go'])) {
         }
         $game_score = $game_score + $score_from_mechanisms;   
         
-        echo $game_score . " ";
-        
         if ($game_score > $best_game_score) {
             // check if this game has already been recommended to this gamer
             // if not, set this game to the best game
@@ -258,9 +260,10 @@ if (isset($_POST['go'])) {
     }
     
     // Redirect to recommendation page
-      // $_SESSION('best_game')=$best_board_game; 
-       //   header("Location: recommendation.php");
-    //exit(); 
+      $_SESSION('best_game')=$best_board_game; 
+      $_SESSION('best_game_score')=$best_game_score;
+      header("Location: recommendation.php");
+      exit(); 
     }
                 
 ?>
