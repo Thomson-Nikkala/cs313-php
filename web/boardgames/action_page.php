@@ -260,12 +260,10 @@ if (isset($_POST['go'])) {
     }
     
     // Redirect to recommendation page
-    echo gettype($best_board_game);
- echo $_SESSION['best_game'];
-     // $_SESSION('best_game')= $best_board_game; 
-     // $_SESSION('best_game_score')=$best_game_score;
-     // header("Location: recommendation.php");
-     // exit(); 
+      $_SESSION['best_game']= $best_board_game; 
+      $_SESSION['best_game_score']=$best_game_score;
+      header("Location: recommendation.php");
+      exit(); 
     }
                 
 ?>
