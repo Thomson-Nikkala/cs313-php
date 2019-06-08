@@ -205,22 +205,16 @@ if (isset($_POST['go'])) {
         // adjust game score for number of players
         if (!(($game_max_players < $min_players) OR ($game_min_players > $max_players))) {
             $game_score = $game_score + 20;
-            
-            echo $game_score;
         }
         
         // adjust game score for playtime
         if (!(($game_max_playtime < $min_playtime) OR ($game_min_playtime > $max_playtime))) {
             $game_score = $game_score + 20;
-            
-            echo $game_score . " ";
         }
         
         // adjust game score for game weight
         if (($game_weight > $min_weight) AND ($game_weight < $max_weight)) {
             $game_score = $game_score + 20;
-            
-            echo $game_score . " ";
         }
         
         // adjust game score for theme

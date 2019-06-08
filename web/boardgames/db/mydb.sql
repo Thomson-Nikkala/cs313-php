@@ -1,13 +1,11 @@
 -- Nikkala Thomson
 -- CS 313 database for "The Board Game Whisperer"
 
--- Clean up any old tables
+-- Clean up any old tables (must drop in this order)
 
 DROP TABLE public.recommendation;
--- recommendation depends on gamer and board_game
 DROP TABLE public.board_game;
 DROP TABLE public.preference;
--- preference depends on gamer
 DROP TABLE public.gamer;
 
 -- Create function to trigger user time stamp update (Source code: https://x-team.com/blog/automatic-timestamps-with-postgresql/)
