@@ -266,7 +266,7 @@ if (isset($_POST['go'])) {
     }
     
     // Redirect to recommendation page
-       $_SESSION('best_game')=$best_board_game; 
+      // $_SESSION('best_game')=$best_board_game; 
        //   header("Location: recommendation.php");
     //exit(); 
     }
