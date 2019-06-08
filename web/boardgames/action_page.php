@@ -232,14 +232,12 @@ if (isset($_POST['go'])) {
         }
         $game_score = $game_score + $score_from_theme;
         
-        echo $game_score . " ";
-        
         // adjust game score for mechanisms
         $score_from_mechanisms = 0;
         foreach ($mechanisms as $mechanism) {
             foreach ($game_mechanisms as $game_mechanism) {
                 if ($mechanism == $game_mechanism) {
-                    $score_from_mechanism = $score_from_mechanisms + 5;
+                    $score_from_mechanisms = $score_from_mechanisms + 5;
                 }
             }
         }
