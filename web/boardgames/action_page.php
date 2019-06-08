@@ -254,7 +254,7 @@ if (isset($_POST['go'])) {
         if ($game_score > $best_game_score) {
             // check if this game has already been recommended to this gamer
             $already_recommended = FALSE;
-            $statement3 = $db->prepare('SELECT * FROM recommendation WHERE gamer = $gamer');
+            $statement3 = $db->prepare("SELECT * FROM recommendation WHERE gamer = $gamer");
             $statement3->execute();
             $recommendations = $statement3->fetchAll(PDO::FETCH_ASSOC);
             foreach ($recommendations AS $recommendation) {
@@ -270,7 +270,7 @@ if (isset($_POST['go'])) {
         }
     }
     
-    // If not logged in as Guest, record recommendation 
+    // If not logged in as Guest, record final recommendation 
     if ($gamer!=1) {
         $statement4 = $db->prepare('INSERT INTO recommendation (gamer, board_game) VALUES ($gamer, $best_board_game);');
         $statement4->execute();    
