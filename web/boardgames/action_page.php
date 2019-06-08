@@ -73,7 +73,7 @@ if (isset($_POST['p_display_name'])){
     // Check for correct old password    
    $statement = $db->prepare("SELECT * FROM gamer WHERE gamer = $gamer");
     $statement->execute();
-    $gamer_info = $statement->fetchAll();
+    $gamer_info = $statement->fetchAll(PDO::FETCH_ASSOC);
        
     $hashed_old_password = $gamer_info[0]['hashed_password'];
         if (password_verify($old_password, $hashed_old_password)) {
@@ -112,7 +112,7 @@ if (isset($_POST['l_username'])){
     $statement = $db->prepare("SELECT * FROM gamer WHERE username = :username");
     $statement->bindValue(':username', $username, PDO::PARAM_STR);
     $statement->execute();
-    $gamer_info = $statement->fetchAll();
+    $gamer_info = $statement->fetchAll(PDO::FETCH_ASSOC);
     $gamer_name = $gamer_info[0]['username'];
                 
 // Check if username exists, if yes then verify password
@@ -186,7 +186,7 @@ if (isset($_POST['go'])) {
     // Get board game data
     $statement2 = $db->prepare('SELECT * FROM board_game');
     $statement2->execute();
-    $board_games->$statement2->fetchAll();
+    $board_games = $statement2->fetchAll(PDO::FETCH_ASSOC);
     
     foreach ($board_games AS $board_game){   
         $game_score = 0;  // min 0 max 100
