@@ -274,15 +274,15 @@ if (isset($_POST['go'])) {
     }
     
     // If not logged in as Guest, record final recommendation 
-    if (($gamer!=1) AND ($best_board_game>0)) {
-        $statement4 = $db->prepare("INSERT INTO recommendation (gamer, board_game) VALUES ($gamer, $best_board_game);");
-        $statement4->execute();    
-        }
+  //  if (($gamer!=1) AND ($best_board_game>0)) {
+   //     $statement4 = $db->prepare("INSERT INTO recommendation (gamer, board_game) VALUES ($gamer, $best_board_game);");
+  //      $statement4->execute();    
+   //     }
     // redirect to recommendation page
-      $_SESSION['best_game']= $best_board_game; 
-      $_SESSION['best_game_score']=$best_game_score;
-      header("Location: recommendation.php");
-      exit(); 
+   //   $_SESSION['best_game']= $best_board_game; 
+    ///  $_SESSION['best_game_score']=$best_game_score;
+    //  header("Location: recommendation.php");
+   //   exit(); 
     }
                 
 ?>
