@@ -69,10 +69,8 @@ Author: Nikkala Thomson
                         $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                         $board_game_safe = htmlspecialchars($board_game['name']);
                         $game_image_safe = htmlspecialchars($board_game['image_url']);
-                        echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
+                        echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game <h3>' . $board_game_safe . '.</h3></p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
                     }?>
-
-                <p>Yes, here.</p>
                 <br>
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
