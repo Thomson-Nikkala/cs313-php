@@ -56,14 +56,16 @@ Author: Nikkala Thomson
                 <?php
                     $best_game = $_SESSION['best_game'];
                     $best_game_score = $_SESSION['best_game_score'];
-                echo 'here';
+               
                     // if there are no more games to recommend
                     if ($best_game==0) {
                         echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
                     }  else {
+                        echo 'here';
                         $query = 'SELECT * FROM board_game b WHERE b.board_game = :board_game';
                         $statement->bindValue(':board_game', $best_game, PDO::PARAM_INT);
                         $statement = $db->prepare($query);
+                        echo 'here2';
                         $statement->execute();   
                         $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                         $board_game_safe = htmlspecialchars($board_game['name']);
