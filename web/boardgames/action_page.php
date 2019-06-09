@@ -255,7 +255,7 @@ if (isset($_POST['go'])) {
         echo $game_score;
         echo ' best game score ' . $best_game_score;
         if ($game_score >= $best_game_score) {
-            
+            echo 'here';
             // check if this game has already been recommended to this gamer
             $already_recommended = FALSE;
             echo $already_recommended;
