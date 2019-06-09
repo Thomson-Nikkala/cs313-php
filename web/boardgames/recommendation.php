@@ -56,7 +56,7 @@ Author: Nikkala Thomson
                 <p>
                     <?php
                     $best_game = $_SESSION['best_game'];
-                    $best_game_score = $_SESSION['best_game_score']
+                    $best_game_score = $_SESSION['best_game_score'];
                     // if there are no more games to recommend
                     if ($best_game==0) {
                         echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
