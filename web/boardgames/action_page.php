@@ -254,21 +254,19 @@ if (isset($_POST['go'])) {
         
         if ($game_score >= $best_game_score) {
             // check if this game has already been recommended to this gamer
-            $already_recommended = 'false';
+            $already_recommended = FALSE;
             $statement3 = $db->prepare("SELECT * FROM recommendation WHERE gamer = $gamer");
             $statement3->execute();
             $recommendations = $statement3->fetchAll(PDO::FETCH_ASSOC);
             foreach ($recommendations AS $recommendation) {
-                echo $recommendation['board_game'];
-                echo $board_game;
-                if ($recommendation['board_game']==$board_game) {
-                    $already_recommended = 'true';
+                if ($recommendation['board_game']==$board_game['board_game']) {
+                    $already_recommended = TRUE;
                     echo 'in true';
                 }
             }
          
             // if not, set this game to the best game 
-            if ($already_recommended=='false'){
+            if ($already_recommended==FALSE){
                 $best_game_score = $game_score;
                 $best_board_game = $board_game['board_game'];
             }
