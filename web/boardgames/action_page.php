@@ -271,7 +271,7 @@ if (isset($_POST['go'])) {
     }
     
     // If not logged in as Guest, record final recommendation 
-    if ($gamer!=1) {
+    if (($gamer!=1) AND ($best_board_game>0)) {
         $statement4 = $db->prepare("INSERT INTO recommendation (gamer, board_game) VALUES ($gamer, $best_board_game);");
         $statement4->execute();    
         }
