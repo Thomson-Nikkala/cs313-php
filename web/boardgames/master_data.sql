@@ -14,7 +14,7 @@ VALUES (1, '{"min_players":2, "max_players":4, "min_playtime":30, "max_playtime"
 INSERT INTO board_game (name, image_url, properties)
 VALUES ('Azul', 'https://cf.geekdo-images.com/opengraph/img/5UBOdYQkBGcTlZFSWH3cQ2G3fvw=/fit-in/1200x630/pic3718275.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45,  "weight":1.8, "themes":["Art", "Renaissance"], "mechanisms":[ "Drafting", "Pattern_Building", "Set_Collection", "Tile_Placement"]}' );
 
-VALUES ('', '', '{ "min_players":, "max_players":, "min_playtime":, "max_playtime":,  "weight":, "themes":["", ""], "mechanisms":[ "", ""]}' );
+VALUES ('Codenames', 'https://35sf8z1suehb4fodtv2gzxhu-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/Playing-Codenames-Game.jpg', '{ "min_players":2, "max_players":8, "min_playtime"15:, "max_playtime"20:,  "weight":1.31, "themes":["Spies"], "mechanisms":[ "Memory", "Partnerships", "Press_Your_Luck]}' );
 
 VALUES ('', '', '{ "min_players":, "max_players":, "min_playtime":, "max_playtime":,  "weight":, "themes":["", ""], "mechanisms":[ "", ""]}' );
 

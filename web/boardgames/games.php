@@ -77,8 +77,8 @@ Author: Nikkala Thomson
                       $max_playtimes = array('15', '30', '45', '60', '90', '120', '150', '180', '210', '240', '300', '360');
                       $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
                       $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
-                      $themes = array('Abstract', 'Old_West', 'Espionage', 'Superhero', 'Martial_Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science_Fiction', 'Empire_Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
-                      $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building');
+                      $themes = array('Abstract', 'Old_West', 'Spies', 'Superhero', 'Martial_Arts', 'Pirate', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science_Fiction', 'Empire_Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance');
+                      $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building', 'Memory', 'Partnerships', 'Press_Your_Luck');
                     ?>
 
                     <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button><br>
