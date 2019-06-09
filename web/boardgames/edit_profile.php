@@ -2,8 +2,12 @@
 // Start the session
 session_start();
 // Initialize session variables
-if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer'] = 1;}
+if (!isset($_SESSION['gamer'])) {
+    $_SESSION['gamer'] = 1;
+}
+if (!isset($_SESSION['error'])) {
+    $_SESSION['error']='';
+}
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
@@ -71,10 +75,12 @@ Author: Nikkala Thomson
                     <input type="text" name="p_display_name" value="<?php echo $display_name_safe;  ?>" required /><br>
                     <label for="email" class="label_long"><b>Email</b></label>
                     <input type="email" name="p_email" value="<?php echo $email_safe;  ?>" required /><br>
+                    <?php echo $_SESSION['error']; 
+                $_SESSION['error'] = ''; ?>
                     <label for="old_password" class="label_long"><b>Old Password</b></label>
                     <input type="password" placeholder="Enter Old Password" name="p_old_password" required /><br>
                     <label for="new_password" class="label_long"><b>Old or New Password</b></label>
-                    <input type="password" id="field_pwd1" placeholder="Re-enter Old Password or enter New Password (6+ chars, UPPER/lowercase + number)" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." name="p_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" required /><br>
+                    <input type="password" id="field_pwd1" placeholder="Re-enter Old Password or enter New Password (6+ chars, UPPER/lower + num)" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." name="p_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" required /><br>
                     <button type="submit" class="submit_btn" onclick="check_password()">UPDATE</button>
                 </form>
 
