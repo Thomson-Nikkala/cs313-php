@@ -51,7 +51,6 @@ Author: Nikkala Thomson
                 <br>
                 <p> You are logged in as <?php
                     $gamer = $_SESSION['gamer'];
-                    echo $gamer . '<br>';
                     $query = "SELECT display_name FROM gamer g WHERE g.gamer = $gamer";
                     $statement = $db->prepare($query);
                     $statement->execute();   
