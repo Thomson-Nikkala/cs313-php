@@ -193,6 +193,7 @@ if (isset($_POST['go'])) {
     $board_games = $statement2->fetchAll(PDO::FETCH_ASSOC);
     
     foreach ($board_games AS $board_game){   
+        echo 'in foreach';
         $game_score = 0;  // min 0 max 100
         
         // get game properties
@@ -249,7 +250,9 @@ if (isset($_POST['go'])) {
         if ($score_from_mechanisms > 20) {
             $score_from_mechanisms = 20;
         }
+        
         $game_score = $game_score + $score_from_mechanisms;   
+        echo $game_score;
         
         if ($game_score > $best_game_score) {
             // check if this game has already been recommended to this gamer
