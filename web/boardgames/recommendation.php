@@ -53,7 +53,8 @@ Author: Nikkala Thomson
 
             <section class="wide-section">
                 <br>
-                <p>
+                 
+                    
                     <?php
                     $best_game = $_SESSION['best_game'];
                     $best_game_score = $_SESSION['best_game_score'];
@@ -69,9 +70,8 @@ Author: Nikkala Thomson
                         $board_game_safe = htmlspecialchars($board_game['name']);
                         $game_image_safe = htmlspecialchars($board_game['image_url']);
                         echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
-                    }
-                    ?>
-                </p>
+                    }?>
+                
 
                 <br>
                 <form action="games.php" method="post">
