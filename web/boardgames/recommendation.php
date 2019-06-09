@@ -53,11 +53,10 @@ Author: Nikkala Thomson
 
             <section class="wide-section">
                 <br>
-                 
-                    
-                    <?php
+                <?php
                     $best_game = $_SESSION['best_game'];
                     $best_game_score = $_SESSION['best_game_score'];
+                echo 'here';
                     // if there are no more games to recommend
                     if ($best_game==0) {
                         echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
@@ -71,8 +70,8 @@ Author: Nikkala Thomson
                         $game_image_safe = htmlspecialchars($board_game['image_url']);
                         echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
                     }?>
-                
 
+                <p>Yes, here.</p>
                 <br>
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
