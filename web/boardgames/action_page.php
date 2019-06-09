@@ -156,6 +156,7 @@ if (isset($_POST['go'])) {
     if (isset($_POST['mechanisms'])) $mechanisms = ($_POST['mechanisms']);
         else $mechanisms = [];
     $gamer = (int)$_SESSION['gamer'];
+   
      
     // create json preferences statement for UPDATE
     $prefs_json = '{ "min_players":' . $min_players . ', "max_players":' . $max_players . ', "min_playtime":' . $min_playtime . ', "max_playtime":' . $max_playtime . ',  "min_weight":' . $min_weight . ', "max_weight":' . $max_weight; 
@@ -251,7 +252,10 @@ if (isset($_POST['go'])) {
         
         $game_score = $game_score + $score_from_mechanisms;   
         
+        echo $game_score;
+        echo ' best game score ' . $best_game_score;
         if ($game_score >= $best_game_score) {
+            
             // check if this game has already been recommended to this gamer
             $already_recommended = FALSE;
             echo $already_recommended;
