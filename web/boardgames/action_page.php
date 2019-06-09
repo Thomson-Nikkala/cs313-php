@@ -193,9 +193,8 @@ if (isset($_POST['go'])) {
     $board_games = $statement2->fetchAll(PDO::FETCH_ASSOC);
     
     foreach ($board_games AS $board_game){   
-        echo 'in foreach';
         $game_score = 0;  // min 0 max 100
-        
+        echo $game_score . ' ';
         // get game properties
         $properties = $board_game['properties'];   // this ends up as a string
         $properties_json = json_decode($properties);  // coerce to json object
@@ -211,6 +210,7 @@ if (isset($_POST['go'])) {
         if (!(($game_max_players < $min_players) OR ($game_min_players > $max_players))) {
             $game_score = $game_score + 20;
         }
+        echo $game_score;
         
         // adjust game score for playtime
         if (!(($game_max_playtime < $min_playtime) OR ($game_min_playtime > $max_playtime))) {
