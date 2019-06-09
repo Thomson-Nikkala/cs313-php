@@ -76,7 +76,7 @@ Author: Nikkala Thomson
                     }?>
 
 
-                <?php if($board_game) : ?>
+                <?php if($_SESSION['gamer']==1) : ?>
                 <p>Note: You are logged in as "Guest." You will need to log in as a different user to get multiple recommendations.</p>
                 <?php endif; ?>
 
