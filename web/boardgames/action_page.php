@@ -279,10 +279,10 @@ if (isset($_POST['go'])) {
         $statement4->execute();    
         }
     // redirect to recommendation page
-      $_SESSION['best_game']= $best_board_game; 
-      $_SESSION['best_game_score']=$best_game_score;
-      header("Location: recommendation.php");
-      exit(); 
+    //  $_SESSION['best_game']= $best_board_game; 
+     // $_SESSION['best_game_score']=$best_game_score;
+    //  header("Location: recommendation.php");
+   //   exit(); 
     }
                 
 ?>
