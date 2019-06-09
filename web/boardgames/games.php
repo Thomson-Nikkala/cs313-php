@@ -48,7 +48,8 @@ Author: Nikkala Thomson
             <section class="wide-section">
                 <br>
                 <p> Welcome, <?php
-                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
+                    $gamer = $_SESSION['gamer'];
+                    $query = "SELECT display_name FROM gamer g WHERE g.gamer = $gamer";
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
@@ -58,7 +59,7 @@ Author: Nikkala Thomson
 
                 <?php 
                 // Save and update gamer preferences
-                 $query = 'SELECT preferences FROM preference p WHERE p.gamer = ' . $_SESSION["gamer"];
+                 $query = "SELECT preferences FROM preference p WHERE p.gamer = $gamer";
                  $statement = $db->prepare($query);
                  $statement->execute(); 
                  $player_prefs = $statement->fetch(PDO::FETCH_ASSOC);
