@@ -122,6 +122,7 @@ if (isset($_POST['l_username'])){
 // Check if username exists, if yes then verify password
     if (empty($gamer_name)) {
         // Redirect to login page
+        $_SESSION['error'] = 'Username or password incorrect.<br>';
         header("Location: login.php");
         exit();
     } else {

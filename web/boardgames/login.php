@@ -56,7 +56,8 @@ Author: Nikkala Thomson
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo $gamer_data['display_name'];
                 ?>. Log in as a different user below.</p><br>
-                <?php echo $_SESSION['error']; $_SESSION['error'] = ''; ?>
+                <?php echo $_SESSION['error']; 
+                $_SESSION['error'] = ''; ?>
                 <form action="action_page.php" method="post">
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="l_username" required /><br>
