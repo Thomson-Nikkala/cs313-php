@@ -2,15 +2,15 @@
 // Start the session
 session_start();
 // Initialize session variables
-if (!isset($_SESSION['gamer'])){
-$_SESSION['gamer'] = 1;}
+if (!isset($_SESSION['gamer'])) {
+    $_SESSION['gamer'] = 1;
+}
+if (!isset($_SESSION['error'])) {
+    $_SESSION['error']='';
+}
 // Get the Heroku database
 require_once "db_connect.php";
 $db = get_db();
-// Force display of all errors (for debugging)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ Author: Nikkala Thomson
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);
                     echo $gamer_data['display_name'];
                 ?>. Log in as a different user below.</p><br>
-
+                <?php echo $_SESSION['error']; $_SESSION['error'] = ''; ?>
                 <form action="action_page.php" method="post">
                     <label for="username" class="label_long"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="l_username" required /><br>
