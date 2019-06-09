@@ -63,11 +63,8 @@ Author: Nikkala Thomson
                     }  else {
                         
                         $query = 'SELECT * FROM board_game b WHERE b.board_game = :board_game';
-                        echo 'here';
-                        $statement->bindValue(':board_game', $best_game, PDO::PARAM_INT);
-                        echo 'here1';
                         $statement = $db->prepare($query);
-                        echo 'here2';
+                        $statement->bindValue(':board_game', $best_game, PDO::PARAM_INT);
                         $statement->execute();   
                         $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
                         $board_game_safe = htmlspecialchars($board_game['name']);
