@@ -135,7 +135,7 @@ if (isset($_POST['l_username'])){
         exit();
         } else {
             // Redirect to login page
-            $_SESSION['error'] = 'Username or password incorrect.<br>';
+            $_SESSION['error'] = '<p>Username or password incorrect.</p><br>';
             header("Location: login.php");
             exit();                    
             }   
