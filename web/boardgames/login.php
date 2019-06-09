@@ -50,7 +50,9 @@ Author: Nikkala Thomson
             <section class="wide-section">
                 <br>
                 <p> You are logged in as <?php
-                    $query = 'SELECT display_name FROM gamer g WHERE g.gamer = ' . $_SESSION["gamer"];
+                    $gamer = $_SESSION['gamer'];
+                    echo $gamer . '<br>';
+                    $query = "SELECT display_name FROM gamer g WHERE g.gamer = $gamer";
                     $statement = $db->prepare($query);
                     $statement->execute();   
                     $gamer_data = $statement->fetch(PDO::FETCH_ASSOC);

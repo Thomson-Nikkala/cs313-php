@@ -104,7 +104,7 @@ if (isset($_POST['p_display_name'])){
            
             } else {
               // If password is incorrect, redirect to update page 
-            $_SESSION['error'] = '<p>Old password incorrect</p><br>';
+            $_SESSION['error'] = '<p>Old password incorrect.</p><br>';
             header("Location: edit_profile.php");
             exit();  
             }

@@ -38,10 +38,8 @@ EXECUTE PROCEDURE trigger_timestamp();
 CREATE TABLE public.board_game (
     board_game          SERIAL NOT NULL PRIMARY KEY,
     name        VARCHAR(50) NOT NULL,
-    designer    VARCHAR(40),
-	description TEXT,
-	image_url   TEXT,
-    properties json  
+	image_url   TEXT NOT NULL,
+    properties json NOT NULL
 );
     
 CREATE TABLE public.preference (
@@ -55,7 +53,7 @@ CREATE TABLE public.recommendation (
     gamer             INTEGER NOT NULL,
     board_game        INTEGER NOT NULL,
     PRIMARY KEY (gamer, board_game), 
-    recommended BOOLEAN,  -- tracks whether (T/F) this game was recommended to this gamer
+    -- the presence of a gamer/board_game combination in this table means that the game has been recommended to the gamer
     -- if either gamer or board_game are deleted, any associated recommendations are also deleted
     CONSTRAINT recommendation_gamer_fkey FOREIGN KEY (gamer)
       REFERENCES gamer (gamer) 
