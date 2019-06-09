@@ -78,7 +78,7 @@ Author: Nikkala Thomson
                       $min_weights = array('1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5');
                       $max_weights = array('1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0');
                       $themes = array('Abstract', 'Old_West', 'Spies', 'Superhero', 'Martial_Arts', 'Pirates', 'Racing', 'Fantasy', 'Train', 'Sports', 'Financial', 'Detective', 'Aviation', 'Science_Fiction', 'Empire_Building', 'Medieval', 'Movie', 'Book', 'Television', 'Geography', 'Animal', 'Horror', 'Caveman', 'Archaeology', 'Mobster', 'Art', 'Renaissance', 'Food', 'Humor', 'Adventure');
-                      $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building', 'Memory', 'Partnerships', 'Press_Your_Luck', 'Simultaneous_Action_Selection', 'Storytelling', 'Voting', 'Line_Drawing', 'Hidden_Traitor', 'Dexterity', 'Hand_Management');
+                      $mechanisms = array('Worker_Placement', 'Area_Control', 'Tile_Placement', 'Cooperative', 'Deck_Building', 'Drafting', 'Engine_Building', 'Take_That', 'Trick_Taking', 'Puzzle', 'Legacy', 'Set_Collection', 'Pattern_Building', 'Memory', 'Partnerships', 'Press_Your_Luck', 'Simultaneous_Action_Selection', 'Storytelling', 'Voting', 'Line_Drawing', 'Hidden_Traitor', 'Dexterity', 'Hand_Management', 'Dice_Rolling');
                     ?>
 
                     <button type="submit" name="submit" class="submit_btn">Get a Game Recommendation Based on the Preferences Below</button><br>

@@ -39,7 +39,7 @@ INSERT INTO board_game (name, image_url, properties)
 VALUES ('Friday', 'https://cf.geekdo-images.com/opengraph/img/idpTaOpMAfejYA_oWt3Uk9lcns8=/fit-in/1200x630/pic1513328.jpg', '{"min_players":1, "max_players":1, "min_playtime":25, "max_playtime":30,  "weight":2.12, "themes":["Adventure", "Pirates"], "mechanisms":["Deck_Building", "Hand_Management"]}');
 
 INSERT INTO board_game (name, image_url, properties)
-VALUES ('', '', '{"min_players":, "max_players":, "min_playtime":, "max_playtime":,  "weight":, "themes":["", ""], "mechanisms":["", ""]}');
+VALUES ('Deep Space D-6', '', '{"min_players":1, "max_players":1, "min_playtime":30, "max_playtime":35,  "weight":1.67, "themes":["Science_Fiction"], "mechanisms":["Dice_Rolling", "Worker_Placement"]}');
 
 INSERT INTO board_game (name, image_url, properties)
 VALUES ('', '', '{"min_players":, "max_players":, "min_playtime":, "max_playtime":,  "weight":, "themes":["", ""], "mechanisms":["", ""]}');
