@@ -54,12 +54,6 @@ input[type=email]:focus {
     padding-left: 10px;
 }
 
-.center_game {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
 
 /****** General Styles *********/
 
