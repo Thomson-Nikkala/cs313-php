@@ -71,7 +71,7 @@ Author: Nikkala Thomson
                         $game_image_safe = htmlspecialchars($board_game['image_url']);
                         echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game <h3>' . $board_game_safe . '.</h3></p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
                     }?>
-                <br>
+                <br><br>
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
                 </form>
