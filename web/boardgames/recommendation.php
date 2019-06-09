@@ -61,9 +61,11 @@ Author: Nikkala Thomson
                     if ($best_game==0) {
                         echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
                     }  else {
-                        echo 'here';
+                        
                         $query = 'SELECT * FROM board_game b WHERE b.board_game = :board_game';
+                        echo 'here';
                         $statement->bindValue(':board_game', $best_game, PDO::PARAM_INT);
+                        echo 'here1';
                         $statement = $db->prepare($query);
                         echo 'here2';
                         $statement->execute();   
