@@ -59,7 +59,7 @@ Author: Nikkala Thomson
                
                     // if there are no more games to recommend
                     if ($best_game==0) {
-                        echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
+                        echo '<p>We are out of recommendations for you!  You have seen it all.  We hope you have enjoyed your time with The Board Game Whisperer.</p>';
                     }  else {
                         
                         $query = 'SELECT * FROM board_game b WHERE b.board_game = :board_game';
@@ -70,11 +70,11 @@ Author: Nikkala Thomson
                         $board_game_safe = htmlspecialchars($board_game['name']);
                         $game_image_safe = htmlspecialchars($board_game['image_url']);
                         echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game <h3>' . $board_game_safe . '.</h3></p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
+                        echo '<form action="games.php" method="post">
+                    <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
+                </form>';
                     }?>
                 <br><br>
-                <form action="games.php" method="post">
-                    <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
-                </form>
 
                 <?php if($board_game) : ?>
                 <p>Note: You are logged in as "Guest." You will need to log in as a different user to get multiple recommendations.</p>
