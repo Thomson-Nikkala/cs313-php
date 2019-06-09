@@ -259,12 +259,13 @@ if (isset($_POST['go'])) {
             $statement3->execute();
             $recommendations = $statement3->fetchAll(PDO::FETCH_ASSOC);
             foreach ($recommendations AS $recommendation) {
+                echo "in recommendation";
                 if ($recommendation['board_game']==$board_game) {
                     $already_recommended = 'true';
                     echo 'in true';
                 }
             }
-            echo $already_recommended;
+         
             // if not, set this game to the best game 
             if ($already_recommended=='false'){
                 $best_game_score = $game_score;
