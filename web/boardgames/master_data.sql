@@ -12,4 +12,6 @@ VALUES (1, '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime
 -- input for the board_game table
 
 INSERT INTO board_game (name, designer, description, image_url, properties)
-VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://cf.geekdo-images.com/itemrep/img/ql-0-t271LVGqbmWA1gdkIH7WvM=/fit-in/246x300/pic3718275.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45,  "weight":1.8, "themes":["Art", "Renaissance"], "mechanisms":[ "Drafting", "Pattern_Building", "Set_Collection", "Tile_Placement"]}' );
+VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://images-na.ssl-images-amazon.com/images/I/61Uzk6kyVyL.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45,  "weight":1.8, "themes":["Art", "Renaissance"], "mechanisms":[ "Drafting", "Pattern_Building", "Set_Collection", "Tile_Placement"]}' );
+
+VALUES ('Azul', 'Michael Kiesling', 'Draft colored tiles and decorate the walls of your palace.  Score points for completing patterns and sets.', 'https://images-na.ssl-images-amazon.com/images/I/61Uzk6kyVyL.jpg', '{ "min_players":2, "max_players":4, "min_playtime":30, "max_playtime":45,  "weight":1.8, "themes":["Art", "Renaissance"], "mechanisms":[ "Drafting", "Pattern_Building", "Set_Collection", "Tile_Placement"]}' );

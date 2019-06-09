@@ -54,14 +54,22 @@ Author: Nikkala Thomson
             <section class="wide-section">
                 <br>
                 <p>
-                    <?php 
-                    $query = 'SELECT * FROM board_game b WHERE b.board_game = 1';
-                    $statement = $db->prepare($query);
-                    $statement->execute();   
-                    $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
-                    $board_game_safe = htmlspecialchars($board_game['name']);
-                    $game_image_safe = htmlspecialchars($board_game['image_url']);
-                    echo '<p>A board game you may enjoy is ' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
+                    <?php
+                    $best_game = $_SESSION['best_game'];
+                    $best_game_score = $_SESSION['best_game_score']
+                    // if there are no more games to recommend
+                    if ($best_game==0) {
+                        echo '<p>We are out of recommendations for you! You have seen it all. We hope you have enjoyed your time with The Board Game Whisperer.</p>';
+                    }  else {
+                        $query = 'SELECT * FROM board_game b WHERE b.board_game = :board_game';
+                        $statement->bindValue(':board_game', $best_game, PDO::PARAM_INT);
+                        $statement = $db->prepare($query);
+                        $statement->execute();   
+                        $board_game = $statement->fetch(PDO::FETCH_ASSOC); 
+                        $board_game_safe = htmlspecialchars($board_game['name']);
+                        $game_image_safe = htmlspecialchars($board_game['image_url']);
+                        echo '<p>The Board Game Whisperer thinks you have a ' . $best_game_score . '% chance of enjoying the game' . $board_game_safe . '.</p><br><img src="' . $game_image_safe . '" alt="' . $board_game_safe . '">';
+                    }
                     ?>
                 </p>
 
@@ -69,7 +77,11 @@ Author: Nikkala Thomson
                 <form action="games.php" method="post">
                     <button type="submit" name="submit" class="submit_btn">Get Another Game Recommendation</button>
                 </form>
-                <p>Note: If you are logged in as "Guest," you will need to register before getting multiple recommendations.</p>
+
+                <?php if($board_game) : ?>
+                <p>Note: You are logged in as "Guest." You will need to log in as a different user to get multiple recommendations.</p>
+                <?php endif; ?>
+
             </section>
         </main>
         <footer>
